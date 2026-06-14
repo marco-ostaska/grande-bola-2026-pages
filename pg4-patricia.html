@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Patrícia — Palpites · Grande Bola da Copa 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&family=Saira+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root { --bg: #0a1628; --panel: #101e33; --panel-2: #152238; --text: #f2f6fb; --muted: #8aa3c1; --accent: #16a34a; --accent-2: #22c55e; --accent-glow: rgba(22, 163, 74, 0.35); --gold: #fbbf24; --silver: #cbd5e1; --bronze: #f59e0b; --bonus: #a855f7; --hit: rgba(22, 163, 74, 0.18); --border: rgba(138, 163, 193, 0.12); }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Archivo Narrow", "Helvetica Neue", sans-serif; line-height: 1.35; min-height: 100vh; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: -2; background: radial-gradient(circle at 20% 10%, rgba(22,163,74,0.14), transparent 35%), radial-gradient(circle at 80% 20%, rgba(22,163,74,0.10), transparent 30%), radial-gradient(circle at 50% 100%, rgba(10,22,40,1), transparent 60%), linear-gradient(180deg, #0a1628 0%, #0d1b2e 60%, #0a1628 100%); pointer-events: none; }
+    body::after { content: ""; position: fixed; inset: 0; z-index: -1; opacity: 0.045; background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.08) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.04) 80px); pointer-events: none; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { animation: fadeUp 0.7s ease-out both; }
+    .reveal-1 { animation-delay: 0.05s; } .reveal-2 { animation-delay: 0.15s; } .reveal-3 { animation-delay: 0.25s; } .reveal-4 { animation-delay: 0.35s; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1260px; margin: 0 auto; padding: 28px 22px 60px; }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 36px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .brand h1 { margin: 0; font-family: "Anton", Impact, sans-serif; font-size: clamp(2.2rem, 5vw, 4rem); line-height: 0.95; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text); }
+    .brand h1 span { color: var(--accent-2); }
+    .brand .meta { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.95rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    .brand .meta strong { color: var(--accent-2); font-weight: 700; }
+    nav { display: flex; gap: 10px; margin-top: 8px; }
+    nav a { padding: 10px 18px; border-radius: 999px; font-family: "Saira Condensed", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; color: var(--muted); background: rgba(255,255,255,0.03); border: 1px solid var(--border); transition: all 0.2s ease; }
+    nav a:hover { color: var(--bg); background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 20px var(--accent-glow); }
+    .profile-header { display: flex; align-items: center; gap: 22px; padding: 24px; margin-bottom: 28px; background: linear-gradient(90deg, rgba(138,163,193,0.08), rgba(138,163,193,0.02)); border: 1px solid var(--border); border-left: 6px solid var(--muted); border-radius: 20px; }
+    .profile-avatar { width: 96px; height: 96px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 2.6rem; color: var(--text); background: rgba(255,255,255,0.1); border: 2px solid var(--border); flex-shrink: 0; }
+    .profile-info { flex: 1; }
+    .profile-info .label { font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; }
+    .profile-info .name { font-family: "Anton", sans-serif; font-size: clamp(2rem, 5vw, 3rem); text-transform: uppercase; line-height: 1; margin: 4px 0 8px; }
+    .profile-info .back { font-family: "Saira Condensed", sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+    .profile-info .back:hover { color: var(--accent-2); }
+    .profile-points { text-align: right; }
+    .profile-points .points { font-family: "Anton", sans-serif; font-size: 3.2rem; line-height: 1; color: var(--text); }
+    .profile-points .unit { font-family: "Saira Condensed", sans-serif; font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 36px 0 18px; }
+    .section-head h2 { margin: 0; font-family: "Anton", sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); text-transform: uppercase; letter-spacing: 0.02em; }
+    .section-head h2::before { content: "//"; color: var(--accent-2); margin-right: 10px; }
+    .section-head .legend { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    .legend-dot { display: inline-block; width: 10px; height: 10px; border-radius: 2px; background: var(--accent-2); margin-right: 6px; }
+    .bets-card { background: var(--panel); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+    table { width: 100%; border-collapse: collapse; font-family: "Saira Condensed", sans-serif; font-size: 0.98rem; }
+    thead th { background: var(--panel-2); padding: 14px 16px; text-align: left; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: var(--muted); border-bottom: 1px solid var(--border); }
+    thead th.num { text-align: center; width: 55px; }
+    thead th.score, thead th.bet, thead th.pts { text-align: center; }
+    tbody td { padding: 14px 16px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+    tbody tr:last-child td { border-bottom: none; }
+    tbody tr.hit { background: var(--hit); }
+    td.num { text-align: center; font-family: "Anton", sans-serif; font-size: 1.05rem; color: var(--muted); }
+    td.round { color: var(--accent-2); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.05em; font-weight: 600; width: 100px; }
+    td.date { color: var(--muted); font-size: 0.85rem; width: 75px; }
+    .team-cell { display: flex; align-items: center; gap: 9px; }
+    .team-cell.away { justify-content: flex-end; }
+    .team-cell .flag { width: 26px; height: 26px; border-radius: 50%; display: grid; place-items: center; font-size: 0.95rem; background: rgba(255,255,255,0.06); border: 1px solid var(--border); flex-shrink: 0; }
+    .team-cell .name { font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; font-size: 0.9rem; }
+    .team-cell .name.placeholder { color: var(--muted); font-style: italic; text-transform: none; letter-spacing: 0; font-weight: 500; }
+    td.score, td.bet, td.pts { text-align: center; font-family: "Anton", sans-serif; font-size: 1.3rem; }
+    td.score .dash, td.bet .dash { color: var(--muted); font-size: 1rem; }
+    td.pts .pending { color: var(--muted); font-size: 0.9rem; }
+    td.pts .earned { color: var(--accent-2); }
+    td.bonus { text-align: center; width: 70px; }
+    .bonus-badge { display: inline-block; padding: 4px 8px; border-radius: 6px; font-family: "Saira Condensed", sans-serif; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bonus); background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); }
+    footer { margin-top: 60px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+    @media (max-width: 860px) { header { flex-direction: column; align-items: flex-start; } nav { flex-wrap: wrap; } .profile-header { flex-direction: column; align-items: flex-start; } .profile-points { text-align: left; } table { display: block; overflow-x: auto; white-space: nowrap; } }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="reveal reveal-1">
+      <div class="brand">
+        <h1>Grande <span>Bola</span> da Copa 2026</h1>
+        <div class="meta">Palpites de <strong>Patrícia</strong></div>
+      </div>
+      <nav>
+        <a href="pg1.html">Home</a>
+        <a href="pg2.html">Jogos</a>
+        <a href="pg3.html">Ranking</a>
+      </nav>
+    </header>
+
+    <section class="profile-header reveal reveal-2" aria-label="Perfil do apostador">
+      <div class="profile-avatar">P</div>
+      <div class="profile-info">
+        <div class="label">5º Lugar</div>
+        <div class="name">Patrícia</div>
+        <a href="pg3.html" class="back">← Voltar para o ranking</a>
+      </div>
+      <div class="profile-points">
+        <div class="points">74</div>
+        <div class="unit">pontos</div>
+      </div>
+    </section>
+
+    <section class="reveal reveal-3" aria-labelledby="bets-title">
+      <div class="section-head">
+        <h2 id="bets-title">Palpites</h2>
+        <span class="legend"><span class="legend-dot"></span>Acerto exato de placar</span>
+      </div>
+
+      <div class="bets-card reveal reveal-4">
+        <table>
+          <thead>
+            <tr>
+              <th class="num">#</th>
+              <th class="round">Fase</th>
+              <th class="date">Data</th>
+              <th class="home">Mandante</th>
+              <th class="score">Real</th>
+              <th class="away">Visitante</th>
+              <th class="bet">Palpite</th>
+              <th class="pts">Pts</th>
+              <th class="bonus">Bônus</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="num">5</td>
+              <td class="round">Grupo B</td>
+              <td class="date">20/06</td>
+              <td class="home">
+                <div class="team-cell">
+                  <div class="flag">🇧🇷</div>
+                  <div class="name">Brasil</div>
+                </div>
+              </td>
+              <td class="score">2 - 1</td>
+              <td class="away">
+                <div class="team-cell away">
+                  <div class="name">Holanda</div>
+                  <div class="flag">🇳🇱</div>
+                </div>
+              </td>
+              <td class="bet">1 - 2</td>
+              <td class="pts"><span class="earned">+0</span></td>
+              <td class="bonus"><span class="bonus-badge">Bônus</span></td>
+            </tr>
+
+            <tr>
+              <td class="num">6</td>
+              <td class="round">Grupo C</td>
+              <td class="date">20/06</td>
+              <td class="home">
+                <div class="team-cell">
+                  <div class="flag">🇦🇷</div>
+                  <div class="name">Argentina</div>
+                </div>
+              </td>
+              <td class="score"><span class="dash">—</span></td>
+              <td class="away">
+                <div class="team-cell away">
+                  <div class="name">Japão</div>
+                  <div class="flag">🇯🇵</div>
+                </div>
+              </td>
+              <td class="bet">1 - 0</td>
+              <td class="pts"><span class="pending">—</span></td>
+              <td class="bonus">—</td>
+            </tr>
+
+            <tr>
+              <td class="num">12</td>
+              <td class="round">Grupo D</td>
+              <td class="date">20/06</td>
+              <td class="home">
+                <div class="team-cell">
+                  <div class="flag">🇩🇪</div>
+                  <div class="name">Alemanha</div>
+                </div>
+              </td>
+              <td class="score"><span class="dash">—</span></td>
+              <td class="away">
+                <div class="team-cell away">
+                  <div class="name">França</div>
+                  <div class="flag">🇫🇷</div>
+                </div>
+              </td>
+              <td class="bet">2 - 1</td>
+              <td class="pts"><span class="pending">—</span></td>
+              <td class="bonus"><span class="bonus-badge">Bônus</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="reveal reveal-4">
+      Grande Bola da Copa 2026 — Bolão entre amigos · Dados fictícios para protótipo
+    </footer>
+  </div>
+</body>
+</html>

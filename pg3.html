@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grande Bola da Copa 2026 — Ranking</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&family=Saira+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0a1628;
+      --panel: #101e33;
+      --panel-2: #152238;
+      --text: #f2f6fb;
+      --muted: #8aa3c1;
+      --accent: #16a34a;
+      --accent-2: #22c55e;
+      --accent-glow: rgba(22, 163, 74, 0.35);
+      --gold: #fbbf24;
+      --silver: #cbd5e1;
+      --bronze: #f59e0b;
+      --bonus: #a855f7;
+      --border: rgba(138, 163, 193, 0.12);
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: "Archivo Narrow", "Helvetica Neue", sans-serif;
+      line-height: 1.35;
+      min-height: 100vh;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+      background:
+        radial-gradient(circle at 20% 10%, rgba(22, 163, 74, 0.14), transparent 35%),
+        radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.10), transparent 30%),
+        radial-gradient(circle at 50% 100%, rgba(10, 22, 40, 1), transparent 60%),
+        linear-gradient(180deg, #0a1628 0%, #0d1b2e 60%, #0a1628 100%);
+      pointer-events: none;
+    }
+
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      opacity: 0.045;
+      background-image:
+        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.08) 80px),
+        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.04) 80px);
+      pointer-events: none;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .reveal { animation: fadeUp 0.7s ease-out both; }
+    .reveal-1 { animation-delay: 0.05s; }
+    .reveal-2 { animation-delay: 0.15s; }
+    .reveal-3 { animation-delay: 0.25s; }
+    .reveal-4 { animation-delay: 0.35s; }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container {
+      max-width: 1260px;
+      margin: 0 auto;
+      padding: 28px 22px 60px;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+      margin-bottom: 36px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: "Anton", Impact, sans-serif;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 0.95;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      color: var(--text);
+    }
+
+    .brand h1 span { color: var(--accent-2); }
+
+    .brand .meta {
+      margin-top: 8px;
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.95rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .brand .meta strong { color: var(--accent-2); font-weight: 700; }
+
+    nav {
+      display: flex;
+      gap: 10px;
+      margin-top: 8px;
+    }
+
+    nav a {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-family: "Saira Condensed", sans-serif;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-size: 0.85rem;
+      color: var(--muted);
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      transition: all 0.2s ease;
+    }
+
+    nav a.active, nav a:hover {
+      color: var(--bg);
+      background: var(--accent-2);
+      border-color: var(--accent-2);
+      box-shadow: 0 0 20px var(--accent-glow);
+    }
+
+    /* Section title */
+    .section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 36px 0 18px;
+    }
+
+    .section-head h2 {
+      margin: 0;
+      font-family: "Anton", sans-serif;
+      font-size: clamp(1.5rem, 3vw, 2rem);
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    .section-head h2::before {
+      content: "//";
+      color: var(--accent-2);
+      margin-right: 10px;
+    }
+
+    .section-head .count {
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.85rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+    }
+
+    /* Ranking table */
+    .ranking-card {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 1rem;
+    }
+
+    thead th {
+      background: var(--panel-2);
+      padding: 14px 16px;
+      text-align: left;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      font-size: 0.74rem;
+      color: var(--muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    thead th.pos { text-align: center; width: 70px; }
+    thead th.points { text-align: right; width: 100px; }
+    thead th.action { text-align: center; width: 140px; }
+
+    tbody td {
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      vertical-align: middle;
+    }
+
+    tbody tr:last-child td { border-bottom: none; }
+
+    tbody tr:hover { background: rgba(255,255,255,0.04); }
+
+    td.pos {
+      text-align: center;
+      font-family: "Anton", sans-serif;
+      font-size: 1.5rem;
+      width: 70px;
+    }
+
+    td.pos .medal {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      display: inline-grid;
+      place-items: center;
+      font-size: 1rem;
+      color: var(--bg);
+    }
+
+    td.pos .medal.gold { background: var(--gold); box-shadow: 0 0 14px rgba(251,191,36,0.35); }
+    td.pos .medal.silver { background: var(--silver); }
+    td.pos .medal.bronze { background: var(--bronze); }
+    td.pos .number { color: var(--muted); }
+
+    .player-cell {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .player-avatar {
+      width: 46px;
+      height: 46px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      font-family: "Anton", sans-serif;
+      font-size: 1.2rem;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid var(--border);
+      flex-shrink: 0;
+    }
+
+    .player-name {
+      font-family: "Saira Condensed", sans-serif;
+      font-weight: 600;
+      font-size: 1.15rem;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+    }
+
+    td.points {
+      text-align: right;
+      width: 100px;
+    }
+
+    td.points .pts {
+      font-family: "Anton", sans-serif;
+      font-size: 1.7rem;
+      line-height: 1;
+    }
+
+    td.points .unit {
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+    }
+
+    td.action {
+      text-align: center;
+      width: 140px;
+    }
+
+    .action-link {
+      display: inline-block;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-2);
+      background: rgba(22,163,74,0.08);
+      border: 1px solid var(--accent-2);
+      transition: all 0.2s ease;
+    }
+
+    .action-link:hover {
+      color: var(--bg);
+      background: var(--accent-2);
+      box-shadow: 0 0 18px var(--accent-glow);
+    }
+
+    /* Top 3 highlight rows */
+    tbody tr.top-1 td { background: rgba(251, 191, 36, 0.05); }
+    tbody tr.top-2 td { background: rgba(203, 213, 225, 0.05); }
+    tbody tr.top-3 td { background: rgba(245, 158, 11, 0.05); }
+
+    /* Footer */
+    footer {
+      margin-top: 60px;
+      text-align: center;
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.72rem;
+      letter-spacing: 0.06em;
+      color: var(--muted);
+      text-transform: uppercase;
+    }
+
+    /* Responsive */
+    @media (max-width: 720px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav { flex-wrap: wrap; }
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+
+    @media (max-width: 420px) {
+      .player-name { font-size: 1rem; }
+      td.points .pts { font-size: 1.35rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="reveal reveal-1">
+      <div class="brand">
+        <h1>Grande <span>Bola</span> da Copa 2026</h1>
+        <div class="meta">Fase de Grupos — <strong>Ranking Geral</strong></div>
+      </div>
+      <nav>
+        <a href="pg1.html">Home</a>
+        <a href="pg2.html">Jogos</a>
+        <a href="pg3.html" class="active">Ranking</a>
+      </nav>
+    </header>
+
+    <section class="reveal reveal-2" aria-labelledby="ranking-title">
+      <div class="section-head">
+        <h2 id="ranking-title">Ranking Geral</h2>
+        <span class="count">6 participantes</span>
+      </div>
+
+      <div class="ranking-card reveal reveal-3">
+        <table>
+          <thead>
+            <tr>
+              <th class="pos">Pos</th>
+              <th class="player">Apostador</th>
+              <th class="points">Pontos</th>
+              <th class="action">Palpites</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="top-1">
+              <td class="pos">
+                <span class="medal gold">1</span>
+              </td>
+              <td class="player">
+                <div class="player-cell">
+                  <div class="player-avatar">S</div>
+                  <div class="player-name">Simone</div>
+                </div>
+              </td>
+              <td class="points">
+                <div class="pts">142</div>
+                <div class="unit">pts</div>
+              </td>
+              <td class="action">
+                <a href="pg4-simone.html" class="action-link">Ver</a>
+              </td>
+            </tr>
+
+            <tr class="top-2">
+              <td class="pos">
+                <span class="medal silver">2</span>
+              </td>
+              <td class="player">
+                <div class="player-cell">
+                  <div class="player-avatar">M</div>
+                  <div class="player-name">Marco</div>
+                </div>
+              </td>
+              <td class="points">
+                <div class="pts">128</div>
+                <div class="unit">pts</div>
+              </td>
+              <td class="action">
+                <a href="pg4-marco.html" class="action-link">Ver</a>
+              </td>
+            </tr>
+
+            <tr class="top-3">
+              <td class="pos">
+                <span class="medal bronze">3</span>
+              </td>
+              <td class="player">
+                <div class="player-cell">
+                  <div class="player-avatar">F</div>
+                  <div class="player-name">Fernanda</div>
+                </div>
+              </td>
+              <td class="points">
+                <div class="pts">119</div>
+                <div class="unit">pts</div>
+              </td>
+              <td class="action">
+                <a href="pg4-fernanda.html" class="action-link">Ver</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pos"><span class="number">4</span></td>
+              <td class="player">
+                <div class="player-cell">
+                  <div class="player-avatar">C</div>
+                  <div class="player-name">Carlos</div>
+                </div>
+              </td>
+              <td class="points">
+                <div class="pts">87</div>
+                <div class="unit">pts</div>
+              </td>
+              <td class="action">
+                <a href="pg4-carlos.html" class="action-link">Ver</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pos"><span class="number">5</span></td>
+              <td class="player">
+                <div class="player-cell">
+                  <div class="player-avatar">P</div>
+                  <div class="player-name">Patrícia</div>
+                </div>
+              </td>
+              <td class="points">
+                <div class="pts">74</div>
+                <div class="unit">pts</div>
+              </td>
+              <td class="action">
+                <a href="pg4-patricia.html" class="action-link">Ver</a>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="pos"><span class="number">6</span></td>
+              <td class="player">
+                <div class="player-cell">
+                  <div class="player-avatar">J</div>
+                  <div class="player-name">Júlio</div>
+                </div>
+              </td>
+              <td class="points">
+                <div class="pts">58</div>
+                <div class="unit">pts</div>
+              </td>
+              <td class="action">
+                <a href="pg4-julio.html" class="action-link">Ver</a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="reveal reveal-4">
+      Grande Bola da Copa 2026 — Bolão entre amigos · Dados fictícios para protótipo
+    </footer>
+  </div>
+</body>
+</html>
