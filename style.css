@@ -46,7 +46,10 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .section-head a:hover, .back:hover { border-color: var(--accent-2); }
 .count { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 .leader-strip { display: flex; align-items: center; gap: 18px; padding: 18px 22px; margin-bottom: 32px; background: linear-gradient(90deg, rgba(22,163,74,0.18), rgba(22,163,74,0.04)); border: 1px solid rgba(22,163,74,0.25); border-left: 6px solid var(--accent-2); border-radius: 16px; position: relative; overflow: hidden; }
-.leader-avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.8rem; color: var(--bg); background: var(--gold); flex-shrink: 0; box-shadow: 0 0 26px rgba(251,191,36,0.35); }
+.leader-avatars { display: flex; gap: -8px; flex-shrink: 0; }
+.leader-avatars .leader-avatar { margin-left: -10px; }
+.leader-avatars .leader-avatar:first-child { margin-left: 0; }
+.leader-avatar { width: 64px; height: 64px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.8rem; color: var(--bg); background: var(--gold); flex-shrink: 0; box-shadow: 0 0 26px rgba(251,191,36,0.35); border: 2px solid var(--bg); }
 .leader-info { flex: 1; }
 .leader-info .label { font-family: "Saira Condensed", sans-serif; text-transform: uppercase; letter-spacing: 0.1em; font-size: 0.78rem; color: var(--accent-2); font-weight: 700; }
 .leader-info .name { font-family: "Anton", sans-serif; font-size: clamp(1.5rem, 3vw, 2.2rem); text-transform: uppercase; line-height: 1.1; margin-top: 2px; }
