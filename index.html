@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -6,1009 +7,468 @@
   <title>Grande Bola da Copa 2026 — Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&family=Saira+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
-  <style>
-    :root {
-      --bg: #0a1628;
-      --panel: #101e33;
-      --panel-2: #152238;
-      --text: #f2f6fb;
-      --muted: #8aa3c1;
-      --accent: #16a34a;
-      --accent-2: #22c55e;
-      --accent-glow: rgba(22, 163, 74, 0.35);
-      --featured: #22c55e;
-      --featured-bg: rgba(22, 163, 74, 0.12);
-      --gold: #fbbf24;
-      --silver: #cbd5e1;
-      --bronze: #f59e0b;
-      --bonus: #a855f7;
-      --border: rgba(138, 163, 193, 0.12);
-    }
-
-    * { box-sizing: border-box; }
-
-    html, body {
-      margin: 0;
-      padding: 0;
-      background: var(--bg);
-      color: var(--text);
-      font-family: "Archivo Narrow", "Helvetica Neue", sans-serif;
-      line-height: 1.35;
-      min-height: 100vh;
-    }
-
-    /* Stadium-night atmosphere */
-    body::before {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -2;
-      background:
-        radial-gradient(circle at 20% 10%, rgba(22, 163, 74, 0.14), transparent 35%),
-        radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.10), transparent 30%),
-        radial-gradient(circle at 50% 100%, rgba(10, 22, 40, 1), transparent 60%),
-        linear-gradient(180deg, #0a1628 0%, #0d1b2e 60%, #0a1628 100%);
-      pointer-events: none;
-    }
-
-    /* Subtle pitch texture */
-    body::after {
-      content: "";
-      position: fixed;
-      inset: 0;
-      z-index: -1;
-      opacity: 0.045;
-      background-image:
-        repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.08) 80px),
-        repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.04) 80px);
-      pointer-events: none;
-    }
-
-    /* Load reveal */
-    @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes shine {
-      0% { background-position: -200% 0; }
-      100% { background-position: 200% 0; }
-    }
-
-    .reveal { animation: fadeUp 0.7s ease-out both; }
-    .reveal-1 { animation-delay: 0.05s; }
-    .reveal-2 { animation-delay: 0.15s; }
-    .reveal-3 { animation-delay: 0.25s; }
-    .reveal-4 { animation-delay: 0.35s; }
-    .reveal-5 { animation-delay: 0.45s; }
-
-    a { color: inherit; text-decoration: none; }
-
-    .container {
-      max-width: 1260px;
-      margin: 0 auto;
-      padding: 28px 22px 60px;
-    }
-
-    /* Header */
-    header {
-      display: flex;
-      align-items: flex-start;
-      justify-content: space-between;
-      gap: 24px;
-      margin-bottom: 36px;
-      padding-bottom: 22px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .brand h1 {
-      margin: 0;
-      font-family: "Anton", Impact, sans-serif;
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 0.95;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-      color: var(--text);
-    }
-
-    .brand h1 span { color: var(--accent-2); }
-
-    .brand .meta {
-      margin-top: 8px;
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.95rem;
-      color: var(--muted);
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-    }
-
-    .brand .meta strong { color: var(--accent-2); font-weight: 700; }
-
-    nav {
-      display: flex;
-      gap: 10px;
-      margin-top: 8px;
-    }
-
-    nav a {
-      padding: 10px 18px;
-      border-radius: 999px;
-      font-family: "Saira Condensed", sans-serif;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      font-size: 0.85rem;
-      color: var(--muted);
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      transition: all 0.2s ease;
-    }
-
-    nav a.active, nav a:hover {
-      color: var(--bg);
-      background: var(--accent-2);
-      border-color: var(--accent-2);
-      box-shadow: 0 0 20px var(--accent-glow);
-    }
-
-    /* Hero leader strip */
-    .leader-strip {
-      display: flex;
-      align-items: center;
-      gap: 18px;
-      padding: 18px 22px;
-      margin-bottom: 32px;
-      background: linear-gradient(90deg, rgba(22,163,74,0.18), rgba(22,163,74,0.04));
-      border: 1px solid rgba(22,163,74,0.25);
-      border-left: 6px solid var(--accent-2);
-      border-radius: 16px;
-      position: relative;
-      overflow: hidden;
-    }
-
-    .leader-strip::after {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
-      background-size: 200% 100%;
-      animation: shine 4s linear infinite;
-      pointer-events: none;
-    }
-
-    .leader-avatar {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-family: "Anton", sans-serif;
-      font-size: 1.8rem;
-      color: var(--bg);
-      background: var(--gold);
-      flex-shrink: 0;
-      box-shadow: 0 0 26px rgba(251,191,36,0.35);
-    }
-
-    .leader-info { flex: 1; }
-
-    .leader-info .label {
-      font-family: "Saira Condensed", sans-serif;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-      font-size: 0.78rem;
-      color: var(--accent-2);
-      font-weight: 700;
-    }
-
-    .leader-info .name {
-      font-family: "Anton", sans-serif;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      text-transform: uppercase;
-      line-height: 1.1;
-      margin-top: 2px;
-    }
-
-    .leader-points { text-align: right; }
-
-    .leader-points .points {
-      font-family: "Anton", sans-serif;
-      font-size: 2.6rem;
-      line-height: 1;
-      color: var(--accent-2);
-    }
-
-    .leader-points .unit {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-    }
-
-    /* Section title component */
-    .section-head {
-      display: flex;
-      align-items: baseline;
-      justify-content: space-between;
-      gap: 16px;
-      margin: 36px 0 18px;
-    }
-
-    .section-head h2 {
-      margin: 0;
-      font-family: "Anton", sans-serif;
-      font-size: clamp(1.5rem, 3vw, 2rem);
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .section-head h2::before {
-      content: "//";
-      color: var(--accent-2);
-      margin-right: 10px;
-    }
-
-    .section-head a {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.82rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--accent-2);
-      border-bottom: 1px solid transparent;
-      transition: border-color 0.2s;
-    }
-
-    .section-head a:hover { border-color: var(--accent-2); }
-
-    /* Featured matches */
-    .featured-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 22px;
-    }
-
-    .match-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-      position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease;
-    }
-
-    .match-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 18px 45px rgba(0,0,0,0.35), 0 0 0 1px rgba(22,163,74,0.2);
-    }
-
-    .match-card.bonus { border-color: rgba(168, 85, 247, 0.35); }
-
-    .match-card.bonus::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: radial-gradient(circle at 80% 0%, rgba(168,85,247,0.12), transparent 50%);
-      pointer-events: none;
-    }
-
-    .match-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 14px 18px;
-      background: var(--panel-2);
-      border-bottom: 1px solid var(--border);
-    }
-
-    .match-meta {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.8rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--muted);
-    }
-
-    .match-meta strong { color: var(--text); font-weight: 700; }
-
-    .featured-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      padding: 5px 10px;
-      border-radius: 999px;
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.72rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--featured);
-      background: var(--featured-bg);
-      border: 1px solid rgba(22, 163, 74, 0.45);
-    }
-
-    .bonus-badge {
-      padding: 4px 9px;
-      border-radius: 6px;
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--bonus);
-      background: rgba(168, 85, 247, 0.12);
-      border: 1px solid rgba(168, 85, 247, 0.35);
-    }
-
-    .match-teams {
-      display: grid;
-      grid-template-columns: 1fr auto 1fr;
-      align-items: center;
-      gap: 14px;
-      padding: 22px 18px;
-      text-align: center;
-    }
-
-    .team {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 6px;
-    }
-
-    .team.home { text-align: right; }
-    .team.away { text-align: left; }
-
-    .flag {
-      width: 54px;
-      height: 54px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-size: 1.9rem;
-      background: rgba(255,255,255,0.06);
-      border: 1px solid var(--border);
-      box-shadow: inset 0 0 18px rgba(0,0,0,0.2);
-    }
-
-    .team-name {
-      font-family: "Saira Condensed", sans-serif;
-      font-weight: 600;
-      font-size: 1.05rem;
-      text-transform: uppercase;
-      letter-spacing: 0.03em;
-    }
-
-    .score-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-width: 90px;
-    }
-
-    .score {
-      font-family: "Anton", sans-serif;
-      font-size: 2.8rem;
-      line-height: 1;
-      letter-spacing: 0.05em;
-    }
-
-    .vs-sub {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.8rem;
-      color: var(--muted);
-      font-weight: 700;
-      margin-top: 4px;
-    }
-
-    .match-divider {
-      width: 1px;
-      height: 56px;
-      background: var(--border);
-      margin: 0 10px;
-    }
-
-    .leader-pick {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      padding: 14px 18px;
-      background: rgba(251, 191, 36, 0.06);
-      border-top: 1px dashed rgba(251, 191, 36, 0.25);
-    }
-
-    .leader-pick.finished {
-      background: rgba(22, 163, 74, 0.08);
-      border-top: 1px dashed rgba(22, 163, 74, 0.25);
-    }
-
-    .leader-pick .avatar {
-      width: 38px;
-      height: 38px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-family: "Anton", sans-serif;
-      font-size: 1rem;
-      background: var(--gold);
-      color: var(--bg);
-      flex-shrink: 0;
-    }
-
-    .leader-pick .info { flex: 1; line-height: 1.25; }
-
-    .leader-pick .label {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.7rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
-
-    .leader-pick .pick {
-      font-family: "Anton", sans-serif;
-      font-size: 1.05rem;
-      color: var(--gold);
-    }
-
-    .leader-pick.finished .pick { color: var(--accent-2); }
-
-    .leader-pick .result {
-      text-align: right;
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.8rem;
-      color: var(--muted);
-    }
-
-    .leader-pick .result strong {
-      color: var(--accent-2);
-      font-size: 1rem;
-    }
-
-    /* Consensus / odds */
-    .consensus {
-      padding: 16px 18px 18px;
-      border-top: 1px solid var(--border);
-    }
-
-    .consensus-title {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.72rem;
-      text-transform: uppercase;
-      letter-spacing: 0.08em;
-      color: var(--muted);
-      margin-bottom: 10px;
-    }
-
-    .bar {
-      display: flex;
-      height: 10px;
-      border-radius: 999px;
-      overflow: hidden;
-      background: rgba(255,255,255,0.06);
-      margin-bottom: 12px;
-    }
-
-    .bar-segment { height: 100%; transition: width 0.8s ease; }
-    .bar-home { background: var(--accent-2); }
-    .bar-draw { background: var(--muted); }
-    .bar-away { background: #3b82f6; }
-
-    .odds-row {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 10px;
-    }
-
-    .odd {
-      text-align: center;
-      padding: 10px;
-      border-radius: 12px;
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-    }
-
-    .odd .label {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.68rem;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      color: var(--muted);
-    }
-
-    .odd .value {
-      font-family: "Anton", sans-serif;
-      font-size: 1.3rem;
-      line-height: 1.1;
-      margin-top: 2px;
-    }
-
-    .odd .pct {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.72rem;
-      color: var(--muted);
-    }
-
-    /* Today's strip */
-    .today-strip {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 14px;
-    }
-
-    .today-card {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      padding: 16px 18px;
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      transition: transform 0.2s ease, border-color 0.2s ease;
-    }
-
-    .today-card:hover {
-      transform: translateY(-3px);
-      border-color: rgba(22,163,74,0.35);
-    }
-
-    .today-card.featured {
-      border-color: rgba(22, 163, 74, 0.35);
-      background: linear-gradient(135deg, var(--panel), rgba(22,163,74,0.06));
-    }
-
-    .today-card .time {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.75rem;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--muted);
-      min-width: 56px;
-    }
-
-    .today-card .teams-row {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.95rem;
-    }
-
-    .today-card .teams-row .flag {
-      width: 26px;
-      height: 26px;
-      font-size: 0.95rem;
-    }
-
-    .today-card .status {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.7rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.05em;
-      padding: 5px 9px;
-      border-radius: 6px;
-      white-space: nowrap;
-    }
-
-    .status-finished {
-      color: var(--muted);
-      background: rgba(255,255,255,0.05);
-      border: 1px solid var(--border);
-    }
-
-    .status-featured {
-      color: var(--featured);
-      background: var(--featured-bg);
-      border: 1px solid rgba(22, 163, 74, 0.45);
-    }
-
-    .status-upcoming {
-      color: var(--accent-2);
-      background: rgba(22,163,74,0.08);
-      border: 1px solid rgba(22,163,74,0.25);
-    }
-
-    /* Ranking */
-    .ranking-card {
-      background: var(--panel);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      overflow: hidden;
-    }
-
-    .ranking-list { padding: 10px; }
-
-    .rank-row {
-      display: grid;
-      grid-template-columns: 42px 50px 1fr auto;
-      align-items: center;
-      gap: 14px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      transition: background 0.2s ease;
-    }
-
-    .rank-row:hover { background: rgba(255,255,255,0.04); }
-
-    .rank-pos {
-      font-family: "Anton", sans-serif;
-      font-size: 1.4rem;
-      text-align: center;
-      line-height: 1;
-    }
-
-    .rank-pos.gold { color: var(--gold); }
-    .rank-pos.silver { color: var(--silver); }
-    .rank-pos.bronze { color: var(--bronze); }
-    .rank-pos.other { color: var(--muted); }
-
-    .rank-avatar {
-      width: 42px;
-      height: 42px;
-      border-radius: 50%;
-      display: grid;
-      place-items: center;
-      font-family: "Anton", sans-serif;
-      font-size: 1.1rem;
-      background: rgba(255,255,255,0.07);
-      border: 1px solid var(--border);
-    }
-
-    .rank-name {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 1.05rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.02em;
-    }
-
-    .rank-points { text-align: right; }
-
-    .rank-points .pts {
-      font-family: "Anton", sans-serif;
-      font-size: 1.5rem;
-      color: var(--text);
-      line-height: 1;
-    }
-
-    .rank-points .unit {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.65rem;
-      text-transform: uppercase;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-    }
-
-    .rank-divider {
-      height: 1px;
-      background: var(--border);
-      margin: 4px 14px;
-    }
-
-    .ranking-footer {
-      display: flex;
-      justify-content: center;
-      padding: 14px;
-      border-top: 1px solid var(--border);
-    }
-
-    .ranking-footer a {
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.82rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 0.07em;
-      color: var(--accent-2);
-      padding: 10px 22px;
-      border-radius: 999px;
-      border: 1px solid var(--accent-2);
-      transition: all 0.2s ease;
-    }
-
-    .ranking-footer a:hover {
-      color: var(--bg);
-      background: var(--accent-2);
-      box-shadow: 0 0 22px var(--accent-glow);
-    }
-
-    /* Footer */
-    footer {
-      margin-top: 60px;
-      text-align: center;
-      font-family: "Saira Condensed", sans-serif;
-      font-size: 0.72rem;
-      letter-spacing: 0.06em;
-      color: var(--muted);
-      text-transform: uppercase;
-    }
-
-    /* Responsive */
-    @media (max-width: 720px) {
-      header { flex-direction: column; align-items: flex-start; }
-      nav { flex-wrap: wrap; }
-      .leader-strip { flex-direction: column; align-items: flex-start; }
-      .leader-points { text-align: left; }
-      .match-teams { grid-template-columns: 1fr; gap: 10px; }
-      .match-divider { display: none; }
-      .team.home, .team.away { flex-direction: row; gap: 12px; }
-      .score-box { order: -1; margin-bottom: 6px; }
-      .rank-row { grid-template-columns: 36px 42px 1fr auto; gap: 10px; }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&amp;family=Saira+Condensed:wght@300;500;700&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <div class="container">
-    <header class="reveal reveal-1">
-      <div class="brand">
-        <h1>Grande <span>Bola</span> da Copa 2026</h1>
-        <div class="meta">Fase de Grupos — <strong>20 de junho de 2026</strong></div>
-      </div>
-      <nav>
-        <a href="pg1.html" class="active">Home</a>
-        <a href="pg2.html">Jogos</a>
-        <a href="pg3.html">Ranking</a>
-      </nav>
-    </header>
+    
+<header class="reveal reveal-1">
+  <div class="brand">
+    <h1>Grande <span>Bola</span> da Copa 2026</h1>
+    <div class="meta">Fase de Grupos</div>
+  </div>
+  <nav>
+    <a href="index.html" class="active">Home</a>
+    <a href="jogos.html" class="">Jogos</a>
+    <a href="ranking.html" class="">Ranking</a>
+  </nav>
+</header>
 
+
+    
     <section class="leader-strip reveal reveal-2" aria-label="Líder do bolão">
-      <div class="leader-avatar">S</div>
+      <div class="leader-avatar">A</div>
       <div class="leader-info">
         <div class="label">Líder do Bolão</div>
-        <div class="name">Simone</div>
+        <div class="name">Alexandre</div>
       </div>
       <div class="leader-points">
-        <div class="points">142</div>
+        <div class="points">19</div>
         <div class="unit">pontos</div>
       </div>
     </section>
+    
 
-    <section class="reveal reveal-3" aria-labelledby="featured-title">
+    <section class="reveal reveal-3" aria-labelledby="today-title">
       <div class="section-head">
-        <h2 id="featured-title">Jogos em Destaque</h2>
+        <h2 id="today-title">Jogos do Dia</h2>
+        <a href="jogos.html">Ver tabela completa</a>
       </div>
-
       <div class="featured-grid">
-        <!-- Featured match 5: BRA x NED — already finished -->
-        <article class="match-card bonus reveal reveal-3">
+        
+        
+        <article class="match-card  reveal reveal-3">
           <div class="match-top">
-            <div class="match-meta"><strong>#5</strong> Grupo B · 14:00</div>
+            <div class="match-meta"><strong>#8</strong> Grupo C · 01:00</div>
             <div style="display:flex;align-items:center;gap:8px;">
-              <span class="featured-badge">Destaque</span>
-              <span class="bonus-badge">Bônus</span>
+              <span class="match-badge status-finished">Encerrado</span>
+              
             </div>
           </div>
-
           <div class="match-teams">
-            <div class="team home">
-              <div class="flag">🇧🇷</div>
-              <div class="team-name">Brasil</div>
-            </div>
-            <div class="score-box">
-              <div class="score">2 - 1</div>
-              <div class="vs-sub">Encerrado</div>
-            </div>
-            <div class="team away">
-              <div class="flag">🇳🇱</div>
-              <div class="team-name">Holanda</div>
-            </div>
+            <div class="team home"><div class="flag">🇦🇺</div><div class="team-name">Austrália</div></div>
+            <div class="score-box"><div class="score">2 - 0</div></div>
+            <div class="team away"><div class="flag">🇹🇷</div><div class="team-name">Turquia</div></div>
           </div>
-
+          
           <div class="leader-pick finished">
-            <div class="avatar">S</div>
+            <div class="avatar">A</div>
             <div class="info">
               <div class="label">Palpite do líder</div>
-              <div class="pick">Brasil 2 - 1 Holanda</div>
+              <div class="pick">Austrália 2 – 0 Turquia</div>
             </div>
-            <div class="result">Pontos<br/><strong>+8 pts</strong></div>
+            
+            <div class="result">Pontos<br/><strong>+5 pts</strong></div>
+            
           </div>
-
+          
+          
           <div class="consensus">
-            <div class="consensus-title">O que a maioria apostou</div>
+            <div class="consensus-title">O que a maioria apostou (2 participantes)</div>
             <div class="bar">
-              <div class="bar-segment bar-home" style="width:58%"></div>
-              <div class="bar-segment bar-draw" style="width:25%"></div>
-              <div class="bar-segment bar-away" style="width:17%"></div>
+              <div class="bar-segment bar-home" style="width:100%"></div>
+              <div class="bar-segment bar-draw" style="width:0%"></div>
+              <div class="bar-segment bar-away" style="width:0%"></div>
             </div>
             <div class="odds-row">
               <div class="odd">
-                <div class="label">Vitória Brasil</div>
-                <div class="value">1.71</div>
-                <div class="pct">58%</div>
+                <div class="label">Austrália</div>
+                <div class="value">100%</div>
               </div>
               <div class="odd">
                 <div class="label">Empate</div>
-                <div class="value">4.00</div>
-                <div class="pct">25%</div>
+                <div class="value">0%</div>
               </div>
               <div class="odd">
-                <div class="label">Vitória Holanda</div>
-                <div class="value">6.00</div>
-                <div class="pct">17%</div>
+                <div class="label">Turquia</div>
+                <div class="value">0%</div>
               </div>
             </div>
           </div>
+          
         </article>
-
-        <!-- Featured match 6: ARG x JPN — upcoming today -->
-        <article class="match-card reveal reveal-4">
+        
+        
+        <article class="match-card  reveal reveal-3">
           <div class="match-top">
-            <div class="match-meta"><strong>#6</strong> Grupo C · 16:30</div>
-            <span class="featured-badge">Destaque</span>
+            <div class="match-meta"><strong>#9</strong> Grupo E · 14:00</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="match-badge status-upcoming">14:00</span>
+              
+            </div>
           </div>
-
           <div class="match-teams">
-            <div class="team home">
-              <div class="flag">🇦🇷</div>
-              <div class="team-name">Argentina</div>
-            </div>
-            <div class="score-box">
-              <div class="score">vs</div>
-              <div class="vs-sub">Hoje às 16:30</div>
-            </div>
-            <div class="team away">
-              <div class="flag">🇯🇵</div>
-              <div class="team-name">Japão</div>
-            </div>
+            <div class="team home"><div class="flag">🇩🇪</div><div class="team-name">Alemanha</div></div>
+            <div class="score-box"><div class="score">vs</div></div>
+            <div class="team away"><div class="flag">🇨🇼</div><div class="team-name">Curaçao</div></div>
           </div>
-
-          <div class="leader-pick">
-            <div class="avatar">S</div>
+          
+          <div class="leader-pick ">
+            <div class="avatar">A</div>
             <div class="info">
               <div class="label">Palpite do líder</div>
-              <div class="pick">Argentina 1 - 1 Japão</div>
+              <div class="pick">Alemanha 5 – 0 Curaçao</div>
             </div>
+            
             <div class="result">Aposta<br/><strong>registrada</strong></div>
+            
           </div>
-
+          
+          
           <div class="consensus">
-            <div class="consensus-title">O que a maioria apostou</div>
+            <div class="consensus-title">O que a maioria apostou (2 participantes)</div>
             <div class="bar">
-              <div class="bar-segment bar-home" style="width:33%"></div>
-              <div class="bar-segment bar-draw" style="width:42%"></div>
-              <div class="bar-segment bar-away" style="width:25%"></div>
+              <div class="bar-segment bar-home" style="width:100%"></div>
+              <div class="bar-segment bar-draw" style="width:0%"></div>
+              <div class="bar-segment bar-away" style="width:0%"></div>
             </div>
             <div class="odds-row">
               <div class="odd">
-                <div class="label">Vitória Argentina</div>
-                <div class="value">3.00</div>
-                <div class="pct">33%</div>
+                <div class="label">Alemanha</div>
+                <div class="value">100%</div>
               </div>
               <div class="odd">
                 <div class="label">Empate</div>
-                <div class="value">2.40</div>
-                <div class="pct">42%</div>
+                <div class="value">0%</div>
               </div>
               <div class="odd">
-                <div class="label">Vitória Japão</div>
-                <div class="value">4.00</div>
-                <div class="pct">25%</div>
+                <div class="label">Curaçao</div>
+                <div class="value">0%</div>
               </div>
             </div>
           </div>
+          
         </article>
+        
+        
+        <article class="match-card  reveal reveal-3">
+          <div class="match-top">
+            <div class="match-meta"><strong>#10</strong> Grupo F · 17:00</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="match-badge status-upcoming">17:00</span>
+              
+            </div>
+          </div>
+          <div class="match-teams">
+            <div class="team home"><div class="flag">🇳🇱</div><div class="team-name">Holanda</div></div>
+            <div class="score-box"><div class="score">vs</div></div>
+            <div class="team away"><div class="flag">🇯🇵</div><div class="team-name">Japão</div></div>
+          </div>
+          
+          <div class="leader-pick ">
+            <div class="avatar">A</div>
+            <div class="info">
+              <div class="label">Palpite do líder</div>
+              <div class="pick">Holanda 1 – 3 Japão</div>
+            </div>
+            
+            <div class="result">Aposta<br/><strong>registrada</strong></div>
+            
+          </div>
+          
+          
+          <div class="consensus">
+            <div class="consensus-title">O que a maioria apostou (2 participantes)</div>
+            <div class="bar">
+              <div class="bar-segment bar-home" style="width:50%"></div>
+              <div class="bar-segment bar-draw" style="width:0%"></div>
+              <div class="bar-segment bar-away" style="width:50%"></div>
+            </div>
+            <div class="odds-row">
+              <div class="odd">
+                <div class="label">Holanda</div>
+                <div class="value">50%</div>
+              </div>
+              <div class="odd">
+                <div class="label">Empate</div>
+                <div class="value">0%</div>
+              </div>
+              <div class="odd">
+                <div class="label">Japão</div>
+                <div class="value">50%</div>
+              </div>
+            </div>
+          </div>
+          
+        </article>
+        
+        
+        <article class="match-card  reveal reveal-3">
+          <div class="match-top">
+            <div class="match-meta"><strong>#11</strong> Grupo E · 20:00</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="match-badge status-upcoming">20:00</span>
+              
+            </div>
+          </div>
+          <div class="match-teams">
+            <div class="team home"><div class="flag">🇨🇮</div><div class="team-name">Costa do Marfim</div></div>
+            <div class="score-box"><div class="score">vs</div></div>
+            <div class="team away"><div class="flag">🇪🇨</div><div class="team-name">Equador</div></div>
+          </div>
+          
+          <div class="leader-pick ">
+            <div class="avatar">A</div>
+            <div class="info">
+              <div class="label">Palpite do líder</div>
+              <div class="pick">Costa do Marfim 0 – 3 Equador</div>
+            </div>
+            
+            <div class="result">Aposta<br/><strong>registrada</strong></div>
+            
+          </div>
+          
+          
+          <div class="consensus">
+            <div class="consensus-title">O que a maioria apostou (2 participantes)</div>
+            <div class="bar">
+              <div class="bar-segment bar-home" style="width:0%"></div>
+              <div class="bar-segment bar-draw" style="width:0%"></div>
+              <div class="bar-segment bar-away" style="width:100%"></div>
+            </div>
+            <div class="odds-row">
+              <div class="odd">
+                <div class="label">Costa do Marfim</div>
+                <div class="value">0%</div>
+              </div>
+              <div class="odd">
+                <div class="label">Empate</div>
+                <div class="value">0%</div>
+              </div>
+              <div class="odd">
+                <div class="label">Equador</div>
+                <div class="value">100%</div>
+              </div>
+            </div>
+          </div>
+          
+        </article>
+        
+        
+        <article class="match-card  reveal reveal-3">
+          <div class="match-top">
+            <div class="match-meta"><strong>#12</strong> Grupo F · 23:00</div>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <span class="match-badge status-upcoming">23:00</span>
+              
+            </div>
+          </div>
+          <div class="match-teams">
+            <div class="team home"><div class="flag">🇸🇪</div><div class="team-name">Suécia</div></div>
+            <div class="score-box"><div class="score">vs</div></div>
+            <div class="team away"><div class="flag">🇹🇳</div><div class="team-name">Tunísia</div></div>
+          </div>
+          
+          <div class="leader-pick ">
+            <div class="avatar">A</div>
+            <div class="info">
+              <div class="label">Palpite do líder</div>
+              <div class="pick">Suécia 2 – 2 Tunísia</div>
+            </div>
+            
+            <div class="result">Aposta<br/><strong>registrada</strong></div>
+            
+          </div>
+          
+          
+          <div class="consensus">
+            <div class="consensus-title">O que a maioria apostou (2 participantes)</div>
+            <div class="bar">
+              <div class="bar-segment bar-home" style="width:50%"></div>
+              <div class="bar-segment bar-draw" style="width:50%"></div>
+              <div class="bar-segment bar-away" style="width:0%"></div>
+            </div>
+            <div class="odds-row">
+              <div class="odd">
+                <div class="label">Suécia</div>
+                <div class="value">50%</div>
+              </div>
+              <div class="odd">
+                <div class="label">Empate</div>
+                <div class="value">50%</div>
+              </div>
+              <div class="odd">
+                <div class="label">Tunísia</div>
+                <div class="value">0%</div>
+              </div>
+            </div>
+          </div>
+          
+        </article>
+        
       </div>
     </section>
 
-    <section class="reveal reveal-4" aria-labelledby="today-title">
+    <section class="reveal reveal-4" aria-labelledby="featured-title">
       <div class="section-head">
-        <h2 id="today-title">Jogos do Dia</h2>
-        <a href="pg2.html">Ver tabela completa</a>
+        <h2 id="featured-title">Jogos Bônus</h2>
       </div>
-
-      <div class="today-strip">
-        <div class="today-card featured">
-          <div class="time">14:00</div>
+      <div class="bonus-strip">
+        
+        <div class="today-card bonus-card">
+          <div class="time">22:00</div>
           <div class="teams-row">
-            <span class="flag">🇧🇷</span>
-            <span>Brasil</span>
-            <span>2 - 1</span>
-            <span>Holanda</span>
-            <span class="flag">🇳🇱</span>
-          </div>
-          <span class="status status-finished">Encerrado</span>
-        </div>
-
-        <div class="today-card featured">
-          <div class="time">16:30</div>
-          <div class="teams-row">
-            <span class="flag">🇦🇷</span>
-            <span>Argentina</span>
+            <span class="flag">🇮🇷</span>
+            <span>Irã</span>
             <span>vs</span>
-            <span>Japão</span>
-            <span class="flag">🇯🇵</span>
+            <span>Nova Zelândia</span>
+            <span class="flag">🇳🇿</span>
           </div>
-          <span class="status status-featured">Destaque</span>
+          <span class="status status-featured">Futuro</span>
         </div>
-
-        <div class="today-card">
-          <div class="time">19:00</div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">20:00</div>
           <div class="teams-row">
-            <span class="flag">🇩🇪</span>
-            <span>Alemanha</span>
+            <span class="flag">🇬🇭</span>
+            <span>Gana</span>
             <span>vs</span>
-            <span>França</span>
-            <span class="flag">🇫🇷</span>
+            <span>Panamá</span>
+            <span class="flag">🇵🇦</span>
           </div>
-          <span class="status status-upcoming">Hoje 19:00</span>
+          <span class="status status-featured">Futuro</span>
         </div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">16:00</div>
+          <div class="teams-row">
+            <span class="flag">🇨🇭</span>
+            <span>Suíça</span>
+            <span>vs</span>
+            <span>Bósnia</span>
+            <span class="flag">🇧🇦</span>
+          </div>
+          <span class="status status-featured">Futuro</span>
+        </div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">22:00</div>
+          <div class="teams-row">
+            <span class="flag">🇳🇿</span>
+            <span>Nova Zelândia</span>
+            <span>vs</span>
+            <span>Egito</span>
+            <span class="flag">🇪🇬</span>
+          </div>
+          <span class="status status-featured">Futuro</span>
+        </div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">00:00</div>
+          <div class="teams-row">
+            <span class="flag">🇯🇴</span>
+            <span>Jordânia</span>
+            <span>vs</span>
+            <span>Argélia</span>
+            <span class="flag">🇩🇿</span>
+          </div>
+          <span class="status status-featured">Futuro</span>
+        </div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">17:00</div>
+          <div class="teams-row">
+            <span class="flag">🇨🇼</span>
+            <span>Curaçao</span>
+            <span>vs</span>
+            <span>Costa do Marfim</span>
+            <span class="flag">🇨🇮</span>
+          </div>
+          <span class="status status-featured">Futuro</span>
+        </div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">21:00</div>
+          <div class="teams-row">
+            <span class="flag">🇨🇻</span>
+            <span>Cabo Verde</span>
+            <span>vs</span>
+            <span>Arábia Saudita</span>
+            <span class="flag">🇸🇦</span>
+          </div>
+          <span class="status status-featured">Futuro</span>
+        </div>
+        
+        <div class="today-card bonus-card">
+          <div class="time">20:30</div>
+          <div class="teams-row">
+            <span class="flag">🇨🇩</span>
+            <span>Congo</span>
+            <span>vs</span>
+            <span>Uzbequistão</span>
+            <span class="flag">🇺🇿</span>
+          </div>
+          <span class="status status-featured">Futuro</span>
+        </div>
+        
       </div>
     </section>
 
     <section class="reveal reveal-5" aria-labelledby="rank-title">
       <div class="section-head">
         <h2 id="rank-title">Ranking</h2>
-        <a href="pg4-ranking.html">Ver ranking completo</a>
+        <a href="ranking.html">Ver ranking completo</a>
       </div>
-
       <div class="ranking-card">
         <div class="ranking-list">
-          <a href="pg4-simone.html" class="rank-row">
+          
+          <a href="apostadores/alexandre.html" class="rank-row">
             <div class="rank-pos gold">1</div>
-            <div class="rank-avatar">S</div>
-            <div class="rank-name">Simone</div>
-            <div class="rank-points">
-              <div class="pts">142</div>
-              <div class="unit">pts</div>
-            </div>
+            <div class="rank-avatar">A</div>
+            <div class="rank-name">Alexandre</div>
+            <div class="rank-points"><div class="pts">19</div><div class="unit">pts</div></div>
           </a>
-
-          <a href="pg4-marco.html" class="rank-row">
+          
+          <a href="apostadores/angela-1.html" class="rank-row">
             <div class="rank-pos silver">2</div>
-            <div class="rank-avatar">M</div>
-            <div class="rank-name">Marco</div>
-            <div class="rank-points">
-              <div class="pts">128</div>
-              <div class="unit">pts</div>
-            </div>
+            <div class="rank-avatar">A</div>
+            <div class="rank-name">Angela 1</div>
+            <div class="rank-points"><div class="pts">12</div><div class="unit">pts</div></div>
           </a>
-
-          <a href="pg4-fernanda.html" class="rank-row">
+          
+          <a href="apostadores/angela-2.html" class="rank-row">
             <div class="rank-pos bronze">3</div>
-            <div class="rank-avatar">F</div>
-            <div class="rank-name">Fernanda</div>
-            <div class="rank-points">
-              <div class="pts">119</div>
-              <div class="unit">pts</div>
-            </div>
+            <div class="rank-avatar">A</div>
+            <div class="rank-name">Angela_2</div>
+            <div class="rank-points"><div class="pts">0</div><div class="unit">pts</div></div>
           </a>
-
-          <div class="rank-divider"></div>
-
-          <a href="pg4-carlos.html" class="rank-row">
+          
+          <a href="apostadores/angela-cristina.html" class="rank-row">
+            <div class="rank-pos other">4</div>
+            <div class="rank-avatar">A</div>
+            <div class="rank-name">Angela Cristina</div>
+            <div class="rank-points"><div class="pts">0</div><div class="unit">pts</div></div>
+          </a>
+          
+          <a href="apostadores/celia.html" class="rank-row">
             <div class="rank-pos other">5</div>
             <div class="rank-avatar">C</div>
-            <div class="rank-name">Carlos</div>
-            <div class="rank-points">
-              <div class="pts">87</div>
-              <div class="unit">pts</div>
-            </div>
+            <div class="rank-name">Celia</div>
+            <div class="rank-points"><div class="pts">0</div><div class="unit">pts</div></div>
           </a>
-
-          <a href="pg4-julio.html" class="rank-row">
-            <div class="rank-pos other">6</div>
-            <div class="rank-avatar">J</div>
-            <div class="rank-name">Júlio</div>
-            <div class="rank-points">
-              <div class="pts">58</div>
-              <div class="unit">pts</div>
-            </div>
-          </a>
+          
         </div>
-
-        <div class="ranking-footer">
-          <a href="pg4-ranking.html">Ranking completo</a>
-        </div>
+        <div class="ranking-footer"><a href="ranking.html">Ranking completo</a></div>
       </div>
     </section>
 
-    <footer class="reveal reveal-5">
-      Grande Bola da Copa 2026 — Bolão entre amigos · Dados fictícios para protótipo
-    </footer>
+    
+<footer class="reveal">
+  Grande Bola da Copa 2026 — Bolão entre amigos
+</footer>
+
   </div>
 </body>
 </html>
