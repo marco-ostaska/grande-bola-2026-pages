@@ -207,6 +207,22 @@ tbody tr.top-2 td { background: rgba(203, 213, 225, 0.05); }
 tbody tr.top-3 td { background: rgba(245, 158, 11, 0.05); }
 .action-link { display: inline-block; padding: 8px 16px; border-radius: 999px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--accent-2); background: rgba(22,163,74,0.08); border: 1px solid var(--accent-2); transition: all 0.2s ease; }
 .action-link:hover { color: var(--bg); background: var(--accent-2); box-shadow: 0 0 18px var(--accent-glow); }
+.zebra-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #f97316; background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.4); }
+.qualifier-hit { background: rgba(22,163,74,0.08); border-radius: 8px; }
+.qualifier-pts { margin-left: auto; font-family: "Anton", sans-serif; font-size: 0.85rem; color: var(--accent-2); }
+.semi-hit { background: rgba(22,163,74,0.1); border-color: rgba(22,163,74,0.35) !important; }
+.semi-pts { margin-left: auto; font-family: "Anton", sans-serif; font-size: 0.95rem; color: var(--accent-2); }
+.podium-hit .podium-base { box-shadow: 0 0 18px rgba(22,163,74,0.4); }
+.podium-hit .podium-label { color: var(--accent-2); }
+.classificados-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(140px, 1fr)); gap: 12px; }
+.classificado-card { display: flex; flex-direction: column; align-items: center; gap: 8px; padding: 18px 12px 14px; background: var(--panel); border: 1px solid var(--border); border-radius: 16px; text-align: center; position: relative; transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease; overflow: hidden; }
+.classificado-card::before { content: ""; position: absolute; inset: 0; background: linear-gradient(135deg, rgba(22,163,74,0.06), transparent 60%); pointer-events: none; }
+.classificado-card:hover { transform: translateY(-4px); border-color: rgba(22,163,74,0.3); box-shadow: 0 12px 32px rgba(0,0,0,0.3); }
+.classificado-flag { width: 52px; height: 52px; border-radius: 50%; display: grid; place-items: center; font-size: 1.8rem; background: rgba(255,255,255,0.06); border: 2px solid rgba(22,163,74,0.3); box-shadow: 0 0 18px rgba(22,163,74,0.15); }
+.classificado-name { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 0.92rem; text-transform: uppercase; letter-spacing: 0.03em; line-height: 1.2; }
+.classificado-origem { font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.classificado-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 9px; border-radius: 999px; font-family: "Saira Condensed", sans-serif; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: var(--accent-2); background: rgba(22,163,74,0.12); border: 1px solid rgba(22,163,74,0.3); }
+.classificado-placeholder { padding: 32px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); background: var(--panel); border: 1px solid var(--border); border-radius: 16px; }
 footer { margin-top: 60px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
 .footer-updated { opacity: 0.6; }
 @media (max-width: 860px) { header { flex-direction: column; align-items: flex-start; } nav { flex-wrap: wrap; } table { display: block; overflow-x: auto; white-space: nowrap; } .profile-header { flex-direction: column; align-items: flex-start; } .profile-points { text-align: left; } }
