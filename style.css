@@ -165,8 +165,10 @@ td.score .dash, td.bet .dash { color: var(--muted); font-size: 1.1rem; }
 td.pts { text-align: center; font-family: "Anton", sans-serif; font-size: 1.15rem; width: 60px; }
 td.pts .pending { color: var(--muted); font-size: 0.85rem; }
 .qualifier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; padding: 20px; }
+.qualifier-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .qualifier-group { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
-.qualifier-group h4 { margin: 0 0 10px; font-family: "Anton", sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.qualifier-group h4, .qualifier-group-name { margin: 0 0 10px; font-family: "Anton", sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+.qualifier-group .qualifier-grid { padding: 0; }
 .qualifier { display: flex; align-items: center; gap: 8px; padding: 5px 0; font-family: "Saira Condensed", sans-serif; font-size: 0.95rem; }
 .qualifier .pos { display: inline-block; width: 22px; height: 22px; border-radius: 50%; background: rgba(255,255,255,0.06); color: var(--muted); font-size: 0.7rem; font-weight: 700; text-align: center; line-height: 22px; }
 .qualifier .flag { font-size: 1.15rem; }
@@ -212,6 +214,9 @@ tbody tr.top-3 td { background: rgba(245, 158, 11, 0.05); }
 .zebra-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 10px; border-radius: 6px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #f97316; background: rgba(249,115,22,0.12); border: 1px solid rgba(249,115,22,0.4); }
 .qualifier-hit { background: rgba(22,163,74,0.08); border-radius: 8px; }
 .qualifier-pts { margin-left: auto; font-family: "Anton", sans-serif; font-size: 0.85rem; color: var(--accent-2); }
+.sf-grid .qualifier { padding: 8px 0; }
+.sf-votes { margin-left: auto; display: inline-flex; align-items: baseline; gap: 4px; font-family: "Saira Condensed", sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
+.sf-votes strong { font-family: "Anton", sans-serif; font-size: 1rem; color: var(--accent-2); }
 .semi-hit { background: rgba(22,163,74,0.1); border-color: rgba(22,163,74,0.35) !important; }
 .semi-pts { margin-left: auto; font-family: "Anton", sans-serif; font-size: 0.95rem; color: var(--accent-2); }
 .podium-hit .podium-base { box-shadow: 0 0 18px rgba(22,163,74,0.4); }
@@ -251,4 +256,46 @@ th.cravou, td.cravou { min-width: 120px; }
 .prediction-score { font-family: "Anton", sans-serif; font-size: 1.1rem; color: var(--gold); margin-top: 2px; }
 .prediction-empty { padding: 24px 18px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
 .match-header { border-radius: 16px; overflow: hidden; }
-@media (max-width: 520px) { .team-cell .name { font-size: 0.85rem; } td.score, td.bet { font-size: 1.15rem; width: 65px; } td.date { font-size: 0.78rem; } .round-name, .group-name, .knockout-name { font-size: 1.15rem; } .player-name { font-size: 1rem; } td.points .pts { font-size: 1.35rem; } }
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 18px; margin-bottom: 28px; }
+.stat-card { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 20px; text-align: center; transition: transform 0.2s ease, border-color 0.2s ease; }
+.stat-card:hover { transform: translateY(-3px); border-color: rgba(22,163,74,0.35); }
+.stat-label { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+.stat-match { display: inline-block; font-family: "Saira Condensed", sans-serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--accent-2); border-bottom: 1px solid transparent; margin-bottom: 10px; }
+.stat-match:hover { border-color: var(--accent-2); }
+.stat-value { font-family: "Anton", sans-serif; font-size: 3rem; line-height: 1; color: var(--accent-2); margin: 8px 0; }
+.stat-value.score { font-size: 2.4rem; color: var(--gold); }
+.stat-desc { font-family: "Saira Condensed", sans-serif; font-size: 0.82rem; color: var(--muted); }
+.stat-desc strong { color: var(--text); }
+.stats-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; margin-bottom: 28px; }
+.stat-block { background: var(--panel); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; }
+.stat-block-title { padding: 16px 18px; background: var(--panel-2); border-bottom: 1px solid var(--border); font-family: "Anton", sans-serif; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.stat-highlight { display: flex; align-items: center; gap: 18px; padding: 20px 22px; background: linear-gradient(90deg, rgba(22,163,74,0.12), rgba(22,163,74,0.04)); border: 1px solid rgba(22,163,74,0.25); border-left: 6px solid var(--accent-2); border-radius: 18px; margin-bottom: 22px; }
+.stat-highlight-icon { font-size: 2.4rem; flex-shrink: 0; }
+.stat-highlight-body { flex: 1; }
+.stat-highlight-title { font-family: "Anton", sans-serif; font-size: 1.3rem; text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 4px; }
+.podium-grid { display: flex; align-items: flex-end; justify-content: center; gap: 14px; padding: 24px; }
+.podium-grid .podium-spot { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 170px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 16px; padding: 18px 12px; }
+.podium-grid .podium-spot.first { order: 2; transform: translateY(-10px); border-color: var(--gold); }
+.podium-grid .podium-spot.second { order: 1; }
+.podium-grid .podium-spot.third { order: 3; }
+.podium-grid .podium-spot.fourth { order: 4; }
+.podium-grid .podium-team { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 8px; }
+.podium-votes { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 4px; }
+.points-table-wrap { padding: 10px; }
+.points-table { width: 100%; border-collapse: collapse; }
+.points-table thead th { text-align: left; }
+.points-table th.num, .points-table td.num { text-align: right; }
+.points-table td.num { font-family: "Anton", sans-serif; font-size: 1.25rem; }
+.points-table td.num.current { color: var(--accent-2); }
+.points-table td.num.remaining { color: var(--gold); }
+.points-table td.num.max { color: var(--text); }
+.points-table tbody tr { border-bottom: 1px solid var(--border); }
+.points-table tbody tr:last-child { border-bottom: none; }
+.points-table tbody tr:hover { background: rgba(255,255,255,0.03); }
+.points-table .player-cell { padding: 10px 0; }
+.points-table td.num.prob { padding: 10px 0 10px 14px; }
+.prob-bar { --pct: 0%; height: 26px; min-width: 70px; background: rgba(255,255,255,0.06); border-radius: 999px; position: relative; overflow: hidden; display: inline-flex; align-items: center; justify-content: flex-end; padding-right: 10px; }
+.prob-bar::before { content: ""; position: absolute; inset: 0; right: calc(100% - var(--pct)); background: linear-gradient(90deg, var(--accent), var(--accent-2)); border-radius: 999px; }
+.prob-label { position: relative; z-index: 1; font-family: "Anton", sans-serif; font-size: 1.05rem; color: var(--text); }
+.stat-note { margin-top: 16px; padding: 14px 18px; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; }
+@media (max-width: 520px) { .team-cell .name { font-size: 0.85rem; } td.score, td.bet { font-size: 1.15rem; width: 65px; } td.date { font-size: 0.78rem; } .round-name, .group-name, .knockout-name { font-size: 1.15rem; } .player-name { font-size: 1rem; } td.points .pts { font-size: 1.35rem; } .stats-row { grid-template-columns: 1fr; } .podium-grid { flex-wrap: wrap; } .podium-grid .podium-spot { max-width: none; flex: 1 1 40%; } .podium-grid .podium-spot.first { flex-basis: 100%; transform: none; } .prob-row { grid-template-columns: 42px 1fr 50px; gap: 10px; } .prob-bar-wrap { display: none; } }
