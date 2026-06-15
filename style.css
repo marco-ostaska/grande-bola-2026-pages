@@ -98,7 +98,9 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .bar-draw { background: var(--muted); }
 .bar-away { background: #3b82f6; }
 .odds-row { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
-.odd { text-align: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); }
+.odd { display: block; text-align: center; padding: 10px; border-radius: 12px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); transition: background 0.2s ease, border-color 0.2s ease, transform 0.2s ease; }
+.odd:hover { background: rgba(255,255,255,0.08); border-color: rgba(22,163,74,0.4); transform: translateY(-2px); }
+.odd:focus { outline: 2px solid var(--accent-2); outline-offset: 2px; }
 .odd .label { font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
 .odd .value { font-family: "Anton", sans-serif; font-size: 1.3rem; line-height: 1.1; margin-top: 2px; }
 .today-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
@@ -234,4 +236,19 @@ footer { margin-top: 60px; text-align: center; font-family: "Saira Condensed", s
 .cravador-sep { color: var(--muted); margin: 0 4px; font-size: 0.75rem; }
 th.cravou, td.cravou { min-width: 120px; }
 .cravou-none { color: var(--muted); }
+.prediction-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.prediction-column { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; overflow: hidden; }
+.prediction-column:target { border-color: var(--accent-2); box-shadow: 0 0 0 1px var(--accent-2), 0 14px 36px rgba(0,0,0,0.35); }
+.prediction-column-header { padding: 16px 18px; background: var(--panel-2); border-bottom: 1px solid var(--border); }
+.prediction-column-title { font-family: "Anton", sans-serif; font-size: 1.2rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.prediction-column-count { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 2px; }
+.prediction-list { padding: 10px; }
+.prediction-row { display: flex; align-items: center; gap: 12px; padding: 12px 14px; border-radius: 12px; transition: background 0.2s ease; }
+.prediction-row:hover { background: rgba(255,255,255,0.04); }
+.prediction-avatar { width: 40px; height: 40px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1rem; background: rgba(255,255,255,0.07); border: 1px solid var(--border); flex-shrink: 0; }
+.prediction-info { flex: 1; min-width: 0; }
+.prediction-name { font-family: "Saira Condensed", sans-serif; font-weight: 600; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.02em; }
+.prediction-score { font-family: "Anton", sans-serif; font-size: 1.1rem; color: var(--gold); margin-top: 2px; }
+.prediction-empty { padding: 24px 18px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.match-header { border-radius: 16px; overflow: hidden; }
 @media (max-width: 520px) { .team-cell .name { font-size: 0.85rem; } td.score, td.bet { font-size: 1.15rem; width: 65px; } td.date { font-size: 0.78rem; } .round-name, .group-name, .knockout-name { font-size: 1.15rem; } .player-name { font-size: 1rem; } td.points .pts { font-size: 1.35rem; } }
