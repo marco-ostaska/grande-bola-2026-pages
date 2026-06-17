@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="face" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#93c5fd"/>
+      <stop offset="100%" stop-color="#60a5fa"/>
+    </radialGradient>
+    <style>
+      .tear { animation: tearDrop 1.4s ease-in-out infinite; }
+      .tear-2 { animation-delay: 0.5s; }
+      @keyframes tearDrop {
+        0% { transform: translateY(0); opacity: 1; }
+        80% { transform: translateY(14px); opacity: 0.4; }
+        100% { transform: translateY(16px); opacity: 0; }
+      }
+    </style>
+  </defs>
+  <circle cx="32" cy="34" r="26" fill="url(#face)" stroke="#1e40af" stroke-width="2"/>
+  <!-- olhos -->
+  <circle cx="21" cy="31" r="4.5" fill="#1f2937"/>
+  <circle cx="43" cy="31" r="4.5" fill="#1f2937"/>
+  <!-- lágrimas -->
+  <path class="tear" d="M16 38 Q14 46 16 52 Q18 46 16 38" fill="#60a5fa" stroke="#2563eb" stroke-width="1"/>
+  <path class="tear tear-2" d="M48 38 Q46 46 48 52 Q50 46 48 38" fill="#60a5fa" stroke="#2563eb" stroke-width="1"/>
+  <!-- boca triste -->
+  <path d="M22 50 Q32 44 42 50" fill="none" stroke="#1e3a8a" stroke-width="2.5" stroke-linecap="round"/>
+</svg>

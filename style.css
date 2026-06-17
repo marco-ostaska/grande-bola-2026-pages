@@ -90,6 +90,10 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .leader-pick.finished .pick { color: var(--accent-2); }
 .leader-pick .result { text-align: right; font-family: "Saira Condensed", sans-serif; font-size: 0.8rem; color: var(--muted); }
 .leader-pick .result strong { color: var(--accent-2); font-size: 1rem; }
+.leader-emoji { display: block; margin: 0 auto 6px; width: 28px; height: 28px; }
+.leader-pick .result:has(.leader-emoji) { text-align: center; }
+@keyframes emojiPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
+.leader-emoji[src*="nervous"] { animation: emojiPulse 1.2s ease-in-out infinite; }
 .consensus { padding: 14px 18px 16px; border-top: 1px solid var(--border); }
 .consensus-title { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 10px; }
 .bar { display: flex; height: 10px; border-radius: 999px; overflow: hidden; background: rgba(255,255,255,0.06); margin-bottom: 12px; }
