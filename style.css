@@ -134,7 +134,11 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .rank-pos.bronze { color: var(--bronze); }
 .rank-pos.other { color: var(--muted); }
 .rank-avatar { width: 42px; height: 42px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.1rem; background: rgba(255,255,255,0.07); border: 1px solid var(--border); }
-.rank-name { font-family: "Saira Condensed", sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; }
+.rank-name { font-family: "Saira Condensed", sans-serif; font-size: 1.05rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; display: flex; align-items: center; gap: 8px; }
+.rank-trend { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; font-weight: 700; }
+.rank-trend.up { color: var(--accent-2); }
+.rank-trend.down { color: #ef4444; }
+.rank-trend.same { color: var(--muted); }
 .rank-points { text-align: right; }
 .rank-points .pts { font-family: "Anton", sans-serif; font-size: 1.5rem; color: var(--text); line-height: 1; }
 .rank-points .unit { font-family: "Saira Condensed", sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
