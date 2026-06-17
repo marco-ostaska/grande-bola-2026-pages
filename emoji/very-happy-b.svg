@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <defs>
+    <radialGradient id="face" cx="50%" cy="45%" r="55%">
+      <stop offset="0%" stop-color="#fde047"/>
+      <stop offset="100%" stop-color="#facc15"/>
+    </radialGradient>
+  </defs>
+  <circle cx="32" cy="34" r="26" fill="url(#face)" stroke="#b45309" stroke-width="2"/>
+  <!-- olhos fechados de alegria -->
+  <path d="M16 32 Q22 26 28 32" fill="none" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+  <path d="M36 32 Q42 26 48 32" fill="none" stroke="#78350f" stroke-width="2.5" stroke-linecap="round"/>
+  <!-- boca aberta rindo -->
+  <path d="M18 42 Q32 58 46 42 Q46 54 32 56 Q18 54 18 42 Z" fill="#7f1d1d" stroke="#78350f" stroke-width="1.5"/>
+  <!-- língua/celebração -->
+  <path d="M28 52 Q32 48 36 52" fill="none" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
+  <!-- confetes -->
+  <rect x="10" y="12" width="3" height="3" fill="#60a5fa" transform="rotate(15 11 13)"/>
+  <rect x="50" y="10" width="3" height="3" fill="#f472b6" transform="rotate(45 51 11)"/>
+  <rect x="52" y="52" width="3" height="3" fill="#34d399" transform="rotate(30 53 53)"/>
+  <rect x="8" y="52" width="3" height="3" fill="#fbbf24" transform="rotate(60 9 53)"/>
+</svg>
