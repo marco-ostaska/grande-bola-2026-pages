@@ -464,14 +464,15 @@ th.cravou, td.cravou { min-width: 120px; }
 .stat-note { margin-top: 16px; padding: 14px 18px; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 12px; }
 
 @media (max-width: 640px) {
-  .container { padding: 18px 14px 40px; }
-  header { gap: 16px; margin-bottom: 24px; padding-bottom: 18px; }
-  .brand h1 { font-size: clamp(1.8rem, 8vw, 2.4rem); }
-  nav { gap: 8px; }
-  nav a { padding: 8px 14px; font-size: 0.78rem; }
-  .section-head { flex-direction: column; align-items: flex-start; gap: 6px; margin: 26px 0 14px; }
-  .section-head h2 { font-size: clamp(1.3rem, 5vw, 1.6rem); }
-  .count { font-size: 0.78rem; }
+  .container { padding: 14px 12px 36px; }
+  header { flex-direction: column; align-items: flex-start; gap: 12px; margin-bottom: 20px; padding-bottom: 16px; }
+  .brand h1 { font-size: clamp(1.55rem, 7vw, 2rem); }
+  .brand .meta { margin-top: 4px; font-size: 0.78rem; }
+  nav { gap: 6px; flex-wrap: wrap; }
+  nav a { padding: 6px 12px; font-size: 0.72rem; }
+  .section-head { flex-direction: column; align-items: flex-start; gap: 4px; margin: 22px 0 12px; }
+  .section-head h2 { font-size: clamp(1.2rem, 4.5vw, 1.5rem); }
+  .count { font-size: 0.74rem; }
 
   /* Grids gerais */
   .featured-grid,
@@ -482,40 +483,72 @@ th.cravou, td.cravou { min-width: 120px; }
   .stats-row,
   .qualifier-groups,
   .classificados-grid,
-  .semis-grid { grid-template-columns: 1fr; gap: 14px; }
+  .semis-grid { grid-template-columns: 1fr; gap: 12px; }
 
   /* Leader strip */
-  .leader-strip { padding: 14px 16px; gap: 14px; }
-  .leader-avatar { width: 52px; height: 52px; font-size: 1.5rem; }
-  .leader-info .name { font-size: clamp(1.2rem, 5vw, 1.6rem); }
-  .leader-points .points { font-size: 1.9rem; }
+  .leader-strip { padding: 12px 14px; gap: 12px; border-radius: 14px; margin-bottom: 24px; }
+  .leader-avatar { width: 44px; height: 44px; font-size: 1.25rem; }
+  .leader-info .label { font-size: 0.7rem; }
+  .leader-info .name { font-size: clamp(1.05rem, 4.5vw, 1.35rem); }
+  .runner-up-names { font-size: 0.78em; }
+  .leader-points .points { font-size: 1.55rem; }
+  .leader-points .unit { font-size: 0.68rem; }
+  .runner-pts { font-size: 0.65em; }
 
   /* Cards de jogo */
-  .match-card { border-radius: 16px; }
-  .match-top { flex-wrap: wrap; gap: 8px; padding: 12px 14px; }
-  .match-meta { font-size: 0.75rem; }
-  .match-teams { padding: 16px 14px; }
-  .flag { width: 42px; height: 42px; font-size: 1.5rem; }
-  .team-name { font-size: 0.92rem; }
-  .score { font-size: 1.8rem; }
-  .vs-sub { font-size: 0.72rem; }
-  .leader-pick { flex-direction: column; align-items: flex-start; gap: 10px; padding: 12px 14px; }
-  .leader-pick .result, .score-breakdown { text-align: left; width: 100%; }
-  .score-breakdown .line.total { font-size: 1.05rem; }
-  .cravadores-row { padding: 12px 14px; }
+  .match-card { border-radius: 14px; }
+  .match-top { flex-wrap: wrap; gap: 6px; padding: 10px 12px; }
+  .match-meta { font-size: 0.7rem; }
+  .match-badge { padding: 3px 7px; font-size: 0.65rem; }
+  .zebra-badge { font-size: 0.65rem; }
+  .match-teams { display: grid; grid-template-columns: 1fr auto 1fr; grid-template-areas: "home score away"; align-items: center; gap: 8px; padding: 10px 12px; }
+  .match-teams .team { display: inline-flex; flex-direction: row; align-items: center; gap: 6px; min-width: 0; }
+  .match-teams .team.home { grid-area: home; justify-content: flex-end; text-align: right; }
+  .match-teams .team.away { grid-area: away; justify-content: flex-start; text-align: left; }
+  .match-teams .team.home .team-name { order: 1; }
+  .match-teams .team.home .flag { order: 2; }
+  .match-teams .team.away .flag { order: 1; }
+  .match-teams .team.away .team-name { order: 2; }
+  .match-teams .score-box { grid-area: score; display: flex; align-items: center; justify-content: center; min-width: 44px; }
+  .match-teams .team .flag,
+  .match-teams .team .team-name { width: auto; }
+  .match-teams .flag { width: 28px; height: 28px; font-size: 1.05rem; flex-shrink: 0; }
+  .match-teams .team-name { font-size: 0.72rem; }
+  .score-box { min-width: auto; }
+  .score { font-size: 1.2rem; }
+  .vs-sub { font-size: 0.65rem; }
+  .leader-pick { flex-wrap: wrap; align-items: center; gap: 10px; padding: 10px 12px; }
+  .leader-pick .avatar { width: 34px; height: 34px; font-size: 0.9rem; }
+  .leader-pick .info { flex: 1 1 0; min-width: 0; }
+  .leader-pick .pick { font-size: 0.85rem; }
+  .leader-pick .result, .score-breakdown { text-align: right; flex: 0 0 auto; min-width: 90px; }
+  .score-breakdown .line { font-size: 0.68rem; }
+  .score-breakdown .line.total { font-size: 0.95rem; }
+  .cravadores-row { padding: 10px 12px; font-size: 0.78rem; }
 
   /* Consenso */
-  .consensus { padding: 12px 14px 14px; }
-  .odds-row { grid-template-columns: 1fr; gap: 8px; }
-  .odd { padding: 8px; }
-  .odd .value { font-size: 1.15rem; }
+  .consensus { padding: 10px 12px 12px; }
+  .consensus-title { font-size: 0.68rem; margin-bottom: 8px; }
+  .bar { height: 8px; margin-bottom: 10px; }
+  .odds-row { grid-template-columns: repeat(3, 1fr); gap: 6px; }
+  .odd { padding: 6px 4px; border-radius: 10px; }
+  .odd .label { font-size: 0.58rem; }
+  .odd .value { font-size: 1rem; }
 
   /* Bonus card */
-  .bonus-card-v2 { padding: 14px 14px 12px; border-radius: 16px; }
-  .bonus-v2-team .flag { width: 42px; height: 42px; font-size: 1.5rem; }
-  .bonus-v2-name { font-size: 0.8rem; }
-  .bonus-v2-number { font-size: 1.8rem; }
-  .bonus-v2-cravadores { min-height: auto; padding: 10px 12px; }
+  .bonus-card-v2 { padding: 12px 12px 10px; border-radius: 14px; }
+  .bonus-v2-eyebrow { font-size: 0.65rem; margin-bottom: 10px; }
+  .bonus-v2-teams { gap: 10px; margin-bottom: 12px; }
+  .bonus-v2-team .flag { width: 36px; height: 36px; font-size: 1.3rem; }
+  .bonus-v2-name { font-size: 0.72rem; }
+  .bonus-v2-score { min-width: 56px; }
+  .bonus-v2-number { font-size: 1.5rem; }
+  .bonus-v2-label { font-size: 0.58rem; }
+  .bonus-v2-cravadores { min-height: auto; padding: 8px 10px; border-radius: 10px; }
+  .bonus-v2-crava-title { font-size: 0.62rem; }
+  .bonus-v2-crava-names { font-size: 0.75rem; }
+  .bonus-v2-footer { margin-top: 8px; }
+  .bonus-v2-status { font-size: 0.6rem; }
 
   /* Ranking home e geral */
   .rank-row-wrap { gap: 4px; padding: 4px; }
@@ -549,6 +582,58 @@ th.cravou, td.cravou { min-width: 120px; }
   .rank-detail .mini-ledger-table .team-pair { flex-wrap: wrap; }
   .rank-detail .mini-ledger-table .score-line { justify-content: flex-start; }
   .rank-detail .mini-ledger-table .pts-badges { justify-content: flex-start; }
+
+  /* Página de Jogos (fase de grupos e eliminatória) */
+  .group-card,
+  .knockout-card { overflow: hidden; }
+  .group-card > table,
+  .knockout-card > table { display: block; width: 100%; white-space: normal; }
+  .group-card > table thead,
+  .knockout-card > table thead { display: none; }
+  .group-card > table tbody,
+  .knockout-card > table tbody { display: block; padding: 10px; }
+  .group-card > table tbody tr,
+  .knockout-card > table tbody tr { display: grid; grid-template-columns: auto auto 1fr auto auto; grid-template-areas: "date time . bonus status" "home home score away away" "cravou cravou cravou cravou cravou"; gap: 6px 8px; padding: 12px; margin-bottom: 10px; background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 14px; }
+  .group-card > table tbody tr:last-child,
+  .knockout-card > table tbody tr:last-child { margin-bottom: 0; }
+  .group-card > table tbody td,
+  .knockout-card > table tbody td { padding: 0; border: none; display: contents; }
+  .group-card > table td.date,
+  .knockout-card > table td.date { grid-area: date; color: var(--muted); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; }
+  .group-card > table td.time,
+  .knockout-card > table td.time { grid-area: time; color: var(--muted); font-size: 0.7rem; }
+  .group-card > table td.bonus,
+  .knockout-card > table td.bonus { grid-area: bonus; }
+  .group-card > table td.status,
+  .knockout-card > table td.status { grid-area: status; }
+  .group-card > table td.num,
+  .knockout-card > table td.num { display: none; }
+  .group-card > table td.home,
+  .knockout-card > table td.home { grid-area: home; display: flex; align-items: center; }
+  .group-card > table td.score,
+  .knockout-card > table td.score { grid-area: score; display: flex; align-items: center; justify-content: center; }
+  .group-card > table td.away,
+  .knockout-card > table td.away { grid-area: away; display: flex; align-items: center; }
+  .group-card > table td.cravou,
+  .knockout-card > table td.cravou { grid-area: cravou; display: block; font-size: 0.72rem; color: var(--muted); border-top: 1px solid var(--border); padding-top: 8px; margin-top: 4px; }
+  .group-card > table td.home .team-cell,
+  .knockout-card > table td.home .team-cell { justify-content: flex-end; text-align: right; }
+  .group-card > table td.away .team-cell,
+  .knockout-card > table td.away .team-cell { justify-content: flex-start; text-align: left; }
+  .group-card > table .team-cell,
+  .knockout-card > table .team-cell { display: flex; align-items: center; gap: 6px; width: 100%; font-size: 0.8rem; }
+  .group-card > table .team-cell .name,
+  .knockout-card > table .team-cell .name { overflow-wrap: anywhere; }
+  .group-card > table .team-cell .flag,
+  .knockout-card > table .team-cell .flag { width: 26px; height: 26px; font-size: 1.05rem; flex-shrink: 0; }
+  .group-card > table td.score .score,
+  .knockout-card > table td.score .score { font-size: 1.2rem; }
+  .group-card > table .bonus-badge,
+  .knockout-card > table .bonus-badge { padding: 3px 7px; font-size: 0.58rem; }
+  .group-card > table .status-tag,
+  .knockout-card > table .status-tag { font-size: 0.6rem; padding: 0; background: none; border: none; }
+  .group-card > table td.cravou:has(.cravou-none),
+  .knockout-card > table td.cravou:has(.cravou-none) { display: none; }
 
   /* Tabelas do perfil do apostador (round-card / phase-card) */
   .round-card > table,
