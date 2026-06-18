@@ -218,6 +218,7 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .ranking-card table tbody tr:has(+ .detail-row.expanded) { background: rgba(255,255,255,0.04); }
 .rank-row { display: grid; grid-template-columns: 42px 50px 1fr auto; align-items: center; gap: 14px; padding: 8px 10px; border-radius: 8px; transition: background 0.2s ease; }
 .rank-row:hover { background: rgba(255,255,255,0.04); }
+.row-actions { display: flex; align-items: center; gap: 8px; padding-right: 8px; }
 .expand-btn {
   display: inline-flex;
   align-items: center;
