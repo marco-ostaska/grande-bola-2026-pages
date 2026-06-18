@@ -386,6 +386,14 @@ footer { margin-top: 60px; text-align: center; font-family: "Saira Condensed", s
 .mini-ledger-table .score-line .real { color: var(--text); }
 .mini-ledger-table .score-line .palpite { color: var(--gold); }
 .mini-ledger-table .score-line .sep { color: var(--muted); font-size: 0.65rem; }
+.mini-ledger-table .score-stack { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.mini-ledger-table .score-row { display: flex; align-items: center; gap: 6px; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; }
+.mini-ledger-table .score-row .label { font-size: 0.6rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); min-width: 42px; text-align: right; }
+.mini-ledger-table .score-row .val { font-family: "Anton", sans-serif; font-size: 0.92rem; padding: 2px 7px; border-radius: 5px; background: rgba(255,255,255,0.06); }
+.mini-ledger-table .score-row.result .val { color: var(--text); }
+.mini-ledger-table .score-row.guess .val { color: var(--gold); }
+.mini-ledger-table .score-row.bonus .label { color: var(--bonus); }
+.mini-ledger-table .score-row.bonus .val { color: var(--bonus); background: var(--bonus-bg); border: 1px solid rgba(168,85,247,0.25); }
 .mini-ledger-table .pts-badges { display: inline-flex; align-items: center; gap: 4px; justify-content: center; flex-wrap: wrap; }
 .mini-ledger-table .pts-badges .badge { display: inline-flex; align-items: center; gap: 2px; padding: 2px 7px; border-radius: 999px; font-family: "Saira Condensed", sans-serif; font-size: 0.62rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
 .mini-ledger-table .pts-badges .badge.normal { color: var(--accent-2); background: rgba(22, 163, 74, 0.12); border: 1px solid rgba(22, 163, 74, 0.3); }
