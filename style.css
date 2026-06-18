@@ -86,10 +86,18 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .leader-pick .avatar.silver { background: var(--silver); }
 .leader-pick .info { flex: 1; line-height: 1.25; }
 .leader-pick .label { font-family: "Saira Condensed", sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
-.leader-pick .pick { font-family: "Anton", sans-serif; font-size: 1.05rem; color: var(--gold); }
+.leader-pick .pick { font-family: "Anton", sans-serif; font-size: 0.95rem; color: var(--gold); }
 .leader-pick.finished .pick { color: var(--accent-2); }
 .leader-pick .result { text-align: right; font-family: "Saira Condensed", sans-serif; font-size: 0.8rem; color: var(--muted); }
 .leader-pick .result strong { color: var(--accent-2); font-size: 1rem; }
+.score-breakdown { text-align: right; }
+.score-breakdown .line { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; color: var(--muted); line-height: 1.35; }
+.score-breakdown .line strong { font-weight: 700; }
+.score-breakdown .line.normal strong { color: var(--accent-2); }
+.score-breakdown .line.bonus strong { color: var(--bonus); }
+.score-breakdown .line.total { margin-top: 4px; padding-top: 4px; border-top: 1px solid rgba(255,255,255,0.12); font-family: "Anton", sans-serif; font-size: 1.15rem; color: var(--text); }
+.score-breakdown .line.total strong { color: var(--text); }
+.score-breakdown .pending { font-family: "Saira Condensed", sans-serif; font-size: 0.8rem; color: var(--muted); }
 .leader-emoji { display: block; margin: 0 auto 6px; width: 28px; height: 28px; }
 .leader-pick .result:has(.leader-emoji) { text-align: center; }
 @keyframes emojiPulse { 0%,100% { transform: scale(1); } 50% { transform: scale(1.12); } }
@@ -194,6 +202,7 @@ td.pts .pending { color: var(--muted); font-size: 0.85rem; }
 .bonus-link { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bonus); margin-top: 4px; }
 .bonus-link a { color: var(--bonus); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
 .bonus-link a:hover { border-color: var(--bonus); }
+.leader-pick .bonus-link { margin-top: 3px; }
 .bonus-pts { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bonus); margin-top: 4px; }
 .qualifier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; padding: 20px; }
 .qualifier-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
