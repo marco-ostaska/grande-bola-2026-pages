@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Grande Bola 2026 — Gerar Palpites</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&family=Saira+Condensed:wght@300;500;700&display=swap" rel="stylesheet" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <style>
+    :root {
+      --bg: #0a1628;
+      --panel: #101e33;
+      --panel-2: #152238;
+      --text: #f2f6fb;
+      --muted: #8aa3c1;
+      --accent: #16a34a;
+      --accent-2: #22c55e;
+      --accent-glow: rgba(22, 163, 74, 0.35);
+      --bonus: #a855f7;
+      --bonus-bg: rgba(168, 85, 247, 0.08);
+      --border: rgba(138, 163, 193, 0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    html { font-size: 15px; }
+    html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Archivo Narrow", "Helvetica Neue", sans-serif; line-height: 1.35; min-height: 100vh; }
+    body::before { content: ""; position: fixed; inset: 0; z-index: -2; background: radial-gradient(circle at 20% 10%, rgba(22, 163, 74, 0.14), transparent 35%), radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.10), transparent 30%), radial-gradient(circle at 50% 100%, rgba(10, 22, 40, 1), transparent 60%), linear-gradient(180deg, #0a1628 0%, #0d1b2e 60%, #0a1628 100%); pointer-events: none; }
+    body::after { content: ""; position: fixed; inset: 0; z-index: -1; opacity: 0.045; background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.08) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.04) 80px); pointer-events: none; }
+    @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+    .reveal { animation: fadeUp 0.7s ease-out both; }
+    .reveal-1 { animation-delay: 0.05s; }
+    .reveal-2 { animation-delay: 0.15s; }
+    .reveal-3 { animation-delay: 0.25s; }
+    .reveal-4 { animation-delay: 0.35s; }
+    a { color: inherit; text-decoration: none; }
+    .container { max-width: 1260px; margin: 0 auto; padding: 28px 22px 60px; }
+    header { display: flex; align-items: flex-start; justify-content: space-between; gap: 24px; margin-bottom: 36px; padding-bottom: 22px; border-bottom: 1px solid var(--border); }
+    .brand h1 { margin: 0; font-family: "Anton", Impact, sans-serif; font-size: clamp(2.2rem, 5vw, 3rem); line-height: 0.95; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text); }
+    .brand h1 span { color: var(--accent-2); }
+    .brand .meta { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.95rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.08em; }
+    nav { display: flex; gap: 10px; margin-top: 8px; }
+    nav a { padding: 10px 18px; border-radius: 999px; font-family: "Saira Condensed", sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.85rem; color: var(--muted); background: rgba(255,255,255,0.03); border: 1px solid var(--border); transition: all 0.2s ease; }
+    nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 20px var(--accent-glow); }
+    .section-head { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 36px 0 18px; }
+    .section-head h2 { margin: 0; font-family: "Anton", sans-serif; font-size: clamp(1.5rem, 3vw, 1.8rem); text-transform: uppercase; letter-spacing: 0.02em; }
+    .section-head h2::before { content: "//"; color: var(--accent-2); margin-right: 10px; }
+    .count { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+
+    .group-card, .phase-card { background: var(--panel); border: 1px solid var(--border); border-radius: 20px; overflow: hidden; margin-bottom: 24px; }
+    .round-header, .group-header, .phase-header { padding: 16px 20px; background: var(--panel-2); border-bottom: 1px solid var(--border); }
+    .round-name, .group-name, .phase-name { font-family: "Anton", sans-serif; font-size: 1.4rem; text-transform: uppercase; letter-spacing: 0.03em; }
+    .round-name span, .group-name span, .phase-name span { color: var(--accent-2); }
+    .round-meta, .group-meta, .phase-note { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
+    table { width: 100%; border-collapse: collapse; font-family: "Saira Condensed", sans-serif; font-size: 0.98rem; }
+    thead th { background: rgba(255,255,255,0.02); padding: 12px 16px; text-align: left; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.7rem; color: var(--muted); border-bottom: 1px solid var(--border); }
+    tbody tr { border-bottom: 1px solid var(--border); }
+    tbody tr:last-child { border-bottom: none; }
+    td { padding: 12px 16px; vertical-align: middle; }
+    td.num { text-align: center; color: var(--muted); font-weight: 700; width: 44px; }
+    tbody tr.bonus { background: var(--bonus-bg); }
+
+    .form-table td { padding: 10px 16px; }
+    .form-table .team-cell { display: flex; align-items: center; gap: 10px; }
+    .form-table .team-cell.right { justify-content: flex-end; text-align: right; }
+    .form-table .team-cell .name { font-weight: 600; font-size: 0.96rem; text-transform: uppercase; letter-spacing: 0.02em; }
+    .score-input {
+      width: 3rem;
+      height: 2.4rem;
+      text-align: center;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      background: var(--panel-2);
+      color: var(--text);
+      font-family: "Anton", sans-serif;
+      font-size: 1.15rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .score-input:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 2px var(--accent-glow); }
+    .score-sep { text-align: center; font-family: "Anton", sans-serif; font-size: 1.1rem; color: var(--muted); min-width: 1.2rem; }
+    .bonus-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 999px; font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--bonus); background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.35); margin-left: 8px; vertical-align: middle; }
+    .name-input {
+      flex: 1;
+      min-width: 240px;
+      padding: 12px 16px;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      font-family: "Archivo Narrow", sans-serif;
+      font-size: 1.1rem;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .name-input:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 2px var(--accent-glow); }
+    .name-input::placeholder { color: var(--muted); opacity: 0.6; }
+    label.field-label { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); display: block; margin-bottom: 6px; }
+
+    .stage2-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; padding: 20px; }
+    .qualifier-group { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
+    .qualifier-group h4 { margin: 0 0 10px; font-family: "Anton", sans-serif; font-size: 0.95rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--muted); }
+    .qualifier-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+    .qualifier-row label { font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; font-weight: 700; color: var(--muted); min-width: 1.2rem; }
+    .qualifier-select {
+      flex: 1;
+      padding: 8px 10px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: var(--panel-2);
+      color: var(--text);
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+    .qualifier-select:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 2px var(--accent-glow); }
+
+    .semis-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; padding: 20px; }
+    .semi-field { display: flex; align-items: center; gap: 14px; background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 16px 18px; }
+    .semi-field .pos { font-family: "Anton", sans-serif; font-size: 1.2rem; color: var(--muted); min-width: 1.8rem; }
+    .semi-field select { flex: 1; padding: 8px 10px; border-radius: 8px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font-family: "Saira Condensed", sans-serif; font-size: 0.9rem; font-weight: 600; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .semi-field select:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 2px var(--accent-glow); }
+
+    .podium { display: flex; align-items: flex-end; justify-content: center; gap: 14px; padding: 34px 24px 20px; }
+    .podium-spot { display: flex; flex-direction: column; align-items: center; text-align: center; width: 100%; max-width: 170px; }
+    .podium-spot.first { order: 2; }
+    .podium-spot.second { order: 1; }
+    .podium-spot.third { order: 3; }
+    .podium-spot.fourth { order: 4; }
+    .podium-label { font-family: "Saira Condensed", sans-serif; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+    .podium-select { width: 100%; padding: 10px 8px; border-radius: 10px; border: 1px solid var(--border); background: var(--panel-2); color: var(--text); font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; font-weight: 600; text-align: center; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
+    .podium-select:focus { outline: none; border-color: var(--accent-2); box-shadow: 0 0 0 2px var(--accent-glow); }
+    .podium-base { width: 100%; margin-top: 12px; border-radius: 10px 10px 0 0; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.4rem; color: var(--bg); padding: 10px; }
+    .podium-spot.first .podium-base { height: 70px; background: linear-gradient(180deg, var(--accent-2), var(--accent)); }
+    .podium-spot.second .podium-base { height: 52px; background: linear-gradient(180deg, var(--muted), #475569); color: var(--text); }
+    .podium-spot.third .podium-base { height: 40px; background: linear-gradient(180deg, #f59e0b, #b45309); }
+    .podium-spot.fourth .podium-base { height: 32px; background: linear-gradient(180deg, #64748b, #334155); color: var(--text); font-size: 1.1rem; }
+
+    .actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 36px; padding-top: 28px; border-top: 1px solid var(--border); }
+    .btn {
+      padding: 14px 28px;
+      border-radius: 999px;
+      border: none;
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.9rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .btn-primary { color: var(--bg); background: var(--accent-2); box-shadow: 0 0 20px var(--accent-glow); }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 28px var(--accent-glow); }
+    .btn-secondary { color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
+    .btn-secondary:hover { color: var(--text); background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.2); }
+    .btn-bonus { color: var(--bonus); background: rgba(168,85,247,0.12); border: 1px solid rgba(168,85,247,0.35); }
+    .btn-bonus:hover { background: rgba(168,85,247,0.2); }
+
+    .output-section { margin-top: 36px; display: none; }
+    .output-section.visible { display: block; }
+    .output-section pre {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 20px;
+      overflow-x: auto;
+      font-size: 0.82rem;
+      line-height: 1.7;
+      white-space: pre;
+      max-height: 60vh;
+      overflow-y: auto;
+      color: var(--muted);
+      font-family: "Saira Condensed", monospace;
+    }
+    .yaml-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; }
+    .yaml-head span { font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); font-weight: 700; }
+    .copy-ok { color: var(--accent-2); font-weight: 700; opacity: 0; transition: opacity 0.3s; }
+    .copy-ok.show { opacity: 1; }
+    .tab-bar { display: flex; gap: 8px; margin-bottom: 12px; }
+    .tab-btn {
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-family: "Saira Condensed", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .tab-btn:hover { color: var(--text); background: rgba(255,255,255,0.06); }
+    .tab-btn.active { color: var(--bg); background: var(--accent-2); border-color: var(--accent-2); box-shadow: 0 0 14px var(--accent-glow); }
+
+    footer { margin-top: 60px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; letter-spacing: 0.06em; color: var(--muted); text-transform: uppercase; }
+
+    @media (max-width: 860px) {
+      header { flex-direction: column; align-items: flex-start; }
+      nav { flex-wrap: wrap; }
+      .podium { display: grid; grid-template-columns: 1fr 1fr; align-items: start; gap: 12px; }
+      .podium-spot { max-width: none; }
+      .podium-spot.first { order: 1; grid-column: 1 / -1; }
+      .podium-spot.second { order: 2; }
+      .podium-spot.third { order: 3; }
+      .podium-spot.fourth { order: 4; }
+      .podium-base { border-radius: 10px; height: auto !important; min-height: 48px; padding: 10px; }
+    }
+    @media (max-width: 720px) {
+      table { display: block; overflow-x: auto; white-space: nowrap; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header class="reveal reveal-1">
+      <div class="brand">
+        <h1>Grande <span>Bola</span> da Copa 2026</h1>
+        <div class="meta">Formulário de Palpites</div>
+      </div>
+      <nav>
+        <a href="#">Palpites</a>
+      </nav>
+    </header>
+
+    <div class="reveal reveal-2">
+      <div class="section-head">
+        <h2>Seu Nome</h2>
+      </div>
+      <div class="group-card" style="padding:20px;">
+        <label class="field-label" for="name">Nome do apostador</label>
+        <input type="text" class="name-input" id="name" placeholder="Ex: João da Silva" />
+      </div>
+    </div>
+
+    <div class="reveal reveal-2">
+      <div class="section-head">
+        <h2>Fase de Grupos</h2>
+        <span class="count">72 palpites</span>
+      </div>
+      <div id="groups-container"></div>
+    </div>
+
+    <div class="reveal reveal-3">
+      <div class="section-head">
+        <h2>Jogos Bônus</h2>
+        <span class="count">8 jogos · placar exato vale +10</span>
+      </div>
+      <div id="bonus-container"></div>
+    </div>
+
+    <div class="reveal reveal-3">
+      <div class="section-head">
+        <h2>2ª Etapa — Classificação dos Grupos</h2>
+        <span class="count">1º e 2º de cada grupo</span>
+      </div>
+      <div class="group-card">
+        <div id="stage2-container" class="stage2-grid"></div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-3">
+      <div class="section-head">
+        <h2>3ª Etapa — Semifinalistas</h2>
+        <span class="count">4 seleções</span>
+      </div>
+      <div class="group-card">
+        <div id="stage3-container" class="semis-grid"></div>
+      </div>
+    </div>
+
+    <div class="reveal reveal-4">
+      <div class="section-head">
+        <h2>4ª Etapa — Pódio da Copa</h2>
+        <span class="count">Campeão · Vice · 3º · 4º</span>
+      </div>
+      <div class="group-card">
+        <div class="podium" id="stage4-container"></div>
+      </div>
+    </div>
+
+    <div class="actions reveal reveal-4">
+      <button class="btn btn-primary" onclick="generate()">Gerar Palpites</button>
+      <button class="btn btn-secondary" onclick="clearAll()">Limpar tudo</button>
+    </div>
+
+    <div class="output-section" id="output-section">
+      <div class="tab-bar">
+        <button class="tab-btn active" onclick="switchTab('text', this)">Texto</button>
+        <button class="tab-btn" onclick="switchTab('yaml', this)">YAML</button>
+      </div>
+      <div class="yaml-head">
+        <span id="output-label">Texto Gerado</span>
+        <span class="copy-ok" id="copy-ok">Copiado!</span>
+      </div>
+      <pre id="output-content"></pre>
+      <div class="actions" style="border-top:none; padding-top:12px; margin-top:0;">
+        <button class="btn btn-primary" onclick="copyOutput()">Copiar</button>
+        <button class="btn btn-bonus" onclick="downloadOutput()">Baixar .zip</button>
+      </div>
+    </div>
+  </div>
+
+  <footer>Grande Bola da Copa 2026 — Bolão entre amigos</footer>
+
+  <script src="form-data.js"></script>
+  <script>
+    const MATCHES = window.FORM_DATA.matches;
+    const BONUS_MATCHES = window.FORM_DATA.bonusGames;
+    const GROUPS = window.FORM_DATA.groups;
+    const ALL_TEAMS = [...new Set(Object.values(GROUPS).flat())].sort();
+
+    function renderGroups() {
+      const container = document.getElementById('groups-container');
+      const matchesByGroup = {};
+      for (const m of MATCHES) {
+        if (!matchesByGroup[m.group]) matchesByGroup[m.group] = [];
+        matchesByGroup[m.group].push(m);
+      }
+      let html = '';
+      for (const [grp, matches] of Object.entries(matchesByGroup)) {
+        const teams = GROUPS[grp];
+        html += `<div class="group-card">
+          <div class="group-header">
+            <div class="group-name">Grupo <span>${grp}</span></div>
+            <div class="group-meta">${teams.join(' · ')}</div>
+          </div>
+          <table class="form-table">
+            <thead><tr>
+              <th class="num">#</th><th style="text-align:right">Casa</th><th></th><th style="width:3rem"></th><th></th><th>Fora</th>
+            </tr></thead>
+            <tbody>`;
+        for (const m of matches) {
+          const isBonus = BONUS_MATCHES.includes(m.num);
+          if (isBonus) continue;
+          html += `<tr>
+            <td class="num">${m.num}</td>
+            <td><div class="team-cell right"><span class="name">${m.team1}</span></div></td>
+            <td style="text-align:right"><input type="number" class="score-input" id="h${m.num}" min="0" max="20" value="" /></td>
+            <td><div class="score-sep">×</div></td>
+            <td><input type="number" class="score-input" id="a${m.num}" min="0" max="20" value="" /></td>
+            <td><div class="team-cell"><span class="name">${m.team2}</span></div></td>
+          </tr>`;
+        }
+        html += `</tbody></table></div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderStage2() {
+      const container = document.getElementById('stage2-container');
+      let html = '';
+      for (const [grp, teams] of Object.entries(GROUPS)) {
+        const opts = teams.map(t => `<option value="${t}">${t}</option>`).join('');
+        html += `<div class="qualifier-group">
+          <h4>Grupo ${grp}</h4>
+          <div class="qualifier-row">
+            <label>1º</label>
+            <select class="qualifier-select" id="s2-${grp}-first"><option value="">—</option>${opts}</select>
+          </div>
+          <div class="qualifier-row">
+            <label>2º</label>
+            <select class="qualifier-select" id="s2-${grp}-second"><option value="">—</option>${opts}</select>
+          </div>
+        </div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderBonus() {
+      const container = document.getElementById('bonus-container');
+      let html = `<div class="group-card">
+        <div class="group-header" style="background:linear-gradient(90deg, rgba(168,85,247,0.15), rgba(168,85,247,0.04));">
+          <div class="group-name" style="color:var(--bonus);">Jogos Bônus</div>
+          <div class="group-meta">Placar exato vale +10 pontos</div>
+        </div>
+        <table class="form-table">
+          <thead><tr>
+            <th class="num">#</th><th style="text-align:right">Casa</th><th></th><th style="width:3rem"></th><th></th><th>Fora</th>
+          </tr></thead>
+          <tbody>`;
+      for (const num of BONUS_MATCHES) {
+        const m = MATCHES.find(x => x.num === num);
+        html += `<tr class="bonus">
+          <td class="num">${pad2(m.num)}<span class="bonus-badge">B</span></td>
+          <td><div class="team-cell right"><span class="name">${m.team1}</span></div></td>
+          <td style="text-align:right"><input type="number" class="score-input" id="h${m.num}" min="0" max="20" value="" /></td>
+          <td><div class="score-sep">×</div></td>
+          <td><input type="number" class="score-input" id="a${m.num}" min="0" max="20" value="" /></td>
+          <td><div class="team-cell"><span class="name">${m.team2}</span></div></td>
+        </tr>`;
+      }
+      html += `</tbody></table></div>`;
+      container.innerHTML = html;
+    }
+
+    function renderStage3() {
+      const container = document.getElementById('stage3-container');
+      const opts = ALL_TEAMS.map(t => `<option value="${t}">${t}</option>`).join('');
+      let html = '';
+      for (let i = 0; i < 4; i++) {
+        html += `<div class="semi-field">
+          <span class="pos">${i + 1}º</span>
+          <select id="s3-${i}"><option value="">—</option>${opts}</select>
+        </div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    function renderStage4() {
+      const container = document.getElementById('stage4-container');
+      const opts = ALL_TEAMS.map(t => `<option value="${t}">${t}</option>`).join('');
+      const spots = [
+        {key:'vic', label:'Vice-campeão', cls:'second'},
+        {key:'cam', label:'Campeão', cls:'first'},
+        {key:'ter', label:'3º Lugar', cls:'third'},
+        {key:'qua', label:'4º Lugar', cls:'fourth'}
+      ];
+      let html = '';
+      for (const s of spots) {
+        html += `<div class="podium-spot ${s.cls}">
+          <div class="podium-label">${s.label}</div>
+          <select class="podium-select" id="s4-${s.key}"><option value="">—</option>${opts}</select>
+          <div class="podium-base">${s.key === 'cam' ? '1º' : s.key === 'vic' ? '2º' : s.key === 'ter' ? '3º' : '4º'}</div>
+        </div>`;
+      }
+      container.innerHTML = html;
+    }
+
+    let currentTab = 'text';
+    let lastText = '';
+    let lastYAML = '';
+
+    function yamlEscape(val) {
+      if (/[:{}\[\],&*?|>!%#@`]/.test(val) || /^\d/.test(val) || val === '' || /\s/.test(val)) {
+        return `"${val.replace(/\\/g, '\\\\').replace(/"/g, '\\"')}"`;
+      }
+      return val;
+    }
+
+    function pad2(n) { return String(n).padStart(2, '0'); }
+
+    function generateText() {
+      const name = document.getElementById('name').value.trim();
+      if (!name) { alert('Preencha seu nome!'); return; }
+
+      let t = '';
+      t += `COPA DO MUNDO 2026 - PALPITES\n`;
+      t += `Nome: ${name}\n`;
+
+      // stage1
+      t += `\n${'='.repeat(40)}\n`;
+      t += `FASE DE GRUPOS\n`;
+      t += `${'='.repeat(40)}\n\n`;
+      for (const m of MATCHES) {
+        const h = document.getElementById(`h${m.num}`).value || '0';
+        const a = document.getElementById(`a${m.num}`).value || '0';
+        t += `${pad2(m.num)}. ${m.team1} ${h} x ${a} ${m.team2}\n`;
+      }
+
+      // bonus
+      t += `\n${'='.repeat(40)}\n`;
+      t += `JOGOS BÔNUS\n`;
+      t += `${'='.repeat(40)}\n\n`;
+      for (const num of BONUS_MATCHES) {
+        const m = MATCHES.find(x => x.num === num);
+        const h = document.getElementById(`h${num}`).value || '0';
+        const a = document.getElementById(`a${num}`).value || '0';
+        t += `${pad2(num)}. ${m.team1} ${h} x ${a} ${m.team2}\n`;
+      }
+
+      // stage2
+      t += `\n${'='.repeat(40)}\n`;
+      t += `CLASSIFICAÇÃO DOS GRUPOS\n`;
+      t += `${'='.repeat(40)}\n\n`;
+      for (const grp of Object.keys(GROUPS)) {
+        const first = document.getElementById(`s2-${grp}-first`).value || '?';
+        const second = document.getElementById(`s2-${grp}-second`).value || '?';
+        t += `Grupo ${grp}  - ${first} / ${second}\n`;
+      }
+
+      // stage3
+      t += `\n${'='.repeat(40)}\n`;
+      t += `SEMIFINALISTAS\n`;
+      t += `${'='.repeat(40)}\n\n`;
+      for (let i = 0; i < 4; i++) {
+        const val = document.getElementById(`s3-${i}`).value || '?';
+        t += `${val}\n`;
+      }
+
+      // stage4
+      t += `\n${'='.repeat(40)}\n`;
+      t += `CLASSIFICAÇÃO FINAL\n`;
+      t += `${'='.repeat(40)}\n\n`;
+      const cam = document.getElementById('s4-cam').value || '?';
+      const vic = document.getElementById('s4-vic').value || '?';
+      const ter = document.getElementById('s4-ter').value || '?';
+      const qua = document.getElementById('s4-qua').value || '?';
+      t += `Campeão:       ${cam}\n`;
+      t += `Vice-campeão:  ${vic}\n`;
+      t += `3º colocado:   ${ter}\n`;
+      t += `4º colocado:   ${qua}\n`;
+
+      return t;
+    }
+
+    function generateYAML() {
+      const name = document.getElementById('name').value.trim();
+      if (!name) { alert('Preencha seu nome!'); return; }
+      const slug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      let y = '';
+      y += `name: ${yamlEscape(name)}\n`;
+      y += `slug: ${yamlEscape(slug)}\n`;
+      y += `predictions:\n`;
+      y += `  stage1:\n`;
+      for (const m of MATCHES) {
+        const h = document.getElementById(`h${m.num}`).value;
+        const a = document.getElementById(`a${m.num}`).value;
+        y += `    ${m.num}:\n      home: ${h !== '' ? h : '0'}\n      away: ${a !== '' ? a : '0'}\n`;
+      }
+      y += `  bonus:\n`;
+      for (const num of BONUS_MATCHES) {
+        const h = document.getElementById(`h${num}`).value;
+        const a = document.getElementById(`a${num}`).value;
+        y += `    ${num}:\n      home: ${h !== '' ? h : '0'}\n      away: ${a !== '' ? a : '0'}\n`;
+      }
+      y += `  stage2:\n`;
+      for (const grp of Object.keys(GROUPS)) {
+        const first = document.getElementById(`s2-${grp}-first`).value || '';
+        const second = document.getElementById(`s2-${grp}-second`).value || '';
+        y += `    ${grp}:\n      first: ${yamlEscape(first)}\n      second: ${yamlEscape(second)}\n`;
+      }
+      y += `  stage3:\n`;
+      for (let i = 0; i < 4; i++) {
+        y += `  - ${yamlEscape(document.getElementById(`s3-${i}`).value || '')}\n`;
+      }
+      y += `  stage4:\n`;
+      for (const key of ['cam','vic','ter','qua']) {
+        y += `    ${key}: ${yamlEscape(document.getElementById(`s4-${key}`).value || '')}\n`;
+      }
+      return y;
+    }
+
+    function generate() {
+      const name = document.getElementById('name').value.trim();
+      if (!name) { alert('Preencha seu nome!'); return; }
+      lastText = generateText();
+      lastYAML = generateYAML();
+      showOutput();
+      document.getElementById('output-section').classList.add('visible');
+      document.getElementById('output-section').scrollIntoView({behavior: 'smooth'});
+    }
+
+    function showOutput() {
+      const el = document.getElementById('output-content');
+      const label = document.getElementById('output-label');
+      if (currentTab === 'text') {
+        el.textContent = lastText;
+        label.textContent = 'Texto Gerado';
+      } else {
+        el.textContent = lastYAML;
+        label.textContent = 'YAML Gerado';
+      }
+    }
+
+    function switchTab(tab, btn) {
+      currentTab = tab;
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      showOutput();
+    }
+
+    function copyOutput() {
+      const text = document.getElementById('output-content').textContent;
+      navigator.clipboard.writeText(text).then(() => {
+        const el = document.getElementById('copy-ok');
+        el.classList.add('show');
+        setTimeout(() => el.classList.remove('show'), 2000);
+      });
+    }
+
+    function downloadOutput() {
+      const name = document.getElementById('name').value.trim() || 'palpite';
+      const slug = name.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+      const zip = new JSZip();
+      zip.file(`${slug}.txt`, lastText);
+      zip.file(`${slug}.yaml`, lastYAML);
+      zip.generateAsync({type: 'blob'}).then(blob => {
+        const a = document.createElement('a');
+        a.href = URL.createObjectURL(blob);
+        a.download = `${slug}.zip`;
+        a.click();
+        URL.revokeObjectURL(a.href);
+      });
+    }
+
+    function clearAll() {
+      if (!confirm('Limpar todos os campos?')) return;
+      document.querySelectorAll('input[type="number"]').forEach(el => el.value = '');
+      document.querySelectorAll('select').forEach(el => el.selectedIndex = 0);
+      document.getElementById('output-section').classList.remove('visible');
+    }
+
+    renderGroups();
+    renderBonus();
+    renderStage2();
+    renderStage3();
+    renderStage4();
+  </script>
+</body>
+</html>
