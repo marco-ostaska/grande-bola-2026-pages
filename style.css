@@ -108,15 +108,34 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .odd .label { font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--muted); }
 .odd .value { font-family: "Anton", sans-serif; font-size: 1.3rem; line-height: 1.1; margin-top: 2px; }
 .today-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 14px; }
-.bonus-strip { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.bonus-strip { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
 .today-card { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px 18px; background: var(--panel); border: 1px solid var(--border); border-radius: 16px; transition: transform 0.2s ease, border-color 0.2s ease; }
 .today-card:hover { transform: translateY(-3px); border-color: rgba(22,163,74,0.35); }
 .today-card.featured { border-color: rgba(22, 163, 74, 0.35); background: linear-gradient(135deg, var(--panel), rgba(22,163,74,0.06)); }
-.today-card.bonus-card { border-color: rgba(168, 85, 247, 0.35); background: linear-gradient(135deg, var(--panel), rgba(168,85,247,0.05)); }
 .today-card .time { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--muted); min-width: 56px; }
 .today-card .teams-row { flex: 1; display: flex; align-items: center; justify-content: center; gap: 10px; font-family: "Saira Condensed", sans-serif; font-size: 0.95rem; }
 .today-card .teams-row .flag { width: 26px; height: 26px; font-size: 0.95rem; }
 .today-card .status { font-family: "Saira Condensed", sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; padding: 5px 9px; border-radius: 6px; white-space: nowrap; }
+.bonus-card-v2 { display: flex; flex-direction: column; align-items: center; gap: 0; padding: 18px 18px 14px; background: linear-gradient(180deg, #120a20, rgba(18, 10, 32, 0.85)); border: 1px solid rgba(168, 85, 247, 0.35); border-radius: 20px; position: relative; overflow: hidden; transition: transform 0.2s ease, box-shadow 0.2s ease; }
+.bonus-card-v2::before { content: ""; position: absolute; inset: 0; border-radius: 20px; padding: 1px; background: linear-gradient(135deg, rgba(168, 85, 247, 0.6), rgba(251, 191, 36, 0.2), rgba(168, 85, 247, 0.4)); -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0); -webkit-mask-composite: xor; mask-composite: exclude; pointer-events: none; }
+.bonus-card-v2:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(168, 85, 247, 0.18); }
+.bonus-v2-eyebrow { width: 100%; display: flex; justify-content: space-between; align-items: center; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 14px; }
+.bonus-v2-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 8px; border-radius: 999px; background: rgba(168, 85, 247, 0.15); border: 1px solid rgba(168, 85, 247, 0.4); color: var(--bonus); }
+.bonus-v2-teams { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 14px; width: 100%; text-align: center; margin-bottom: 16px; }
+.bonus-v2-team { display: flex; flex-direction: column; align-items: center; gap: 6px; }
+.bonus-v2-team .flag { width: 52px; height: 52px; font-size: 1.8rem; border-radius: 50%; background: rgba(255,255,255,0.05); border: 1px solid var(--border); display: grid; place-items: center; }
+.bonus-v2-name { font-family: "Saira Condensed", sans-serif; font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.03em; }
+.bonus-v2-score { display: flex; flex-direction: column; align-items: center; gap: 2px; min-width: 70px; }
+.bonus-v2-number { font-family: "Anton", sans-serif; font-size: 2.6rem; line-height: 1; letter-spacing: 0.04em; }
+.bonus-v2-label { font-family: "Saira Condensed", sans-serif; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.bonus-v2-cravadores { width: 100%; margin-top: auto; padding: 12px 14px; border-radius: 12px; background: rgba(251, 191, 36, 0.08); border: 1px dashed rgba(251, 191, 36, 0.35); text-align: center; min-height: 46px; display: flex; align-items: center; justify-content: center; gap: 8px; }
+.bonus-card-v2:not(.has-cravadores) .bonus-v2-cravadores { opacity: 0.55; filter: grayscale(1); }
+.bonus-v2-crava-icon { font-size: 0.95rem; }
+.bonus-v2-crava-title { font-family: "Saira Condensed", sans-serif; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; color: var(--gold); white-space: nowrap; }
+.bonus-card-v2:not(.has-cravadores) .bonus-v2-crava-title { color: var(--muted); }
+.bonus-v2-crava-names { font-family: "Saira Condensed", sans-serif; font-size: 0.82rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.02em; color: var(--text); }
+.bonus-v2-footer { width: 100%; display: flex; justify-content: center; margin-top: 12px; }
+.bonus-v2-status { font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 4px 10px; border-radius: 6px; color: var(--muted); background: rgba(255,255,255,0.04); border: 1px solid var(--border); }
 .status-finished { color: var(--muted); background: rgba(255,255,255,0.05); border: 1px solid var(--border); }
 @keyframes livePulse { 0%,100% { opacity: 1; } 50% { opacity: 0.5; } }
 .status-live { color: #ef4444; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.4); animation: livePulse 1.4s ease-in-out infinite; }
@@ -172,6 +191,10 @@ td.bet { color: var(--gold); }
 td.score .dash, td.bet .dash { color: var(--muted); font-size: 1.1rem; }
 td.pts { text-align: center; font-family: "Anton", sans-serif; font-size: 1.15rem; width: 60px; }
 td.pts .pending { color: var(--muted); font-size: 0.85rem; }
+.bonus-link { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bonus); margin-top: 4px; }
+.bonus-link a { color: var(--bonus); border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+.bonus-link a:hover { border-color: var(--bonus); }
+.bonus-pts { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: var(--bonus); margin-top: 4px; }
 .qualifier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px; padding: 20px; }
 .qualifier-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
 .qualifier-group { background: rgba(255,255,255,0.02); border: 1px solid var(--border); border-radius: 14px; padding: 14px 16px; }
