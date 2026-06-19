@@ -807,7 +807,7 @@ th.cravou, td.cravou { min-width: 120px; }
 .leader-jersey-score .unit { font-family: "Saira Condensed", sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
 .leader-jersey-formance { margin-bottom: 18px; }
 .formance-label { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
-.formance-label strong { color: var(--text); font-weight: 600; }
+.formance-label strong { color: var(--text); font-weight: 700; font-size: 1.05rem; }
 .formance-bar { display: flex; height: 14px; border-radius: 999px; overflow: hidden; background: rgba(138,163,193,0.12); border: 1px solid var(--border); }
 .formance-segment { height: 100%; transition: width 0.6s ease; }
 .formance-segment.hit { background: var(--accent); }
