@@ -401,6 +401,17 @@ td.pts .pending { color: var(--muted); font-size: 0.85rem; }
 .profile-points { text-align: right; }
 .profile-points .points { font-family: "Anton", sans-serif; font-size: 2.2rem; line-height: 1; color: var(--accent-2); }
 .profile-points .unit { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.apostador-stats-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 20px; margin-bottom: 24px; }
+.apostador-stats-formance { margin-bottom: 18px; }
+.apostador-stats-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; }
+.apostador-stat { display: flex; flex-direction: column; gap: 2px; padding: 14px 10px; border-radius: 10px; background: rgba(0,0,0,0.2); text-align: center; }
+.apostador-stat .value { font-family: "Anton", sans-serif; font-size: 1.7rem; line-height: 1; }
+.apostador-stat .label { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.apostador-stat.hit .value      { color: var(--accent); }
+.apostador-stat.bullseye .value { color: var(--gold); }
+.apostador-stat.miss .value     { color: #ef4444; }
+.apostador-rounds-led { margin-top: 14px; padding: 8px 14px; border-radius: 8px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2); font-family: "Saira Condensed", sans-serif; font-size: 0.9rem; color: var(--muted); text-align: center; }
+.apostador-rounds-led .rounds-led-n { font-family: "Anton", sans-serif; font-size: 1.15rem; color: var(--gold); margin-right: 3px; }
 .player-cell { display: flex; align-items: center; gap: 14px; }
 .player-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.2rem; background: rgba(255,255,255,0.08); border: 1px solid var(--border); flex-shrink: 0; }
 .player-name { font-family: "Saira Condensed", sans-serif; font-weight: 600; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -876,6 +887,9 @@ th.cravou, td.cravou { min-width: 120px; }
 .leader-jersey-stat.bullseye .value { color: var(--gold); }
 .leader-jersey-stat.miss .value { color: #ef4444; }
 .leader-jersey-stat .label { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.leader-rounds-led { margin-top: 14px; padding: 8px 14px; border-radius: 8px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); font-family: "Saira Condensed", sans-serif; font-size: 0.82rem; color: var(--muted); text-align: center; }
+.leader-rounds-led .rounds-led-n { font-family: "Anton", sans-serif; font-size: 1.1rem; color: var(--gold); margin-right: 2px; }
+.leader-jersey.gold .leader-rounds-led { border-color: rgba(251,191,36,0.2); }
 
 @media (max-width: 720px) {
   .leader-deck { grid-template-columns: 1fr; gap: 16px; }
