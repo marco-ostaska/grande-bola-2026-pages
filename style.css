@@ -81,9 +81,6 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 
 /* ── ARQUIBANCADA VIRTUAL (dentro do destaque ao vivo) ───── */
 .destaque-section { margin-bottom: 38px; }
-.destaque-game { margin-bottom: 56px; }
-.destaque-game:last-child { margin-bottom: 0; }
-.destaque-game + .destaque-game { padding-top: 16px; border-top: 1px solid rgba(255,255,255,0.08); }
 .stands-title { display: flex; align-items: baseline; justify-content: space-between; gap: 16px; margin: 28px 0 16px; }
 .stands-title h2 { margin: 0; font-family: "Anton", sans-serif; font-size: clamp(1.3rem, 2.6vw, 1.6rem); text-transform: uppercase; letter-spacing: 0.02em; }
 .stands-title h2::before { content: "//"; color: var(--accent-2); margin-right: 10px; }
