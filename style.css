@@ -929,7 +929,7 @@ th.cravou, td.cravou { min-width: 120px; }
 }
 
 /* ---- Quiz Na cara do gol ---- */
-.quiz-section { margin-top: 32px; margin-bottom: 32px; }
+.quiz-section { position: relative; margin-top: 32px; margin-bottom: 32px; }
 .quiz-card { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 28px 24px 24px; cursor: default; }
 .quiz-card:not(.active) { cursor: pointer; }
 .quiz-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 20px; gap: 12px; }

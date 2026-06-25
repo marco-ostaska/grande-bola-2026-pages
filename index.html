@@ -53,8 +53,8 @@
           <button class="quiz-restart-btn" id="quiz-restart-btn">Jogar de novo</button>
         </div>
       </div>
-      <input id="quiz-hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
-        style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;" />
+      <input id="quiz-hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" inputmode="text"
+        style="position:absolute;left:0;top:0;opacity:0;width:100%;height:100%;pointer-events:none;z-index:-1;font-size:16px;" />
     </section>
 
     
@@ -5603,9 +5603,8 @@
     fakeInput.textContent = typed;
   }
 
-  hiddenInput.addEventListener('keydown', function(e) {
+  function tryType(ch) {
     if (done) return;
-    if (e.key.length !== 1) { e.preventDefault(); return; }
     if (blankIdx >= blanks.length) return;
 
     advanceSpaces();
@@ -5613,7 +5612,8 @@
     if (progress >= slots.length) { blankDone(); return; }
 
     var expected = norm(slots[progress].ch);
-    var typed    = norm(e.key);
+    var typed    = norm(ch);
+    if (!typed) return;
 
     if (typed === expected) {
       revealChar(blankIdx, progress++);
@@ -5623,7 +5623,14 @@
     } else {
       flashError();
     }
-    e.preventDefault();
+  }
+
+  hiddenInput.addEventListener('input', function() {
+    var val = hiddenInput.value;
+    for (var i = 0; i < val.length; i++) {
+      tryType(val[i]);
+      if (done) break;
+    }
     hiddenInput.value = '';
   });
 
@@ -5670,7 +5677,7 @@
     
 <footer class="reveal">
   Grande Bola da Copa 2026 — Bolão entre amigos
-  <span class="footer-updated">· atualizado em 25/06/2026 15:24</span>
+  <span class="footer-updated">· atualizado em 25/06/2026 15:47</span>
 </footer>
 
   </div>
