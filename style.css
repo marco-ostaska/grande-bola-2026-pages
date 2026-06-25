@@ -568,6 +568,14 @@ th.cravou, td.cravou { min-width: 120px; }
 .podium-grid .podium-spot.fourth { order: 4; }
 .podium-grid .podium-team { font-family: "Saira Condensed", sans-serif; font-weight: 700; font-size: 1rem; text-transform: uppercase; letter-spacing: 0.03em; margin-top: 8px; }
 .podium-votes { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 4px; }
+.hypo-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 14px; padding: 20px; }
+.hypo-card { background: rgba(255,255,255,0.03); border: 1px solid var(--border); border-radius: 16px; padding: 18px 12px; text-align: center; transition: transform 0.2s ease, border-color 0.2s ease; }
+.hypo-card:hover { transform: translateY(-3px); border-color: rgba(22,163,74,0.35); }
+.hypo-score { font-family: "Anton", sans-serif; font-size: 1.5rem; color: var(--gold); letter-spacing: 0.04em; margin-bottom: 8px; }
+.hypo-pts { font-family: "Anton", sans-serif; font-size: 2.4rem; line-height: 1; color: var(--accent-2); }
+.hypo-unit { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 8px; }
+.hypo-detail { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; color: var(--muted); }
+.google-pts { font-family: "Anton", sans-serif; font-size: 1.4rem; color: var(--accent-2); margin-right: 6px; }
 .points-table-wrap { padding: 10px; }
 .points-table { width: 100%; border-collapse: collapse; }
 .points-table thead th { text-align: left; }
