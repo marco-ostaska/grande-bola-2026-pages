@@ -412,6 +412,22 @@ td.pts .pending { color: var(--muted); font-size: 0.85rem; }
 .apostador-stat.miss .value     { color: #ef4444; }
 .apostador-rounds-led { margin-top: 14px; padding: 8px 14px; border-radius: 8px; background: rgba(251,191,36,0.08); border: 1px solid rgba(251,191,36,0.2); font-family: "Saira Condensed", sans-serif; font-size: 0.9rem; color: var(--muted); text-align: center; }
 .apostador-rounds-led .rounds-led-n { font-family: "Anton", sans-serif; font-size: 1.15rem; color: var(--gold); margin-right: 3px; }
+.rival-gap-card { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 18px 20px; margin-bottom: 24px; }
+.rival-gap-header { display: flex; align-items: baseline; gap: 8px; margin-bottom: 14px; }
+.rival-gap-title { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); }
+.rival-gap-rival { font-family: "Saira Condensed", sans-serif; font-size: 0.9rem; font-weight: 600; color: var(--text); text-decoration: none; border-bottom: 1px dashed var(--border); }
+.rival-gap-rival:hover { color: var(--accent-2); border-bottom-color: var(--accent-2); }
+.rival-gap-numbers { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 14px; }
+.rival-gap-item { display: flex; flex-direction: column; gap: 2px; padding: 14px 10px; border-radius: 10px; background: rgba(0,0,0,0.2); text-align: center; }
+.rival-gap-value { font-family: "Anton", sans-serif; font-size: 1.9rem; line-height: 1; }
+.rival-gap-label { font-family: "Saira Condensed", sans-serif; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin-top: 2px; }
+.rival-gap-item.deficit .rival-gap-value { color: #ef4444; }
+.rival-gap-item.max-gain.can-catch .rival-gap-value { color: var(--accent-2); }
+.rival-gap-item.max-gain.cannot-catch .rival-gap-value { color: var(--muted); }
+.rival-gap-verdict { padding: 8px 14px; border-radius: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.88rem; font-weight: 600; text-align: center; }
+.rival-gap-verdict.verdict-yes { background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3); color: var(--accent-2); }
+.rival-gap-verdict.verdict-no { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color: #ef4444; }
+.rival-gap-meta { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; color: var(--muted); text-align: center; }
 .player-cell { display: flex; align-items: center; gap: 14px; }
 .player-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.2rem; background: rgba(255,255,255,0.08); border: 1px solid var(--border); flex-shrink: 0; }
 .player-name { font-family: "Saira Condensed", sans-serif; font-weight: 600; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -559,6 +575,7 @@ th.cravou, td.cravou { min-width: 120px; }
 .points-table td.num { font-family: "Anton", sans-serif; font-size: 1.25rem; }
 .points-table td.num.current { color: var(--accent-2); }
 .points-table td.num.remaining { color: var(--gold); }
+.points-table td.num.net-gain { color: #f97316; }
 .points-table td.num.max { color: var(--text); }
 .points-table tbody tr { border-bottom: 1px solid var(--border); }
 .points-table tbody tr:last-child { border-bottom: none; }
