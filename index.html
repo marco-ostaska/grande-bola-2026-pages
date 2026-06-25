@@ -28,6 +28,35 @@
 </header>
 
 
+    <section class="quiz-section reveal reveal-2" aria-labelledby="quiz-title">
+      <div class="section-head">
+        <h2 id="quiz-title" class="section-title">⚽ Na cara do gol</h2>
+      </div>
+      <div class="quiz-card" id="quiz-card">
+        <div class="quiz-top">
+          <span class="quiz-title" id="quiz-q-num">Pergunta 1 de 11</span>
+          <div class="quiz-dots" id="quiz-dots"></div>
+        </div>
+        <div class="quiz-phrase" id="quiz-phrase"></div>
+        <div class="quiz-input-row" id="quiz-input-row">
+          <div class="quiz-fake-input" id="quiz-fake-input"></div>
+          <span class="quiz-hint" id="quiz-hint">clique para jogar</span>
+        </div>
+        <div class="quiz-success-row" id="quiz-success-row">
+          <span class="quiz-success-emoji" id="quiz-success-emoji"></span>
+          <span class="quiz-success-text" id="quiz-success-text"></span>
+          <button class="quiz-next-btn" id="quiz-next-btn">Próxima →</button>
+        </div>
+        <div class="quiz-final" id="quiz-final">
+          <div class="quiz-final-emoji">🏆</div>
+          <div class="quiz-final-text">Mandou bem! Entende de futebol e de Brasil</div>
+          <button class="quiz-restart-btn" id="quiz-restart-btn">Jogar de novo</button>
+        </div>
+      </div>
+      <input id="quiz-hidden-input" type="text" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"
+        style="position:absolute;opacity:0;pointer-events:none;width:1px;height:1px;" />
+    </section>
+
     
 
     
@@ -5434,10 +5463,214 @@
 })();
     </script>
 
+    <script>
+(function() {
+  var QS = [
+    { s:[{t:'Esse lance foi tão bom quanto '},{a:'pintar com lukscolor'}],                  e:'🎨', c:'Clássico absoluto!' },
+    { s:[{t:'Pimba na '},{a:'gorduchina'}],                                                  e:'💥', c:'Pimba!' },
+    { s:[{t:'Acerte o seu aí que eu '},{a:'arredondo'},{t:' o meu aqui'}],                  e:'🤝', c:'Negócio fechado!' },
+    { s:[{a:'Bandeirantes'},{t:', o canal do esporte'}],                                     e:'📺', c:'Você assistia na Band!' },
+    { s:[{t:'Deu duro, tome um '},{a:'dreher'},{t:', desce macio e reanima'}],              e:'🥃', c:'Saúde!' },
+    { s:[{t:'Tá lá um corpo '},{a:'estendido no chão'}],                                    e:'💀', c:'Foi pro chão!' },
+    { s:[{t:'Pelas '},{a:'barbas do profeta'},{t:' o que que eu vou dizer lá em casa!'}],   e:'🧔', c:'Clássico!' },
+    { s:[{a:'Suvinil'},{t:', a tinta do Brasil'}],                                           e:'🖌️', c:'Boa memória!' },
+    { s:[{t:'Ripa na '},{a:'chulipa'}],                                                      e:'🦵', c:'Chulipa!' },
+    { s:[{t:'Caiu na '},{a:'rede'},{t:' é '},{a:'peixe'}],                                  e:'🐟', c:'Na rede!' },
+    { s:[{t:'Olho no '},{a:'lance'}],                                                        e:'👁️', c:'Foco total!' }
+  ];
+
+  var cur = 0, blankIdx = 0, progress = 0, slotEls = [], blanks = [], done = false;
+
+  var card       = document.getElementById('quiz-card');
+  var qNumEl     = document.getElementById('quiz-q-num');
+  var phraseEl   = document.getElementById('quiz-phrase');
+  var fakeInput  = document.getElementById('quiz-fake-input');
+  var hintEl     = document.getElementById('quiz-hint');
+  var inputRow   = document.getElementById('quiz-input-row');
+  var successRow = document.getElementById('quiz-success-row');
+  var successEmoji= document.getElementById('quiz-success-emoji');
+  var successText = document.getElementById('quiz-success-text');
+  var nextBtn    = document.getElementById('quiz-next-btn');
+  var finalEl    = document.getElementById('quiz-final');
+  var restartBtn = document.getElementById('quiz-restart-btn');
+  var hiddenInput= document.getElementById('quiz-hidden-input');
+  var dotsEl     = document.getElementById('quiz-dots');
+
+  function norm(s) { return s.normalize('NFD').replace(/[̀-ͯ]/g,'').toLowerCase(); }
+
+  function buildDots() {
+    dotsEl.innerHTML = '';
+    QS.forEach(function(_,i) {
+      var d = document.createElement('div');
+      d.className = 'quiz-dot' + (i === cur ? ' active' : i < cur ? ' done' : '');
+      dotsEl.appendChild(d);
+    });
+  }
+
+  function buildPhrase(q) {
+    phraseEl.innerHTML = '';
+    blanks = [];
+    q.s.forEach(function(seg) {
+      if (seg.t !== undefined) {
+        var sp = document.createElement('span');
+        sp.textContent = seg.t;
+        phraseEl.appendChild(sp);
+      } else {
+        var blankEl = document.createElement('span');
+        blankEl.className = 'quiz-blank';
+        var slots = [];
+        Array.from(seg.a).forEach(function(ch) {
+          var slot = document.createElement('span');
+          var isSpace = ch === ' ';
+          slot.className = 'quiz-slot' + (isSpace ? ' space-slot' : '');
+          var charEl = document.createElement('span');
+          charEl.className = 'quiz-slot-char' + (isSpace ? ' space-char' : '');
+          charEl.textContent = ch;
+          var lineEl = document.createElement('span');
+          lineEl.className = 'quiz-slot-line';
+          slot.appendChild(charEl); slot.appendChild(lineEl);
+          blankEl.appendChild(slot);
+          slots.push({ slot: slot, charEl: charEl, ch: ch, isSpace: isSpace });
+        });
+        phraseEl.appendChild(blankEl);
+        blanks.push({ el: blankEl, answer: seg.a, slots: slots });
+      }
+    });
+  }
+
+  function loadQ(idx) {
+    cur = idx; blankIdx = 0; progress = 0; done = false;
+    qNumEl.textContent = 'Pergunta ' + (idx+1) + ' de 11';
+    buildPhrase(QS[idx]);
+    buildDots();
+    successRow.classList.remove('visible');
+    finalEl.classList.remove('visible');
+    inputRow.style.display = '';
+    fakeInput.textContent = '';
+    hintEl.textContent = card.classList.contains('active') ? '' : 'clique para jogar';
+    hiddenInput.value = '';
+  }
+
+  function revealChar(bIdx, cIdx) {
+    var s = blanks[bIdx].slots[cIdx];
+    s.charEl.classList.add('revealed');
+    s.slot.classList.add('revealed');
+  }
+
+  var errTimeout;
+  function flashError() {
+    var b = blanks[blankIdx];
+    if (!b) return;
+    b.el.classList.remove('error'); void b.el.offsetWidth; b.el.classList.add('error');
+    clearTimeout(errTimeout); errTimeout = setTimeout(function(){ b.el.classList.remove('error'); }, 380);
+    fakeInput.classList.remove('quiz-error'); void fakeInput.offsetWidth; fakeInput.classList.add('quiz-error');
+    setTimeout(function(){ fakeInput.classList.remove('quiz-error'); }, 380);
+  }
+
+  function advanceSpaces() {
+    if (blankIdx >= blanks.length) return;
+    var slots = blanks[blankIdx].slots;
+    while (progress < slots.length && slots[progress].isSpace) {
+      revealChar(blankIdx, progress++);
+    }
+  }
+
+  function blankDone() {
+    blanks[blankIdx].el.classList.add('success');
+    blankIdx++; progress = 0;
+    if (blankIdx < blanks.length) {
+      advanceSpaces();
+      updateFake();
+    } else {
+      questionDone();
+    }
+  }
+
+  function questionDone() {
+    done = true;
+    var q = QS[cur];
+    inputRow.style.display = 'none';
+    successEmoji.textContent = q.e;
+    successText.textContent  = q.c;
+    successRow.classList.add('visible');
+  }
+
+  function updateFake() {
+    if (blankIdx >= blanks.length) return;
+    var slots = blanks[blankIdx].slots;
+    var typed = '';
+    for (var i = 0; i < progress; i++) typed += slots[i].ch;
+    fakeInput.textContent = typed;
+  }
+
+  hiddenInput.addEventListener('keydown', function(e) {
+    if (done) return;
+    if (e.key.length !== 1) { e.preventDefault(); return; }
+    if (blankIdx >= blanks.length) return;
+
+    advanceSpaces();
+    var slots = blanks[blankIdx].slots;
+    if (progress >= slots.length) { blankDone(); return; }
+
+    var expected = norm(slots[progress].ch);
+    var typed    = norm(e.key);
+
+    if (typed === expected) {
+      revealChar(blankIdx, progress++);
+      advanceSpaces();
+      updateFake();
+      if (progress >= slots.length) blankDone();
+    } else {
+      flashError();
+    }
+    e.preventDefault();
+    hiddenInput.value = '';
+  });
+
+  nextBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    var next = cur + 1;
+    if (next >= QS.length) {
+      inputRow.style.display = 'none';
+      successRow.classList.remove('visible');
+      finalEl.classList.add('visible');
+    } else {
+      loadQ(next);
+      hiddenInput.focus();
+    }
+  });
+
+  restartBtn.addEventListener('click', function(e) {
+    e.stopPropagation();
+    loadQ(0);
+    hiddenInput.focus();
+  });
+
+  
+  card.addEventListener('click', function() {
+    if (!card.classList.contains('active')) {
+      card.classList.add('active');
+      hintEl.textContent = '';
+    }
+    hiddenInput.focus();
+  });
+
+  hiddenInput.addEventListener('blur', function() {
+    setTimeout(function() {
+      if (!done && card.classList.contains('active') && document.activeElement !== nextBtn && document.activeElement !== restartBtn) {
+        hiddenInput.focus();
+      }
+    }, 60);
+  });
+
+  loadQ(0);
+})();
+    </script>
+
     
 <footer class="reveal">
   Grande Bola da Copa 2026 — Bolão entre amigos
-  <span class="footer-updated">· atualizado em 25/06/2026 12:58</span>
+  <span class="footer-updated">· atualizado em 25/06/2026 15:21</span>
 </footer>
 
   </div>
