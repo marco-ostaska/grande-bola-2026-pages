@@ -427,6 +427,7 @@ td.pts .pending { color: var(--muted); font-size: 0.85rem; }
 .rival-gap-verdict { padding: 8px 14px; border-radius: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.88rem; font-weight: 600; text-align: center; }
 .rival-gap-verdict.verdict-yes { background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3); color: var(--accent-2); }
 .rival-gap-verdict.verdict-no { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); color: #ef4444; }
+.rival-gap-reason { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; line-height: 1.35; color: var(--text); text-align: center; opacity: 0.86; }
 .rival-gap-meta { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; color: var(--muted); text-align: center; }
 .player-cell { display: flex; align-items: center; gap: 14px; }
 .player-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.2rem; background: rgba(255,255,255,0.08); border: 1px solid var(--border); flex-shrink: 0; }
