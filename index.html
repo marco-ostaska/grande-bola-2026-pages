@@ -67,7 +67,7 @@
   <section aria-labelledby="dorm-groups-title">
     <div class="dorm-section-head">
       <h2 id="dorm-groups-title">Como ficou a 2ª fase</h2>
-      <p>1º e 2º de cada grupo</p>
+      <p>1º e 2º de cada grupo · bandeira cinza = eliminado</p>
     </div>
     <div class="dorm-stage-card">
       <div class="dorm-groups-grid">
@@ -80,7 +80,7 @@
               <span class="dorm-flag"><img src="flags/mx.png" alt="México" width="32" height="24" style="display:block"></span>
               <span class="dorm-team-name">México</span>
             </div>
-            <div class="dorm-team-line">
+            <div class="dorm-team-line eliminated" title="Eliminado">
               <span class="dorm-pos">2º</span>
               <span class="dorm-flag"><img src="flags/za.png" alt="África do Sul" width="32" height="24" style="display:block"></span>
               <span class="dorm-team-name">África do Sul</span>
@@ -139,12 +139,12 @@
         <article class="dorm-group-card">
           <div class="dorm-group-letter">E</div>
           <div class="dorm-qualified">
-            <div class="dorm-team-line">
+            <div class="dorm-team-line eliminated" title="Eliminado">
               <span class="dorm-pos">1º</span>
               <span class="dorm-flag"><img src="flags/de.png" alt="Alemanha" width="32" height="24" style="display:block"></span>
               <span class="dorm-team-name">Alemanha</span>
             </div>
-            <div class="dorm-team-line">
+            <div class="dorm-team-line eliminated" title="Eliminado">
               <span class="dorm-pos">2º</span>
               <span class="dorm-flag"><img src="flags/ci.png" alt="Costa do Marfim" width="32" height="24" style="display:block"></span>
               <span class="dorm-team-name">Costa do Marfim</span>
@@ -155,12 +155,12 @@
         <article class="dorm-group-card">
           <div class="dorm-group-letter">F</div>
           <div class="dorm-qualified">
-            <div class="dorm-team-line">
+            <div class="dorm-team-line eliminated" title="Eliminado">
               <span class="dorm-pos">1º</span>
               <span class="dorm-flag"><img src="flags/nl.png" alt="Holanda" width="32" height="24" style="display:block"></span>
               <span class="dorm-team-name">Holanda</span>
             </div>
-            <div class="dorm-team-line">
+            <div class="dorm-team-line eliminated" title="Eliminado">
               <span class="dorm-pos">2º</span>
               <span class="dorm-flag"><img src="flags/jp.png" alt="Japão" width="32" height="24" style="display:block"></span>
               <span class="dorm-team-name">Japão</span>
@@ -450,12 +450,34 @@
     font-family: "Saira Condensed", sans-serif; font-size: 0.66rem; font-weight: 700;
   }
   .dorm-flag {
+    position: relative;
     display: grid; place-items: center; width: 30px; height: 22px; overflow: hidden;
     border: 1px solid rgba(255,255,255,0.13); border-radius: 3px;
     background: rgba(255,255,255,0.04);
   }
   .dorm-flag img { display: block; width: 30px; height: 22px; object-fit: cover; }
   .dorm-team-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+  .dorm-team-line.eliminated { opacity: 0.7; }
+  .dorm-team-line.eliminated .dorm-flag {
+    border-color: rgba(220,38,38,0.55);
+    box-shadow: 0 0 0 1px rgba(220,38,38,0.25);
+  }
+  .dorm-team-line.eliminated .dorm-flag img { filter: grayscale(1) brightness(0.75); }
+  .dorm-team-line.eliminated .dorm-flag::after {
+    content: ""; position: absolute; inset: 0; background: rgba(10,12,16,0.28);
+  }
+  .dorm-team-line.eliminated .dorm-flag::before {
+    content: ""; position: absolute; inset: -1px; z-index: 1;
+    background:
+      linear-gradient(45deg, transparent calc(50% - 2px), #dc2626 calc(50% - 2px), #dc2626 calc(50% + 2px), transparent calc(50% + 2px)),
+      linear-gradient(-45deg, transparent calc(50% - 2px), #dc2626 calc(50% - 2px), #dc2626 calc(50% + 2px), transparent calc(50% + 2px));
+    filter: drop-shadow(0 0 2px rgba(0,0,0,0.6));
+  }
+  .dorm-team-line.eliminated .dorm-team-name {
+    color: var(--muted); text-decoration: line-through;
+    text-decoration-color: rgba(220,38,38,0.55); text-decoration-thickness: 1.5px;
+  }
 
    
   .dorm-sleep-card {
@@ -768,7 +790,7 @@
 
 <footer class="reveal">
   Grande Bola da Copa 2026 — Bolão entre amigos
-  <span class="footer-updated">· atualizado em 30/06/2026 15:58</span>
+  <span class="footer-updated">· atualizado em 01/07/2026 09:55</span>
 </footer>
 
 </body>
