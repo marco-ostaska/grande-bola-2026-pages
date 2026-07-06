@@ -866,6 +866,8 @@ th.cravou, td.cravou { min-width: 120px; }
   .points-table td.num.remaining::before { content: "Ainda na mesa"; }
   .points-table td.num.max::before { content: "Máximo"; }
   .points-table td.num.prob::before { content: "% de vencer"; }
+  .points-table td.num.prob.vice::before { content: "% de vice"; }
+  .points-table td.num.prob.penult::before { content: "% de penúltimo"; }
   .points-table td.num.prob { padding: 8px 0; }
   .prob-bar { width: 100%; min-width: auto; }
   .prob-label { font-size: 0.95rem; }
