@@ -519,6 +519,7 @@ footer { margin-top: 60px; text-align: center; font-family: "Saira Condensed", s
 .mini-ledger-table .pts-badges .badge.bonus { color: var(--bonus); background: rgba(168, 85, 247, 0.12); border: 1px solid rgba(168, 85, 247, 0.3); }
 .mini-ledger-table .pts-badges .badge.total { color: var(--text); background: rgba(255,255,255,0.08); border: 1px solid var(--border); min-width: 36px; justify-content: center; }
 .mini-ledger-table .pts-badges .badge.empty { color: var(--muted); background: transparent; border: 1px dashed var(--border); }
+.mini-ledger-table .pts-badges .badge.potential { color: var(--bonus); background: rgba(168, 85, 247, 0.08); border: 1px dashed rgba(168, 85, 247, 0.4); }
 .mini-ledger-table tr.today td { background: rgba(22, 163, 74, 0.05); }
 .mini-ledger-table .today-tag { display: inline-block; margin-left: 6px; padding: 1px 6px; border-radius: 999px; font-size: 0.55rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--accent-2); background: rgba(22, 163, 74, 0.12); border: 1px solid rgba(22, 163, 74, 0.3); }
 .mini-ledger-empty { padding: 16px; text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
