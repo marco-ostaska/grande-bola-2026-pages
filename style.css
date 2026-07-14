@@ -1039,3 +1039,27 @@ th.cravou, td.cravou { min-width: 120px; }
   .quiz-slot-char { font-size: 1.15rem; }
   .quiz-card { padding: 20px 14px 18px; }
 }
+
+/* Simulação de cenários */
+.sim-explain { font-family: "Saira Condensed", sans-serif; font-size: 0.9rem; line-height: 1.5; color: var(--muted); margin: -8px 0 24px; max-width: 780px; }
+.sim-empty { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 24px; text-align: center; font-family: "Saira Condensed", sans-serif; color: var(--muted); }
+.sim-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-bottom: 32px; }
+.sim-card { background: var(--panel); border: 1px solid var(--border); border-radius: 18px; padding: 18px 20px; transition: transform 0.2s ease, border-color 0.2s ease; }
+.sim-card:hover { transform: translateY(-3px); border-color: rgba(22,163,74,0.3); }
+.sim-card-label { font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); margin-bottom: 10px; }
+.sim-podium { display: flex; flex-direction: column; gap: 4px; padding-bottom: 10px; border-bottom: 1px dashed var(--border); }
+.sim-podium-row { display: flex; align-items: center; gap: 8px; }
+.sim-podium-icon { width: 20px; text-align: center; }
+.sim-podium-flag img, .sim-podium-flag svg { display: block; width: 22px; height: 16px; }
+.sim-podium-team { font-family: "Saira Condensed", sans-serif; font-size: 0.88rem; font-weight: 600; color: var(--text); }
+.sim-podium-row.cam .sim-podium-team { color: var(--gold); font-weight: 700; }
+.sim-podium-row.vic .sim-podium-team { color: var(--silver); }
+.sim-podium-row.ter .sim-podium-team { color: var(--bronze); }
+.sim-arrow { text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); margin: 10px 0; }
+.sim-bolao { display: flex; flex-direction: column; gap: 8px; }
+.sim-bolao-row { display: flex; align-items: baseline; gap: 8px; padding: 8px 10px; border-radius: 10px; background: rgba(0,0,0,0.18); }
+.sim-bolao-row.champion { background: rgba(251,191,36,0.1); }
+.sim-bolao-row.vice { background: rgba(203,213,225,0.08); }
+.sim-bolao-row.penult { background: rgba(245,158,11,0.08); }
+.sim-bolao-icon { flex-shrink: 0; }
+.sim-bolao-names { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); line-height: 1.3; }
