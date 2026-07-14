@@ -430,18 +430,20 @@ td.pts .pending { color: var(--muted); font-size: 0.85rem; }
 .rival-gap-reason { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; line-height: 1.35; color: var(--text); text-align: center; opacity: 0.86; }
 .rival-gap-meta { margin-top: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; color: var(--muted); text-align: center; }
 
-.title-verdict-card { display: flex; align-items: center; gap: 16px; border-radius: 16px; padding: 20px 22px; margin-bottom: 24px; }
-.title-verdict-card.verdict-alive { background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.35); }
-.title-verdict-card.verdict-dead { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.25); }
-.title-verdict-icon { font-size: 2.4rem; line-height: 1; flex-shrink: 0; }
-.title-verdict-headline { font-family: "Anton", sans-serif; font-size: 1.2rem; letter-spacing: 0.01em; margin-bottom: 4px; }
-.title-verdict-card.verdict-alive .title-verdict-headline { color: var(--accent-2); }
-.title-verdict-card.verdict-dead .title-verdict-headline { color: #ef4444; }
-.title-verdict-sub { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; line-height: 1.4; color: var(--text); opacity: 0.9; }
 
 .rival-gap-secondary { opacity: 0.85; padding: 14px 18px; }
 .rival-gap-secondary .rival-gap-value { font-size: 1.5rem; }
 .rival-gap-secondary .rival-gap-title { font-size: 0.66rem; }
+
+.podium-verdict-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 20px; }
+.podium-verdict-item { display: flex; flex-direction: column; align-items: center; gap: 4px; border-radius: 14px; padding: 16px 10px; text-align: center; }
+.podium-verdict-item.alive { background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3); }
+.podium-verdict-item.dead { background: rgba(239,68,68,0.06); border: 1px solid rgba(239,68,68,0.18); opacity: 0.85; }
+.podium-verdict-item .pv-icon { font-size: 1.6rem; line-height: 1; }
+.podium-verdict-item .pv-label { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.06em; color: var(--muted); }
+.podium-verdict-item .pv-pct { font-family: "Anton", sans-serif; font-size: 1.3rem; color: var(--accent-2); }
+.podium-verdict-item .pv-status { font-family: "Anton", sans-serif; font-size: 1.1rem; color: #ef4444; letter-spacing: 0.04em; }
+@media (max-width: 520px) { .podium-verdict-grid { grid-template-columns: 1fr; } }
 .player-cell { display: flex; align-items: center; gap: 14px; }
 .player-avatar { width: 46px; height: 46px; border-radius: 50%; display: grid; place-items: center; font-family: "Anton", sans-serif; font-size: 1.2rem; background: rgba(255,255,255,0.08); border: 1px solid var(--border); flex-shrink: 0; }
 .player-name { font-family: "Saira Condensed", sans-serif; font-weight: 600; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 0.02em; }
@@ -897,6 +899,22 @@ th.cravou, td.cravou { min-width: 120px; }
 }
 
 @media (max-width: 520px) { .team-cell .name { font-size: 0.85rem; } td.score, td.bet { font-size: 1.15rem; width: 65px; } td.date { font-size: 0.78rem; } .round-name, .group-name, .knockout-name { font-size: 1.15rem; } .player-name { font-size: 1rem; } td.points .pts { font-size: 1.35rem; } .stats-row { grid-template-columns: 1fr; } .podium-grid { flex-wrap: wrap; } .podium-grid .podium-spot { max-width: none; flex: 1 1 40%; } .podium-grid .podium-spot.first { flex-basis: 100%; transform: none; } .prob-row { grid-template-columns: 42px 1fr 50px; gap: 10px; } .prob-bar-wrap { display: none; } }
+
+/* Quem ainda pode ser campeão do bolão */
+.title-contenders { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 16px 20px; margin-bottom: 28px; }
+.title-contenders-label { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); margin-bottom: 10px; }
+.title-contenders-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.title-contender-chip { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3); text-decoration: none; }
+.title-contender-chip .name { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); }
+.title-contender-chip .pct { font-family: "Anton", sans-serif; font-size: 0.9rem; color: var(--accent-2); }
+.title-contender-chip:hover { border-color: var(--accent-2); }
+.title-contender-chip.champion .pct { color: var(--gold); }
+.title-contender-chip.vice { background: rgba(203,213,225,0.1); border-color: rgba(203,213,225,0.3); }
+.title-contender-chip.vice .pct { color: var(--silver); }
+.title-contender-chip.vice:hover { border-color: var(--silver); }
+.title-contender-chip.penult { background: rgba(245,158,11,0.1); border-color: rgba(245,158,11,0.3); }
+.title-contender-chip.penult .pct { color: var(--bronze); }
+.title-contender-chip.penult:hover { border-color: var(--bronze); }
 
 /* Leader jersey cards */
 .leader-deck { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 22px; margin-bottom: 36px; }
