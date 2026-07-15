@@ -1063,3 +1063,11 @@ th.cravou, td.cravou { min-width: 120px; }
 .sim-bolao-row.penult { background: rgba(245,158,11,0.08); }
 .sim-bolao-icon { flex-shrink: 0; }
 .sim-bolao-names { font-family: "Saira Condensed", sans-serif; font-size: 0.85rem; font-weight: 600; color: var(--text); line-height: 1.3; }
+.sim-legend { background: var(--panel); border: 1px solid var(--border); border-radius: 16px; padding: 16px 20px; margin-bottom: 24px; }
+.sim-legend-title { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+.sim-legend-groups { display: flex; flex-wrap: wrap; gap: 24px; }
+.sim-legend-group { display: flex; flex-direction: column; gap: 6px; }
+.sim-legend-group-title { font-family: "Saira Condensed", sans-serif; font-size: 0.72rem; font-weight: 600; color: var(--text); margin-bottom: 4px; }
+.sim-legend-item { display: flex; align-items: center; gap: 8px; font-family: "Saira Condensed", sans-serif; font-size: 0.82rem; color: var(--muted); }
+.sim-legend-icon { width: 20px; text-align: center; flex-shrink: 0; }
+@media (max-width: 480px) { .sim-legend-groups { flex-direction: column; gap: 16px; } }
