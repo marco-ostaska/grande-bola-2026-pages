@@ -122,15 +122,28 @@ body.theme-final .leader-jersey::before {
    position:fixed para ficarem ancoradas na janela (não rolam com o
    conteúdo); atrás de tudo (z-index -1, acima só do gradiente do body) e
    fora do fluxo de qualquer card, então nunca disputam clique com nada.
-   Escondidas em telas estreitas, onde não há espaço nas laterais. */
-.corrida-figure { position: fixed; bottom: 0; height: 62vh; max-height: 560px; width: auto; pointer-events: none; opacity: 0.96; filter: drop-shadow(0 16px 28px rgba(0,0,0,0.5)); }
+   Em desktop elas aparecem grandes; em mobile ficam menores, só para
+   manter o clima de corrida sem atrapalhar o conteúdo. */
+.corrida-figure { position: fixed; bottom: 0; height: 62vh; max-height: 560px; width: auto; pointer-events: none; opacity: 0.96; filter: drop-shadow(0 16px 28px rgba(0,0,0,0.5)); z-index: 1; }
 .corrida-figure.torero { left: 0; }
 .corrida-figure.touro { right: 0; }
 @media (max-width: 1180px) {
   .corrida-figure { height: 46vh; }
 }
 @media (max-width: 900px) {
-  .corrida-figure { display: none; }
+  .corrida-figure {
+    height: 32vh;
+    max-height: 220px;
+    opacity: 0.75;
+    bottom: -10px;
+  }
+  .corrida-figure.torero { left: -30px; }
+  .corrida-figure.touro { right: -30px; }
+}
+@media (max-width: 480px) {
+  .corrida-figure { height: 26vh; max-height: 160px; opacity: 0.65; }
+  .corrida-figure.torero { left: -24px; }
+  .corrida-figure.touro { right: -24px; }
 }
 
 /* Easter egg: as figuras de touro/toureiro abrem o mini-jogo de Tourada */
@@ -138,6 +151,31 @@ body.theme-final .leader-jersey::before {
   pointer-events: auto;
   cursor: pointer;
   z-index: 5;
+}
+
+/* Alternativa mobile: ícone no card do jogo quando for a corrida
+   (mantido como fallback, caso as figuras fiquem muito pequenas/cortadas) */
+.corrida-easter-mobile {
+  display: none;
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  background: rgba(10, 22, 40, 0.55);
+  border: 1px solid rgba(216, 164, 65, 0.45);
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 5;
+  transition: transform 0.15s ease, background 0.2s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+.corrida-easter-mobile:active { transform: scale(0.92); background: rgba(216, 164, 65, 0.25); }
+@media (max-width: 900px) {
+  .corrida-easter-mobile { display: flex; }
 }
 
 /* Badge da Arena (Tourada) no header */
@@ -154,11 +192,15 @@ body.theme-final .leader-jersey::before {
   border: 1px solid var(--gold);
   transition: all 0.2s ease;
   cursor: pointer;
+  white-space: nowrap;
+  -webkit-tap-highlight-color: transparent;
 }
-.arena-badge:hover {
-  background: #fcd34d;
-  border-color: #fcd34d;
-  box-shadow: 0 0 20px rgba(251, 191, 36, 0.45);
+.arena-badge:hover { background: #fcd34d; border-color: #fcd34d; box-shadow: 0 0 20px rgba(251, 191, 36, 0.45); }
+.arena-badge:active { transform: scale(0.96); }
+
+@media (max-width: 480px) {
+  .arena-badge { padding: 8px 12px; }
+  .arena-badge-text { display: none; }
 }
 
 /* ---- Modal do mini-jogo Tourada ---- */
@@ -350,33 +392,31 @@ body.theme-final .leader-jersey::before {
 
 #tourada-mobile-controls {
   display: none;
-  position: fixed;
-  bottom: 20px;
-  left: 0;
-  right: 0;
-  z-index: 30;
+  position: relative;
   justify-content: space-between;
   align-items: flex-end;
-  padding: 0 20px;
+  padding: 12px 0 8px;
   pointer-events: none;
+  width: 100%;
+  max-width: 340px;
 }
 .tourada-modal.open #tourada-mobile-controls { display: none; }
 
 .tourada-dpad {
   display: grid;
-  grid-template-columns: 60px 60px 60px;
-  grid-template-rows: 60px 60px 60px;
-  gap: 6px;
+  grid-template-columns: 68px 68px 68px;
+  grid-template-rows: 68px 68px 68px;
+  gap: 8px;
   pointer-events: auto;
 }
 .tourada-dpad .tourada-btn {
-  width: 60px;
-  height: 60px;
+  width: 68px;
+  height: 68px;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.4);
-  background: rgba(0,0,0,0.45);
+  background: rgba(0,0,0,0.55);
   color: #ffcc00;
-  font-size: 24px;
+  font-size: 26px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -384,16 +424,16 @@ body.theme-final .leader-jersey::before {
   touch-action: none;
   cursor: pointer;
 }
-.tourada-dpad .tourada-btn:active { background: rgba(255,204,0,0.35); }
+.tourada-dpad .tourada-btn:active, .tourada-dpad .tourada-btn.pressed { background: rgba(255,204,0,0.45); transform: scale(0.92); }
 .tourada-dpad .tourada-empty { background: transparent; border: none; pointer-events: none; }
 .tourada-btn-cape {
-  width: 90px;
-  height: 90px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
   border: 2px solid rgba(255,255,255,0.4);
-  background: rgba(214,0,0,0.55);
+  background: rgba(214,0,0,0.6);
   color: #fff;
-  font-size: 16px;
+  font-size: 18px;
   font-weight: bold;
   display: flex;
   align-items: center;
@@ -401,23 +441,47 @@ body.theme-final .leader-jersey::before {
   user-select: none;
   touch-action: none;
   pointer-events: auto;
-  margin-bottom: 10px;
+  margin: 0 6px 22px 0;
   cursor: pointer;
 }
-.tourada-btn-cape:active { background: rgba(214,0,0,0.8); }
+.tourada-btn-cape:active, .tourada-btn-cape.pressed { background: rgba(214,0,0,0.85); transform: scale(0.92); }
 
 @media (hover: none) and (pointer: coarse) {
   .tourada-modal.open #tourada-mobile-controls { display: flex; }
   #tourada-overlay p br { display: none; }
-  #tourada-arena { max-height: calc(100vh - 220px); }
+  #tourada-arena { max-height: calc(100vh - 260px); }
+  #tourada-matador { width: 130px; height: 130px; }
+  #tourada-bull { width: 180px; height: 180px; }
 }
 
 @media (max-width: 720px) {
-  .tourada-close { top: -40px; right: 4px; width: 40px; height: 40px; }
+  .tourada-close {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    width: 48px;
+    height: 48px;
+    background: rgba(10, 22, 40, 0.8);
+    border-color: rgba(255,255,255,0.25);
+  }
   .tourada-hud { padding: 10px 12px; font-size: 15px; }
-  #tourada-arena { border-width: 4px; }
-  .tourada-dpad .tourada-btn { width: 54px; height: 54px; font-size: 20px; }
-  .tourada-btn-cape { width: 78px; height: 78px; font-size: 14px; }
+  #tourada-arena { border-width: 4px; max-height: calc(100vh - 250px); }
+  .tourada-dpad .tourada-btn { width: 60px; height: 60px; font-size: 22px; }
+  .tourada-btn-cape { width: 86px; height: 86px; font-size: 15px; }
+}
+
+@media (max-width: 480px) {
+  #tourada-arena { max-height: calc(100vh - 230px); }
+  #tourada-matador { width: 100px; height: 100px; }
+  #tourada-bull { width: 140px; height: 140px; }
+  #tourada-mobile-controls { padding: 10px 0 6px; max-width: 300px; }
+}
+
+@media (max-width: 380px) {
+  .tourada-dpad { grid-template-columns: 56px 56px 56px; grid-template-rows: 56px 56px 56px; gap: 6px; }
+  .tourada-dpad .tourada-btn { width: 56px; height: 56px; font-size: 20px; }
+  .tourada-btn-cape { width: 76px; height: 76px; font-size: 14px; }
+  #tourada-arena { max-height: calc(100vh - 215px); }
 }
 
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
@@ -1021,6 +1085,7 @@ th.cravou, td.cravou { min-width: 120px; }
   .brand .meta { margin-top: 4px; font-size: 0.78rem; }
   nav { gap: 6px; flex-wrap: wrap; }
   nav a { padding: 6px 12px; font-size: 0.72rem; }
+  .arena-badge { padding: 6px 12px; font-size: 0.72rem; }
   .section-head { flex-direction: column; align-items: flex-start; gap: 4px; margin: 22px 0 12px; }
   .section-head h2 { font-size: clamp(1.2rem, 4.5vw, 1.5rem); }
   .count { font-size: 0.74rem; }

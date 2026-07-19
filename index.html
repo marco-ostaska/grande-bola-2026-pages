@@ -31,7 +31,7 @@
     <a href="ranking.html" class="">Ranking</a>
     <a href="estatisticas.html" class="">Estatísticas</a>
     <a href="simulacao.html" class="">Simulação</a>
-    <a href="#" id="arena-badge" class="arena-badge" title="Tourada">🐂 Arena</a>
+    <a href="#" id="arena-badge" class="arena-badge" title="Tourada"><span class="arena-badge-icon">🐂</span><span class="arena-badge-text"> Arena</span></a>
   </nav>
 </header>
 
@@ -195,6 +195,9 @@
         
         
         <article class="match-card reveal reveal-3 corrida">
+          
+          <button type="button" class="corrida-easter-mobile" onclick="openTouradaModal()" aria-label="Abrir Tourada" title="Tourada">🐂</button>
+          
           <div class="match-top">
             <div class="match-meta"><strong>Final</strong> · 16:00</div>
             <span class="match-badge status-upcoming">16:00</span>
@@ -4544,6 +4547,7 @@
       const keys = {};
       let matadorPos = { x: 100, y: 250 };
       const matadorSpeed = 6;
+      const mobileMatadorSpeed = 7.2;
 
       let bullPos = { x: 950, y: 250 };
       let bullSpeed = 5;
@@ -4601,7 +4605,7 @@
       function rectsOverlap(a, b) {
         const ar = a.getBoundingClientRect();
         const br = b.getBoundingClientRect();
-        const margin = 32;
+        const margin = isMobile() ? 22 : 32;
         return !(
           ar.right - margin < br.left + margin ||
           ar.left + margin > br.right - margin ||
@@ -4610,11 +4614,29 @@
         );
       }
 
+      function isMobile() {
+        return window.matchMedia('(hover: none) and (pointer: coarse)').matches || window.innerWidth <= 720;
+      }
+
       function resetBull() {
         const r = arenaRect();
-        bullPos.x = r.width + 50;
-        bullPos.y = Math.random() * (r.height - bull.offsetHeight - 60) + 30;
-        bullSpeed = 4 + Math.min(score * 0.35, 12);
+        const mobile = isMobile();
+        bullPos.x = r.width + 80;
+        const bh = bull.offsetHeight || (mobile ? 170 : 240);
+        const safeMargin = 70;
+        let minY = 30;
+        let maxY = r.height - bh - 30;
+        let y = Math.random() * (maxY - minY) + minY;
+        
+        if (Math.abs(y - matadorPos.y) < safeMargin) {
+          y = y + safeMargin * 1.5;
+          if (y > maxY) y = Math.max(minY, y - safeMargin * 3);
+        }
+        bullPos.y = y;
+        
+        const base = mobile ? 2.8 : 3.8;
+        const curve = 0.28 * score;
+        bullSpeed = base + Math.min(curve, mobile ? 10 : 14);
       }
 
       function setAnimations(playing) {
@@ -4649,6 +4671,7 @@
         resetBull();
         setAnimations(true);
         overlay.classList.add('hidden');
+        lastTime = 0;
         requestAnimationFrame(loop);
       }
 
@@ -4676,8 +4699,9 @@
 
         if (dx !== 0 || dy !== 0) {
           const len = Math.hypot(dx, dy) || 1;
-          matadorPos.x += (dx / len) * matadorSpeed * dt;
-          matadorPos.y += (dy / len) * matadorSpeed * dt;
+          const speed = isMobile() ? mobileMatadorSpeed : matadorSpeed;
+          matadorPos.x += (dx / len) * speed * dt;
+          matadorPos.y += (dy / len) * speed * dt;
           matador.style.transform = 'scaleX(' + (dx < 0 ? -1 : 1) + ')';
         }
 
@@ -4719,25 +4743,35 @@
       startBtn.addEventListener('click', startGame);
 
       function bindTouch(el, key, action) {
+        function press(on) { el.classList.toggle('pressed', on); }
         el.addEventListener('touchstart', (e) => {
           e.preventDefault();
           keys[key] = true;
+          press(true);
           if (action) action();
         }, { passive: false });
         el.addEventListener('touchend', (e) => {
           e.preventDefault();
           keys[key] = false;
+          press(false);
+        }, { passive: false });
+        el.addEventListener('touchcancel', (e) => {
+          e.preventDefault();
+          keys[key] = false;
+          press(false);
         }, { passive: false });
         el.addEventListener('mousedown', (e) => {
           e.preventDefault();
           keys[key] = true;
+          press(true);
           if (action) action();
         });
         el.addEventListener('mouseup', (e) => {
           e.preventDefault();
           keys[key] = false;
+          press(false);
         });
-        el.addEventListener('mouseleave', () => { keys[key] = false; });
+        el.addEventListener('mouseleave', () => { keys[key] = false; press(false); });
       }
 
       document.querySelectorAll('.tourada-dpad .tourada-btn[data-key]').forEach(btn => {
@@ -4752,6 +4786,24 @@
         setAnimations(false);
         overlay.classList.remove('hidden');
         startBtn.textContent = state === 'over' ? 'Jogar Novamente' : 'Entrar na Arena';
+        if (window.innerWidth <= 480) {
+          
+          matador.style.width = '100px';
+          matador.style.height = '100px';
+          bull.style.width = '140px';
+          bull.style.height = '140px';
+        } else if (isMobile()) {
+          
+          matador.style.width = '120px';
+          matador.style.height = '120px';
+          bull.style.width = '170px';
+          bull.style.height = '170px';
+        } else {
+          matador.style.width = '';
+          matador.style.height = '';
+          bull.style.width = '';
+          bull.style.height = '';
+        }
         placeActors();
       }
 
@@ -4795,7 +4847,7 @@
     
 <footer class="reveal">
   Grande Bola da Copa 2026 — Bolão entre amigos
-  <span class="footer-updated">· atualizado em 19/07/2026 13:08</span>
+  <span class="footer-updated">· atualizado em 19/07/2026 13:26</span>
 </footer>
 
   </div>
