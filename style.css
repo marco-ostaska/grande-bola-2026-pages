@@ -20,8 +20,119 @@
 * { box-sizing: border-box; }
 html { font-size: 15px; }
 html, body { margin: 0; padding: 0; background: var(--bg); color: var(--text); font-family: "Archivo Narrow", "Helvetica Neue", sans-serif; line-height: 1.35; min-height: 100vh; }
-body::before { content: ""; position: fixed; inset: 0; z-index: -2; background: radial-gradient(circle at 20% 10%, rgba(22, 163, 74, 0.14), transparent 35%), radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.10), transparent 30%), radial-gradient(circle at 50% 100%, rgba(10, 22, 40, 1), transparent 60%), linear-gradient(180deg, #0a1628 0%, #0d1b2e 60%, #0a1628 100%); pointer-events: none; }
-body::after { content: ""; position: fixed; inset: 0; z-index: -1; opacity: 0.045; background-image: repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.08) 80px), repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.04) 80px); pointer-events: none; }
+/* Um único ::before (não ::before + ::after) cobre tanto o gradiente
+   ambiente quanto a textura de grade, mantendo z-index:auto (evitando
+   z-index negativo, que neste engine falha silenciosamente em não pintar
+   nada em páginas altas). Como ele é o primeiro filho de body no DOM e
+   todo o conteúdo real vem depois, a ordem de pintura já o mantém atrás
+   de tudo sem precisar de z-index negativo. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.045) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.03) 80px),
+    radial-gradient(circle at 20% 10%, rgba(22, 163, 74, 0.14), transparent 35%),
+    radial-gradient(circle at 80% 20%, rgba(22, 163, 74, 0.10), transparent 30%),
+    radial-gradient(circle at 50% 100%, rgba(10, 22, 40, 1), transparent 60%),
+    linear-gradient(180deg, #0a1628 0%, #0d1b2e 60%, #0a1628 100%);
+  pointer-events: none;
+}
+/* Tema especial da Grande Final / Disputa de 3º: a página inteira vira uma
+   "plaza de toros" ao entardecer — arquibancada escura no topo dissolvendo
+   numa areia dourada/bronze ao fundo — em vez de um banner isolado. Ouro
+   (troféu) e vermelho de capote (tensão do confronto) são as duas cores que
+   amarram o tema do topo ao card do Jogo do Dia. */
+body.theme-final {
+  --accent: #d8a441;
+  --accent-2: #d8a441;
+  --accent-glow: rgba(246, 214, 117, 0.4);
+  --featured: #f6d675;
+  --featured-bg: rgba(216, 164, 65, 0.14);
+  --cape-red: #a01f2d;
+}
+body.theme-final::before {
+  background:
+    repeating-linear-gradient(0deg, transparent, transparent 79px, rgba(255,255,255,0.05) 80px),
+    repeating-linear-gradient(90deg, transparent, transparent 79px, rgba(255,255,255,0.035) 80px),
+    linear-gradient(135deg,
+      #b3122a 0%, #b3122a 14%,
+      #e8b93a 26%, #e8b93a 40%,
+      #2f6fb0 60%, #2f6fb0 76%,
+      #f2f5f8 100%);
+}
+
+/* Letreiro da arena: sem caixa nem fundo — só tipografia gravada (Cinzel) e
+   dois ramos de louro, apoiada na atmosfera do body em vez de competir com
+   ela. O clímax visual real acontece no card do Jogo do Dia (abaixo). */
+.final-marquee { display: flex; align-items: center; justify-content: center; gap: 16px; margin: 4px 0 2px; }
+.final-marquee-title { font-family: "Cinzel", "Anton", serif; font-weight: 700; font-size: clamp(1.3rem, 3.4vw, 1.9rem); letter-spacing: 0.18em; text-transform: uppercase; color: var(--featured); text-shadow: 0 0 22px rgba(246, 214, 117, 0.5), 0 2px 0 rgba(10, 22, 40, 0.85), 0 0 6px rgba(10, 22, 40, 0.9); }
+.final-marquee-sub { text-align: center; font-family: "Saira Condensed", sans-serif; font-size: 0.78rem; letter-spacing: 0.08em; text-transform: uppercase; color: #eef1f6; text-shadow: 0 1px 3px rgba(10, 22, 40, 0.9); margin-bottom: 28px; }
+.final-marquee-flourish {
+  width: 20px;
+  height: 34px;
+  flex-shrink: 0;
+  opacity: 0.85;
+  filter: drop-shadow(0 1px 2px rgba(10, 22, 40, 0.9));
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 60 100'%3E%3Cg fill='none' stroke='%23d8a441' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M30 95 C20 70 20 40 30 5'/%3E%3Cpath d='M30 85 C15 80 8 68 10 55'/%3E%3Cpath d='M30 68 C15 63 8 51 10 38'/%3E%3Cpath d='M30 50 C15 45 8 33 10 20'/%3E%3C/g%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center;
+  transform: scaleX(-1);
+}
+.final-marquee-flourish-r { transform: scaleX(1); }
+
+/* Cards de líder ganham uma fita dourada no topo — o resíduo visual que liga
+   o letreiro da arena ao resto da página (o UX review apontou a falta disso). */
+body.theme-final .leader-jersey::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 14px; right: 14px;
+  height: 3px;
+  border-radius: 0 0 3px 3px;
+  background: linear-gradient(90deg, var(--cape-red), var(--featured) 50%, var(--cape-red));
+}
+
+/* Jogo do Dia — quando o confronto do dia é Espanha x Argentina, o card vira
+   a verdadeira cena da tourada: capote vermelho cruzando o card, brasão de
+   toureiro (capote + espada) de um lado, brasão de touro (chifres) do outro,
+   e o "VS" ganha o peso de cartaz de corrida. */
+.match-card.corrida { background: linear-gradient(165deg, var(--panel) 58%, rgba(160, 31, 45, 0.10) 100%); border-color: rgba(216, 164, 65, 0.4); }
+.match-card.corrida .match-teams { position: relative; overflow: hidden; }
+.match-card.corrida .match-teams::before {
+  content: "";
+  position: absolute;
+  inset: -30% -10%;
+  background: linear-gradient(115deg, transparent 42%, rgba(160, 31, 45, 0.30) 49%, rgba(160, 31, 45, 0.30) 55%, transparent 62%);
+  pointer-events: none;
+}
+.match-card.corrida .match-teams > * { position: relative; z-index: 1; }
+.score-box.corrida-vs .score {
+  font-family: "Cinzel", "Anton", serif;
+  font-size: 2.6rem;
+  background: linear-gradient(180deg, #f6d675, #d8a441 55%, #8a5a1f);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 12px rgba(160, 31, 45, 0.5));
+}
+
+/* Toureiro e touro fixos nos cantos da página — as mascotes da corrida.
+   position:fixed para ficarem ancoradas na janela (não rolam com o
+   conteúdo); atrás de tudo (z-index -1, acima só do gradiente do body) e
+   fora do fluxo de qualquer card, então nunca disputam clique com nada.
+   Escondidas em telas estreitas, onde não há espaço nas laterais. */
+.corrida-figure { position: fixed; bottom: 0; height: 62vh; max-height: 560px; width: auto; pointer-events: none; opacity: 0.96; filter: drop-shadow(0 16px 28px rgba(0,0,0,0.5)); }
+.corrida-figure.torero { left: 0; }
+.corrida-figure.touro { right: 0; }
+@media (max-width: 1180px) {
+  .corrida-figure { height: 46vh; }
+}
+@media (max-width: 900px) {
+  .corrida-figure { display: none; }
+}
+
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes shine { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 .reveal { animation: fadeUp 0.7s ease-out both; }
@@ -149,6 +260,7 @@ nav a.active, nav a:hover { color: var(--bg); background: var(--accent-2); borde
 .leader-pick .pick.injustica { color: #ef4444; text-transform: uppercase; letter-spacing: 0.06em; text-shadow: 0 0 10px rgba(239, 68, 68, 0.45); }
 .leader-pick .result { text-align: right; font-family: "Saira Condensed", sans-serif; font-size: 0.8rem; color: var(--muted); }
 .leader-pick .result strong { color: var(--accent-2); font-size: 1rem; }
+.leader-pick .result.potential { color: var(--bonus); font-style: italic; }
 .score-breakdown { text-align: right; }
 .score-breakdown .line { font-family: "Saira Condensed", sans-serif; font-size: 0.75rem; color: var(--muted); line-height: 1.35; }
 .score-breakdown .line strong { font-weight: 700; }

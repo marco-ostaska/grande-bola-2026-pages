@@ -7,17 +7,23 @@
   <title>Grande Bola da Copa 2026 — Dashboard</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&amp;family=Saira+Condensed:wght@300;500;700&amp;display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Anton&amp;family=Archivo+Narrow:ital,wght@0,400;0,600;0,700;1,400&amp;family=Cinzel:wght@600;700&amp;family=Saira+Condensed:wght@300;500;700&amp;display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 
-<body>
+<body class="theme-final">
+  
+  
+  
+  <img class="corrida-figure touro" src="corrida/touro.png" alt="" aria-hidden="true">
+  <img class="corrida-figure torero" src="corrida/toureiro.png" alt="" aria-hidden="true">
+  
   <div class="container">
     
 <header class="reveal reveal-1">
   <div class="brand">
     <h1>Grande <span>Bola</span> da Copa 2026</h1>
-    <div class="meta">Semifinais</div>
+    <div class="meta">Final</div>
   </div>
   <nav>
     <a href="index.html" class="active">Home</a>
@@ -28,6 +34,17 @@
   </nav>
 </header>
 
+    
+    
+    
+    
+    <div class="final-marquee reveal reveal-1">
+      <span class="final-marquee-flourish" aria-hidden="true"></span>
+      <span class="final-marquee-title">Grande Final</span>
+      <span class="final-marquee-flourish final-marquee-flourish-r" aria-hidden="true"></span>
+    </div>
+    <div class="final-marquee-sub reveal reveal-1">O troféu do bolão está em jogo</div>
+    
 
     
     
@@ -72,31 +89,31 @@
         <div class="leader-jersey-shoulder"></div>
         <div class="leader-jersey-body">
           <div class="leader-jersey-header">
-            <div class="leader-jersey-badge">W</div>
+            <div class="leader-jersey-badge">L</div>
             <div class="leader-jersey-id">
               <div class="role">Vice-líder</div>
-              <div class="name">Waldimir</div>
+              <div class="name">Lara</div>
             </div>
             <div class="leader-jersey-score">
-              <div class="pts">275</div>
+              <div class="pts">278</div>
               <div class="unit">pts</div>
             </div>
           </div>
           <div class="leader-jersey-formance">
             <div class="formance-label">
               <span>Aproveitamento de pontos</span>
-              <strong>37.73%</strong>
+              <strong>34.77%</strong>
             </div>
             <div class="formance-bar">
-              <div class="formance-segment hit" style="width:48%"></div>
-              <div class="formance-segment bullseye" style="width:11%"></div>
-              <div class="formance-segment miss" style="width:41%"></div>
+              <div class="formance-segment hit" style="width:58%"></div>
+              <div class="formance-segment bullseye" style="width:8%"></div>
+              <div class="formance-segment miss" style="width:34%"></div>
             </div>
           </div>
           <div class="leader-jersey-stats">
-            <div class="leader-jersey-stat hit"><div class="value">34</div><div class="label">Acertos</div></div>
-            <div class="leader-jersey-stat bullseye"><div class="value">8</div><div class="label">Cravadas</div></div>
-            <div class="leader-jersey-stat miss"><div class="value">30</div><div class="label">Erros</div></div>
+            <div class="leader-jersey-stat hit"><div class="value">41</div><div class="label">Acertos</div></div>
+            <div class="leader-jersey-stat bullseye"><div class="value">6</div><div class="label">Cravadas</div></div>
+            <div class="leader-jersey-stat miss"><div class="value">25</div><div class="label">Erros</div></div>
           </div>
         </div>
       </article>
@@ -175,40 +192,41 @@
       <div class="featured-grid">
         
         
-        <article class="match-card reveal reveal-3">
+        
+        <article class="match-card reveal reveal-3 corrida">
           <div class="match-top">
-            <div class="match-meta"><strong>Semifinal</strong> · 16:00</div>
-            <span class="match-badge status-finished">Encerrado</span>
+            <div class="match-meta"><strong>Final</strong> · 16:00</div>
+            <span class="match-badge status-upcoming">16:00</span>
           </div>
           <div class="match-teams">
-            <div class="team home"><div class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></div><div class="team-name">Inglaterra</div></div>
-            <div class="score-box"><div class="score">1 - 2</div></div>
+            <div class="team home"><div class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></div><div class="team-name">Espanha</div></div>
+            <div class="score-box corrida-vs"><div class="score">vs</div></div>
             <div class="team away"><div class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></div><div class="team-name">Argentina</div></div>
           </div>
           
-          <div class="leader-pick finished">
+          <div class="leader-pick ">
             <div class="avatar ">A</div>
             <div class="info">
               <div class="label">Adriana</div>
               
-              <div class="pick">Argentina</div>
+              <div class="pick">Espanha</div>
               
             </div>
             
-            <div class="result">+0 pts</div>
+            <div class="result potential">+20 pts possíveis</div>
             
           </div>
           
-          <div class="leader-pick finished">
-            <div class="avatar silver">W</div>
+          <div class="leader-pick ">
+            <div class="avatar silver">L</div>
             <div class="info">
-              <div class="label">Waldimir</div>
+              <div class="label">Lara</div>
               
-              <div class="pick">Argentina</div>
+              <div class="pick">Espanha</div>
               
             </div>
             
-            <div class="result">+0 pts</div>
+            <div class="result potential">+15 pts possíveis</div>
             
           </div>
           
@@ -217,28 +235,28 @@
             <div class="consensus-title">Quem apostou em cada time (17 participantes)</div>
             <div class="odds-row knockout-odds">
               <button type="button" class="odd knockout-odd" aria-expanded="false" aria-controls="knockout-supporters-0-team1" onclick="toggleKnockoutSupporters( 0 , 'team1')">
-                <div class="label">Inglaterra</div>
-                <div class="value">40%</div>
-                <div class="votes">2 votos</div>
+                <div class="label">Espanha</div>
+                <div class="value">71%</div>
+                <div class="votes">5 votos</div>
                 <span class="chevron">▼</span>
               </button>
               <button type="button" class="odd knockout-odd" aria-expanded="false" aria-controls="knockout-supporters-0-team2" onclick="toggleKnockoutSupporters( 0 , 'team2')">
                 <div class="label">Argentina</div>
-                <div class="value">60%</div>
-                <div class="votes">3 votos</div>
+                <div class="value">29%</div>
+                <div class="votes">2 votos</div>
                 <span class="chevron">▼</span>
               </button>
             </div>
             <div class="knockout-supporters" id="knockout-supporters-0-team1">
-              <div class="title">Apostaram em Inglaterra</div>
+              <div class="title">Apostaram em Espanha</div>
               
-              <div class="names"><a href="apostadores/rene.html"><span>Rene</span><small>Campeão · +20 pts</small></a><a href="apostadores/lilian.html"><span>Lilian</span><small>Vice · +15 pts</small></a></div>
+              <div class="names"><a href="apostadores/adriana.html"><span>Adriana</span><small>Campeão · +20 pts</small></a><a href="apostadores/waldimir.html"><span>Waldimir</span><small>Campeão · +20 pts</small></a><a href="apostadores/tales.html"><span>Tales</span><small>Campeão · +20 pts</small></a><a href="apostadores/simone.html"><span>Simone</span><small>Campeão · +20 pts</small></a><a href="apostadores/andre.html"><span>Andre</span><small>Campeão · +20 pts</small></a></div>
               
             </div>
             <div class="knockout-supporters" id="knockout-supporters-0-team2">
               <div class="title">Apostaram em Argentina</div>
               
-              <div class="names"><a href="apostadores/marco.html"><span>Marco</span><small>Campeão · +20 pts</small></a><a href="apostadores/silvia.html"><span>Silvia</span><small>Vice · +15 pts</small></a><a href="apostadores/mariana.html"><span>Mariana</span><small>Campeão · +20 pts</small></a></div>
+              <div class="names"><a href="apostadores/marco.html"><span>Marco</span><small>Campeão · +20 pts</small></a><a href="apostadores/mariana.html"><span>Mariana</span><small>Campeão · +20 pts</small></a></div>
               
             </div>
           </div>
@@ -251,31 +269,28 @@
     
 
     
-    <section class="reveal reveal-4" aria-labelledby="next-class-title">
+
+    <section class="reveal reveal-4" aria-labelledby="class-title">
       <div class="section-head">
-        <h2 id="next-class-title">Classificados · Final</h2>
+        <h2 id="class-title">Classificados · Final</h2>
+        <a href="jogos.html">Ver jogos</a>
       </div>
+      
       <div class="classificados-grid">
         
         
-        <div class="classificado-card">
+        <div class="classificado-card ">
           <div class="classificado-flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></div>
           <div class="classificado-name">Espanha</div>
           <div class="classificado-origem">Venc. S1</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-next-0" onclick="toggleClassifiedDetail('next-0')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-current-0" onclick="toggleClassifiedDetail('current-0')">
             <span>6 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-next-0">
+          <div class="classificado-detail" id="classificado-detail-current-0">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span></span>
-              <span class="reason">Apostou neste time na final</span>
-              <span class="podium-pick">Campeão · +20 pts possíveis</span>
-            </a>
-            
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
               <span class="reason">Apostou neste time na final</span>
               <span class="podium-pick">Campeão · +20 pts possíveis</span>
             </a>
@@ -284,6 +299,12 @@
               <span class="classificado-hit-main"><span class="name">Lara</span></span>
               <span class="reason">Apostou neste time na final</span>
               <span class="podium-pick">Vice · +15 pts possíveis</span>
+            </a>
+            
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
+              <span class="reason">Apostou neste time na final</span>
+              <span class="podium-pick">Campeão · +20 pts possíveis</span>
             </a>
             
             <a class="classificado-hit" href="apostadores/tales.html">
@@ -310,15 +331,15 @@
         
         
         
-        <div class="classificado-card">
+        <div class="classificado-card ">
           <div class="classificado-flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></div>
           <div class="classificado-name">Argentina</div>
           <div class="classificado-origem">Venc. S2</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-next-1" onclick="toggleClassifiedDetail('next-1')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-current-1" onclick="toggleClassifiedDetail('current-1')">
             <span>3 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-next-1">
+          <div class="classificado-detail" id="classificado-detail-current-1">
             
             <a class="classificado-hit" href="apostadores/marco.html">
               <span class="classificado-hit-main"><span class="name">Marco</span></span>
@@ -344,15 +365,15 @@
         
         
       </div>
-    </section>
-    
-
-    <section class="reveal reveal-4" aria-labelledby="class-title">
-      <div class="section-head">
-        <h2 id="class-title">Classificados · Semifinais</h2>
-        <a href="jogos.html">Ver jogos</a>
-      </div>
       
+    </section>
+
+    
+    
+    <section class="previous-phase reveal reveal-5" aria-labelledby="previous-class-title-0">
+      <div class="section-head">
+        <h2 id="previous-class-title-0">Classificados · Semifinais</h2>
+      </div>
       <div class="classificados-grid">
         
         
@@ -361,19 +382,13 @@
           <div class="classificado-name">França</div>
           <div class="classificado-origem">Venc. Q1</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-current-0" onclick="toggleClassifiedDetail('current-0')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-0" onclick="toggleClassifiedDetail('previous-0-0')">
             <span>12 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-current-0">
+          <div class="classificado-detail" id="classificado-detail-previous-0-0">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+10 pts</strong></span>
-              <span class="reason">Acertou o semifinalista</span>
-              <span class="podium-pick">Vice · +15 pts possíveis</span>
-            </a>
-            
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+10 pts</strong></span>
               <span class="reason">Acertou o semifinalista</span>
               <span class="podium-pick">Vice · +15 pts possíveis</span>
             </a>
@@ -382,6 +397,12 @@
               <span class="classificado-hit-main"><span class="name">Lara</span><strong>+10 pts</strong></span>
               <span class="reason">Acertou o semifinalista</span>
               <span class="podium-pick">4º lugar · +5 pts possíveis</span>
+            </a>
+            
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+10 pts</strong></span>
+              <span class="reason">Acertou o semifinalista</span>
+              <span class="podium-pick">Vice · +15 pts possíveis</span>
             </a>
             
             <a class="classificado-hit" href="apostadores/marco.html">
@@ -449,19 +470,13 @@
           <div class="classificado-name">Espanha</div>
           <div class="classificado-origem">Venc. Q2</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-current-1" onclick="toggleClassifiedDetail('current-1')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-1" onclick="toggleClassifiedDetail('previous-0-1')">
             <span>8 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-current-1">
+          <div class="classificado-detail" id="classificado-detail-previous-0-1">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+10 pts</strong></span>
-              <span class="reason">Acertou o semifinalista</span>
-              <span class="podium-pick">Campeão · +20 pts possíveis</span>
-            </a>
-            
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+10 pts</strong></span>
               <span class="reason">Acertou o semifinalista</span>
               <span class="podium-pick">Campeão · +20 pts possíveis</span>
             </a>
@@ -470,6 +485,12 @@
               <span class="classificado-hit-main"><span class="name">Lara</span><strong>+10 pts</strong></span>
               <span class="reason">Acertou o semifinalista</span>
               <span class="podium-pick">Vice · +15 pts possíveis</span>
+            </a>
+            
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+10 pts</strong></span>
+              <span class="reason">Acertou o semifinalista</span>
+              <span class="podium-pick">Campeão · +20 pts possíveis</span>
             </a>
             
             <a class="classificado-hit" href="apostadores/marco.html">
@@ -513,10 +534,10 @@
           <div class="classificado-name">Inglaterra</div>
           <div class="classificado-origem">Venc. Q3</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-current-2" onclick="toggleClassifiedDetail('current-2')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-2" onclick="toggleClassifiedDetail('previous-0-2')">
             <span>3 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-current-2">
+          <div class="classificado-detail" id="classificado-detail-previous-0-2">
             
             <a class="classificado-hit" href="apostadores/rene.html">
               <span class="classificado-hit-main"><span class="name">Rene</span><strong>+10 pts</strong></span>
@@ -547,10 +568,10 @@
           <div class="classificado-name">Argentina</div>
           <div class="classificado-origem">Venc. Q4</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-current-3" onclick="toggleClassifiedDetail('current-3')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-3" onclick="toggleClassifiedDetail('previous-0-3')">
             <span>11 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-current-3">
+          <div class="classificado-detail" id="classificado-detail-previous-0-3">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+10 pts</strong></span>
@@ -558,14 +579,14 @@
               <span class="podium-pick">3º lugar · +10 pts possíveis</span>
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+10 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+10 pts</strong></span>
               <span class="reason">Acertou o semifinalista</span>
               <span class="podium-pick">3º lugar · +10 pts possíveis</span>
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+10 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+10 pts</strong></span>
               <span class="reason">Acertou o semifinalista</span>
               <span class="podium-pick">3º lugar · +10 pts possíveis</span>
             </a>
@@ -624,14 +645,13 @@
         
         
       </div>
-      
     </section>
-
     
     
-    <section class="previous-phase reveal reveal-5" aria-labelledby="previous-class-title-0">
+    
+    <section class="previous-phase reveal reveal-5" aria-labelledby="previous-class-title-1">
       <div class="section-head">
-        <h2 id="previous-class-title-0">Classificados · Quartas de Final</h2>
+        <h2 id="previous-class-title-1">Classificados · Quartas de Final</h2>
       </div>
       <div class="classificados-grid">
         
@@ -641,10 +661,10 @@
           <div class="classificado-name">Marrocos</div>
           <div class="classificado-origem">Venc. O1</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-0" onclick="toggleClassifiedDetail('previous-0-0')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-0" onclick="toggleClassifiedDetail('previous-1-0')">
             <span>1 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-0-0">
+          <div class="classificado-detail" id="classificado-detail-previous-1-0">
             
             <a class="classificado-hit" href="apostadores/alexandre.html">
               <span class="classificado-hit-main"><span class="name">Alexandre</span></span>
@@ -663,10 +683,10 @@
           <div class="classificado-name">França</div>
           <div class="classificado-origem">Venc. O2</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-1" onclick="toggleClassifiedDetail('previous-0-1')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-1" onclick="toggleClassifiedDetail('previous-1-1')">
             <span>13 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-0-1">
+          <div class="classificado-detail" id="classificado-detail-previous-1-1">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span></span>
@@ -674,14 +694,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span></span>
               <span class="reason">Apostou neste time para uma fase futura</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
               <span class="reason">Apostou neste time para uma fase futura</span>
               
             </a>
@@ -766,10 +786,10 @@
           <div class="classificado-name">Inglaterra</div>
           <div class="classificado-origem">Venc. O4</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-3" onclick="toggleClassifiedDetail('previous-0-3')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-3" onclick="toggleClassifiedDetail('previous-1-3')">
             <span>3 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-0-3">
+          <div class="classificado-detail" id="classificado-detail-previous-1-3">
             
             <a class="classificado-hit" href="apostadores/rene.html">
               <span class="classificado-hit-main"><span class="name">Rene</span></span>
@@ -800,10 +820,10 @@
           <div class="classificado-name">Espanha</div>
           <div class="classificado-origem">Venc. O5</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-4" onclick="toggleClassifiedDetail('previous-0-4')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-4" onclick="toggleClassifiedDetail('previous-1-4')">
             <span>11 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-0-4">
+          <div class="classificado-detail" id="classificado-detail-previous-1-4">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span></span>
@@ -811,14 +831,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span></span>
               <span class="reason">Apostou neste time para uma fase futura</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
               <span class="reason">Apostou neste time para uma fase futura</span>
               
             </a>
@@ -891,10 +911,10 @@
           <div class="classificado-name">Argentina</div>
           <div class="classificado-origem">Venc. O7</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-0-6" onclick="toggleClassifiedDetail('previous-0-6')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-6" onclick="toggleClassifiedDetail('previous-1-6')">
             <span>12 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-0-6">
+          <div class="classificado-detail" id="classificado-detail-previous-1-6">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span></span>
@@ -902,14 +922,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span></span>
               <span class="reason">Apostou neste time para uma fase futura</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span></span>
               <span class="reason">Apostou neste time para uma fase futura</span>
               
             </a>
@@ -987,9 +1007,9 @@
     
     
     
-    <section class="previous-phase reveal reveal-5" aria-labelledby="previous-class-title-1">
+    <section class="previous-phase reveal reveal-5" aria-labelledby="previous-class-title-2">
       <div class="section-head">
-        <h2 id="previous-class-title-1">Classificados · Oitavas de Final</h2>
+        <h2 id="previous-class-title-2">Classificados · Oitavas de Final</h2>
       </div>
       <div class="classificados-grid">
         
@@ -999,10 +1019,10 @@
           <div class="classificado-name">México</div>
           <div class="classificado-origem">1º Grupo A</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-0" onclick="toggleClassifiedDetail('previous-1-0')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-0" onclick="toggleClassifiedDetail('previous-2-0')">
             <span>16 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-0">
+          <div class="classificado-detail" id="classificado-detail-previous-2-0">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1111,10 +1131,10 @@
           <div class="classificado-name">África do Sul</div>
           <div class="classificado-origem">2º Grupo A</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-1" onclick="toggleClassifiedDetail('previous-1-1')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-1" onclick="toggleClassifiedDetail('previous-2-1')">
             <span>4 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-1">
+          <div class="classificado-detail" id="classificado-detail-previous-2-1">
             
             <a class="classificado-hit" href="apostadores/waldimir.html">
               <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+3 pts</strong></span>
@@ -1151,10 +1171,10 @@
           <div class="classificado-name">Suíça</div>
           <div class="classificado-origem">1º Grupo B</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-2" onclick="toggleClassifiedDetail('previous-1-2')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-2" onclick="toggleClassifiedDetail('previous-2-2')">
             <span>12 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-2">
+          <div class="classificado-detail" id="classificado-detail-previous-2-2">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1239,10 +1259,10 @@
           <div class="classificado-name">Canadá</div>
           <div class="classificado-origem">2º Grupo B</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-3" onclick="toggleClassifiedDetail('previous-1-3')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-3" onclick="toggleClassifiedDetail('previous-2-3')">
             <span>9 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-3">
+          <div class="classificado-detail" id="classificado-detail-previous-2-3">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1309,10 +1329,10 @@
           <div class="classificado-name">Brasil</div>
           <div class="classificado-origem">1º Grupo C</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-4" onclick="toggleClassifiedDetail('previous-1-4')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-4" onclick="toggleClassifiedDetail('previous-2-4')">
             <span>17 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-4">
+          <div class="classificado-detail" id="classificado-detail-previous-2-4">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1320,14 +1340,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -1427,10 +1447,10 @@
           <div class="classificado-name">Marrocos</div>
           <div class="classificado-origem">2º Grupo C</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-5" onclick="toggleClassifiedDetail('previous-1-5')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-5" onclick="toggleClassifiedDetail('previous-2-5')">
             <span>12 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-5">
+          <div class="classificado-detail" id="classificado-detail-previous-2-5">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1515,10 +1535,10 @@
           <div class="classificado-name">EUA</div>
           <div class="classificado-origem">1º Grupo D</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-6" onclick="toggleClassifiedDetail('previous-1-6')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-6" onclick="toggleClassifiedDetail('previous-2-6')">
             <span>16 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-6">
+          <div class="classificado-detail" id="classificado-detail-previous-2-6">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1526,15 +1546,15 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
-              <span class="reason">Acertou time e posição</span>
-              
-            </a>
-            
             <a class="classificado-hit" href="apostadores/lara.html">
               <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
+              
+            </a>
+            
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+              <span class="reason">Acertou time e posição</span>
               
             </a>
             
@@ -1627,10 +1647,10 @@
           <div class="classificado-name">Austrália</div>
           <div class="classificado-origem">2º Grupo D</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-7" onclick="toggleClassifiedDetail('previous-1-7')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-7" onclick="toggleClassifiedDetail('previous-2-7')">
             <span>6 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-7">
+          <div class="classificado-detail" id="classificado-detail-previous-2-7">
             
             <a class="classificado-hit" href="apostadores/marco.html">
               <span class="classificado-hit-main"><span class="name">Marco</span><strong>+5 pts</strong></span>
@@ -1679,10 +1699,10 @@
           <div class="classificado-name">Alemanha</div>
           <div class="classificado-origem">1º Grupo E</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-8" onclick="toggleClassifiedDetail('previous-1-8')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-8" onclick="toggleClassifiedDetail('previous-2-8')">
             <span>17 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-8">
+          <div class="classificado-detail" id="classificado-detail-previous-2-8">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1690,14 +1710,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -1797,10 +1817,10 @@
           <div class="classificado-name">Costa do Marfim</div>
           <div class="classificado-origem">2º Grupo E</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-9" onclick="toggleClassifiedDetail('previous-1-9')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-9" onclick="toggleClassifiedDetail('previous-2-9')">
             <span>5 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-9">
+          <div class="classificado-detail" id="classificado-detail-previous-2-9">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1843,10 +1863,10 @@
           <div class="classificado-name">Holanda</div>
           <div class="classificado-origem">1º Grupo F</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-10" onclick="toggleClassifiedDetail('previous-1-10')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-10" onclick="toggleClassifiedDetail('previous-2-10')">
             <span>15 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-10">
+          <div class="classificado-detail" id="classificado-detail-previous-2-10">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1854,15 +1874,15 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
-              <span class="reason">Acertou time e posição</span>
-              
-            </a>
-            
             <a class="classificado-hit" href="apostadores/lara.html">
               <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
+              
+            </a>
+            
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+              <span class="reason">Acertou time e posição</span>
               
             </a>
             
@@ -1949,10 +1969,10 @@
           <div class="classificado-name">Japão</div>
           <div class="classificado-origem">2º Grupo F</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-11" onclick="toggleClassifiedDetail('previous-1-11')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-11" onclick="toggleClassifiedDetail('previous-2-11')">
             <span>13 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-11">
+          <div class="classificado-detail" id="classificado-detail-previous-2-11">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -1960,15 +1980,15 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
-              <span class="reason">Acertou time e posição</span>
-              
-            </a>
-            
             <a class="classificado-hit" href="apostadores/lara.html">
               <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
+              
+            </a>
+            
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+              <span class="reason">Acertou time e posição</span>
               
             </a>
             
@@ -2043,10 +2063,10 @@
           <div class="classificado-name">Bélgica</div>
           <div class="classificado-origem">1º Grupo G</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-12" onclick="toggleClassifiedDetail('previous-1-12')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-12" onclick="toggleClassifiedDetail('previous-2-12')">
             <span>15 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-12">
+          <div class="classificado-detail" id="classificado-detail-previous-2-12">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2054,14 +2074,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -2149,10 +2169,10 @@
           <div class="classificado-name">Egito</div>
           <div class="classificado-origem">2º Grupo G</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-13" onclick="toggleClassifiedDetail('previous-1-13')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-13" onclick="toggleClassifiedDetail('previous-2-13')">
             <span>8 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-13">
+          <div class="classificado-detail" id="classificado-detail-previous-2-13">
             
             <a class="classificado-hit" href="apostadores/lara.html">
               <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
@@ -2213,10 +2233,10 @@
           <div class="classificado-name">Espanha</div>
           <div class="classificado-origem">1º Grupo H</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-14" onclick="toggleClassifiedDetail('previous-1-14')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-14" onclick="toggleClassifiedDetail('previous-2-14')">
             <span>17 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-14">
+          <div class="classificado-detail" id="classificado-detail-previous-2-14">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2224,14 +2244,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -2340,10 +2360,10 @@
           <div class="classificado-name">França</div>
           <div class="classificado-origem">1º Grupo I</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-16" onclick="toggleClassifiedDetail('previous-1-16')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-16" onclick="toggleClassifiedDetail('previous-2-16')">
             <span>17 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-16">
+          <div class="classificado-detail" id="classificado-detail-previous-2-16">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2351,14 +2371,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -2458,10 +2478,10 @@
           <div class="classificado-name">Noruega</div>
           <div class="classificado-origem">2º Grupo I</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-17" onclick="toggleClassifiedDetail('previous-1-17')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-17" onclick="toggleClassifiedDetail('previous-2-17')">
             <span>11 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-17">
+          <div class="classificado-detail" id="classificado-detail-previous-2-17">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2469,14 +2489,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -2540,10 +2560,10 @@
           <div class="classificado-name">Argentina</div>
           <div class="classificado-origem">1º Grupo J</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-18" onclick="toggleClassifiedDetail('previous-1-18')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-18" onclick="toggleClassifiedDetail('previous-2-18')">
             <span>17 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-18">
+          <div class="classificado-detail" id="classificado-detail-previous-2-18">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2551,14 +2571,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -2658,10 +2678,10 @@
           <div class="classificado-name">Áustria</div>
           <div class="classificado-origem">2º Grupo J</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-19" onclick="toggleClassifiedDetail('previous-1-19')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-19" onclick="toggleClassifiedDetail('previous-2-19')">
             <span>9 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-19">
+          <div class="classificado-detail" id="classificado-detail-previous-2-19">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2669,14 +2689,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -2728,10 +2748,10 @@
           <div class="classificado-name">Colômbia</div>
           <div class="classificado-origem">1º Grupo K</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-20" onclick="toggleClassifiedDetail('previous-1-20')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-20" onclick="toggleClassifiedDetail('previous-2-20')">
             <span>16 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-20">
+          <div class="classificado-detail" id="classificado-detail-previous-2-20">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+3 pts</strong></span>
@@ -2739,14 +2759,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+3 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
               
             </a>
@@ -2840,10 +2860,10 @@
           <div class="classificado-name">Portugal</div>
           <div class="classificado-origem">2º Grupo K</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-21" onclick="toggleClassifiedDetail('previous-1-21')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-21" onclick="toggleClassifiedDetail('previous-2-21')">
             <span>17 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-21">
+          <div class="classificado-detail" id="classificado-detail-previous-2-21">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+3 pts</strong></span>
@@ -2851,14 +2871,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+3 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+3 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+3 pts</strong></span>
               <span class="reason">Acertou o time, mas em outra posição</span>
               
             </a>
@@ -2958,10 +2978,10 @@
           <div class="classificado-name">Inglaterra</div>
           <div class="classificado-origem">1º Grupo L</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-22" onclick="toggleClassifiedDetail('previous-1-22')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-22" onclick="toggleClassifiedDetail('previous-2-22')">
             <span>14 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-22">
+          <div class="classificado-detail" id="classificado-detail-previous-2-22">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -2969,14 +2989,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -3058,10 +3078,10 @@
           <div class="classificado-name">Croácia</div>
           <div class="classificado-origem">2º Grupo L</div>
           
-          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-1-23" onclick="toggleClassifiedDetail('previous-1-23')">
+          <button type="button" class="classificado-badge" aria-expanded="false" aria-controls="classificado-detail-previous-2-23" onclick="toggleClassifiedDetail('previous-2-23')">
             <span>16 apostaram</span><span class="chevron">▼</span>
           </button>
-          <div class="classificado-detail" id="classificado-detail-previous-1-23">
+          <div class="classificado-detail" id="classificado-detail-previous-2-23">
             
             <a class="classificado-hit" href="apostadores/adriana.html">
               <span class="classificado-hit-main"><span class="name">Adriana</span><strong>+5 pts</strong></span>
@@ -3069,14 +3089,14 @@
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/waldimir.html">
-              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/lara.html">
+              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
             
-            <a class="classificado-hit" href="apostadores/lara.html">
-              <span class="classificado-hit-main"><span class="name">Lara</span><strong>+5 pts</strong></span>
+            <a class="classificado-hit" href="apostadores/waldimir.html">
+              <span class="classificado-hit-main"><span class="name">Waldimir</span><strong>+5 pts</strong></span>
               <span class="reason">Acertou time e posição</span>
               
             </a>
@@ -3207,17 +3227,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 3º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -3228,12 +3248,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3252,8 +3272,82 @@
           </div>
           
           <div class="rank-row-wrap">
-            <a href="apostadores/waldimir.html" class="rank-row">
+            <a href="apostadores/lara.html" class="rank-row">
               <div class="rank-pos silver">2</div>
+              <div class="rank-avatar">L</div>
+              <div class="rank-name">Lara <span class="rank-trend same">·</span></div>
+              <div class="rank-points"><div class="pts">278</div><div class="unit">pts</div></div>
+            </a>
+            <button class="expand-btn" aria-expanded="false" aria-controls="rank-detail-lara" onclick="toggleRankDetail('lara')">
+              <span class="chevron">▼</span>
+            </button>
+          </div>
+          <div class="rank-detail" id="rank-detail-lara">
+            <div class="mini-ledger">
+              <div class="mini-ledger-header">
+                <div class="title">Últimos jogos <span>· hoje + ontem</span></div>
+                <div class="mini-ledger-totals">
+                  <div class="mini-ledger-total normal"><strong>5</strong> normais</div>
+                  <div class="mini-ledger-total bonus"><strong>0</strong> bônus</div>
+                </div>
+              </div>
+              
+              <table class="mini-ledger-table">
+                <thead><tr><th class="num">#</th><th class="match">Jogo</th><th class="score">Resultado · Palpites</th><th class="pts">Pts</th></tr></thead>
+                <tbody>
+                  
+                  
+                  
+                  <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
+                  
+                  <tr class="today">
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="score" data-label="Resultado · Palpites">
+                      <div class="score-stack">
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Vice</span></div>
+                      </div>
+                    </td>
+                    <td class="pts" data-label="Pts">
+                      <div class="pts-badges">
+                        <span class="badge potential">até +15</span>
+                        
+                      </div>
+                    </td>
+                  </tr>
+                  
+                  
+                  
+                  <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
+                  
+                  <tr>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="score" data-label="Resultado · Palpites">
+                      <div class="score-stack">
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · 4º lugar</span></div>
+                      </div>
+                    </td>
+                    <td class="pts" data-label="Pts">
+                      <div class="pts-badges">
+                        <span class="badge normal">+5</span>
+                        
+                      </div>
+                    </td>
+                  </tr>
+                  
+                  
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+          
+          <div class="rank-row-wrap">
+            <a href="apostadores/waldimir.html" class="rank-row">
+              <div class="rank-pos bronze">3</div>
               <div class="rank-avatar">W</div>
               <div class="rank-name">Waldimir <span class="rank-trend same">·</span></div>
               <div class="rank-points"><div class="pts">275</div><div class="unit">pts</div></div>
@@ -3281,91 +3375,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 3º lugar</span></div>
-                      </div>
-                    </td>
-                    <td class="pts" data-label="Pts">
-                      <div class="pts-badges">
-                        <span class="badge empty">—</span>
-                        
-                      </div>
-                    </td>
-                  </tr>
-                  
-                  
-                  
-                  <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
-                  
-                  <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
-                    <td class="score" data-label="Resultado · Palpites">
-                      <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
-                        
-                      </div>
-                    </td>
-                  </tr>
-                  
-                  
-                  
-                </tbody>
-              </table>
-            </div>
-          </div>
-          
-          <div class="rank-row-wrap">
-            <a href="apostadores/lara.html" class="rank-row">
-              <div class="rank-pos bronze">3</div>
-              <div class="rank-avatar">L</div>
-              <div class="rank-name">Lara <span class="rank-trend same">·</span></div>
-              <div class="rank-points"><div class="pts">273</div><div class="unit">pts</div></div>
-            </a>
-            <button class="expand-btn" aria-expanded="false" aria-controls="rank-detail-lara" onclick="toggleRankDetail('lara')">
-              <span class="chevron">▼</span>
-            </button>
-          </div>
-          <div class="rank-detail" id="rank-detail-lara">
-            <div class="mini-ledger">
-              <div class="mini-ledger-header">
-                <div class="title">Últimos jogos <span>· hoje + ontem</span></div>
-                <div class="mini-ledger-totals">
-                  <div class="mini-ledger-total normal"><strong>0</strong> normais</div>
-                  <div class="mini-ledger-total bonus"><strong>0</strong> bônus</div>
-                </div>
-              </div>
-              
-              <table class="mini-ledger-table">
-                <thead><tr><th class="num">#</th><th class="match">Jogo</th><th class="score">Resultado · Palpites</th><th class="pts">Pts</th></tr></thead>
-                <tbody>
-                  
-                  
-                  
-                  <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
-                  
-                  <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
-                    <td class="score" data-label="Resultado · Palpites">
-                      <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 3º lugar</span></div>
-                      </div>
-                    </td>
-                    <td class="pts" data-label="Pts">
-                      <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -3376,12 +3396,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Vice</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3429,17 +3449,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -3450,12 +3470,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · Vice</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3503,12 +3523,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Inglaterra · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3524,12 +3544,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · Vice</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3577,11 +3597,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -3598,12 +3618,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3651,17 +3671,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 4º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -3672,12 +3692,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · 3º lugar</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3725,17 +3745,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · Vice</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +15</span>
                         
                       </div>
                     </td>
@@ -3746,12 +3766,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3799,17 +3819,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 4º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -3820,12 +3840,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3873,11 +3893,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -3894,12 +3914,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · Vice</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3947,12 +3967,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 3º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -3968,11 +3988,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -3996,7 +4016,7 @@
               <div class="rank-pos other">12</div>
               <div class="rank-avatar">A</div>
               <div class="rank-name">Angela M <span class="rank-trend same">·</span></div>
-              <div class="rank-points"><div class="pts">210</div><div class="unit">pts</div></div>
+              <div class="rank-points"><div class="pts">215</div><div class="unit">pts</div></div>
             </a>
             <button class="expand-btn" aria-expanded="false" aria-controls="rank-detail-angela-m" onclick="toggleRankDetail('angela-m')">
               <span class="chevron">▼</span>
@@ -4007,7 +4027,7 @@
               <div class="mini-ledger-header">
                 <div class="title">Últimos jogos <span>· hoje + ontem</span></div>
                 <div class="mini-ledger-totals">
-                  <div class="mini-ledger-total normal"><strong>0</strong> normais</div>
+                  <div class="mini-ledger-total normal"><strong>5</strong> normais</div>
                   <div class="mini-ledger-total bonus"><strong>0</strong> bônus</div>
                 </div>
               </div>
@@ -4021,11 +4041,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -4042,17 +4062,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · 3º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · 4º lugar</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge normal">+5</span>
                         
                       </div>
                     </td>
@@ -4095,12 +4115,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 3º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -4116,12 +4136,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">França · Vice</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -4169,11 +4189,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -4190,11 +4210,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -4243,12 +4263,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Inglaterra · Vice</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -4264,11 +4284,11 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
@@ -4317,17 +4337,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · 3º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -4338,12 +4358,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · Campeão</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -4391,17 +4411,17 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Hoje</td></tr>
                   
                   <tr class="today">
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span>Inglaterra <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
+                    <td class="num" data-label="#">Final</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span>Espanha <span class="vs">vs</span> Argentina<span class="flag"><img src="flags/ar.png" alt="Argentina" width="32" height="24" style="display:block"></span><span class="today-tag">hoje</span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">1 - 2</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">vs</span></div>
                         <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Argentina · Campeão</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
                       <div class="pts-badges">
-                        <span class="badge empty">—</span>
+                        <span class="badge potential">até +20</span>
                         
                       </div>
                     </td>
@@ -4412,12 +4432,12 @@
                   <tr class="section-divider"><td colspan="4">Eliminatórias · Ontem</td></tr>
                   
                   <tr>
-                    <td class="num" data-label="#">Semifinal</td>
-                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Espanha<span class="flag"><img src="flags/es.png" alt="Espanha" width="32" height="24" style="display:block"></span></div></td>
+                    <td class="num" data-label="#">Terceiro Lugar</td>
+                    <td class="match" data-label="Jogo"><div class="team-pair"><span class="flag"><img src="flags/fr.png" alt="França" width="32" height="24" style="display:block"></span>França <span class="vs">vs</span> Inglaterra<span class="flag"><img src="flags/gb-eng.png" alt="Inglaterra" width="32" height="24" style="display:block"></span></div></td>
                     <td class="score" data-label="Resultado · Palpites">
                       <div class="score-stack">
-                        <div class="score-row result"><span class="label">Real:</span> <span class="val">0 - 2</span></div>
-                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Espanha · 4º lugar</span></div>
+                        <div class="score-row result"><span class="label">Real:</span> <span class="val">4 - 6</span></div>
+                        <div class="score-row guess"><span class="label">Palpite:</span> <span class="val">Sem palpite</span></div>
                       </div>
                     </td>
                     <td class="pts" data-label="Pts">
@@ -4467,7 +4487,7 @@
     
 <footer class="reveal">
   Grande Bola da Copa 2026 — Bolão entre amigos
-  <span class="footer-updated">· atualizado em 15/07/2026 18:04</span>
+  <span class="footer-updated">· atualizado em 19/07/2026 11:23</span>
 </footer>
 
   </div>
