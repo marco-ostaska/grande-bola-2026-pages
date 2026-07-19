@@ -133,6 +133,293 @@ body.theme-final .leader-jersey::before {
   .corrida-figure { display: none; }
 }
 
+/* Easter egg: as figuras de touro/toureiro abrem o mini-jogo de Tourada */
+.corrida-figure.easter-egg {
+  pointer-events: auto;
+  cursor: pointer;
+  z-index: 5;
+}
+
+/* Badge da Arena (Tourada) no header */
+.arena-badge {
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-family: "Saira Condensed", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+  color: var(--bg);
+  background: var(--gold);
+  border: 1px solid var(--gold);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+.arena-badge:hover {
+  background: #fcd34d;
+  border-color: #fcd34d;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.45);
+}
+
+/* ---- Modal do mini-jogo Tourada ---- */
+.tourada-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+.tourada-modal.open { display: flex; }
+
+.tourada-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 22, 40, 0.92);
+  backdrop-filter: blur(3px);
+}
+
+.tourada-modal-content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 900px;
+  max-width: 100%;
+  z-index: 1;
+}
+
+.tourada-close {
+  position: absolute;
+  top: -48px;
+  right: 0;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--panel);
+  color: var(--text);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  z-index: 2;
+}
+.tourada-close:hover {
+  background: var(--panel-2);
+  border-color: var(--gold);
+  color: var(--gold);
+}
+
+.tourada-hud {
+  width: 100%;
+  max-width: 900px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #f0e6d2;
+  font-family: "Saira Condensed", sans-serif;
+}
+.tourada-hud .tourada-title {
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.35);
+}
+
+#tourada-arena {
+  position: relative;
+  width: 900px;
+  height: 500px;
+  max-width: 100%;
+  max-height: calc(100vh - 170px);
+  background:
+    radial-gradient(circle at 50% 120%, #c2a060 0%, #8b6f3a 40%, #5a4324 80%, #2e2113 100%);
+  border: 8px solid #5a3d1e;
+  border-radius: 50% / 15%;
+  box-shadow: inset 0 0 80px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+.tourada-sand-line {
+  position: absolute;
+  left: 0; right: 0;
+  height: 2px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+
+.tourada-actor {
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center bottom;
+  will-change: transform, left, top;
+}
+
+#tourada-matador {
+  width: 170px;
+  height: 170px;
+  background-image: url('frames/frame_3.png');
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+  z-index: 10;
+}
+
+#tourada-bull {
+  width: 240px;
+  height: 240px;
+  background-image: url('frames/frame_0.png');
+  filter: drop-shadow(0 8px 12px rgba(0,0,0,0.5));
+  z-index: 9;
+}
+
+#tourada-cape {
+  position: absolute;
+  width: 180px;
+  height: 120px;
+  background: linear-gradient(135deg, #d60000 0%, #8a0000 100%);
+  border-radius: 0 80% 80% 0;
+  opacity: 0;
+  transform-origin: left center;
+  z-index: 8;
+  pointer-events: none;
+  box-shadow: 0 0 20px rgba(214,0,0,0.4);
+}
+
+.tourada-dust {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background: radial-gradient(circle, rgba(194,160,96,0.8) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: touradaFadeDust 0.6s ease-out forwards;
+}
+@keyframes touradaFadeDust {
+  to { transform: scale(2.5); opacity: 0; }
+}
+
+#tourada-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0,0,0,0.7);
+  z-index: 20;
+  text-align: center;
+}
+#tourada-overlay h1 {
+  font-size: clamp(2rem, 8vw, 3.5rem);
+  color: #ffcc00;
+  text-shadow: 0 4px 10px rgba(0,0,0,0.8);
+  margin-bottom: 12px;
+  font-family: "Anton", sans-serif;
+}
+#tourada-overlay p {
+  font-size: clamp(0.95rem, 3vw, 1.1rem);
+  margin-bottom: 24px;
+  max-width: 80%;
+  line-height: 1.5;
+  color: #f0e6d2;
+}
+#tourada-overlay button {
+  padding: 14px 36px;
+  font-size: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #2e2113;
+  background: #ffcc00;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 4px 0 #b38f00;
+  transition: transform 0.1s;
+  font-family: "Saira Condensed", sans-serif;
+}
+#tourada-overlay button:active {
+  transform: translateY(4px);
+  box-shadow: none;
+}
+#tourada-overlay.hidden { display: none !important; }
+
+#tourada-mobile-controls {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 20px;
+  pointer-events: none;
+}
+.tourada-modal.open #tourada-mobile-controls { display: none; }
+
+.tourada-dpad {
+  display: grid;
+  grid-template-columns: 60px 60px 60px;
+  grid-template-rows: 60px 60px 60px;
+  gap: 6px;
+  pointer-events: auto;
+}
+.tourada-dpad .tourada-btn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: rgba(0,0,0,0.45);
+  color: #ffcc00;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: none;
+  cursor: pointer;
+}
+.tourada-dpad .tourada-btn:active { background: rgba(255,204,0,0.35); }
+.tourada-dpad .tourada-empty { background: transparent; border: none; pointer-events: none; }
+.tourada-btn-cape {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  border: 2px solid rgba(255,255,255,0.4);
+  background: rgba(214,0,0,0.55);
+  color: #fff;
+  font-size: 16px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  touch-action: none;
+  pointer-events: auto;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.tourada-btn-cape:active { background: rgba(214,0,0,0.8); }
+
+@media (hover: none) and (pointer: coarse) {
+  .tourada-modal.open #tourada-mobile-controls { display: flex; }
+  #tourada-overlay p br { display: none; }
+  #tourada-arena { max-height: calc(100vh - 220px); }
+}
+
+@media (max-width: 720px) {
+  .tourada-close { top: -40px; right: 4px; width: 40px; height: 40px; }
+  .tourada-hud { padding: 10px 12px; font-size: 15px; }
+  #tourada-arena { border-width: 4px; }
+  .tourada-dpad .tourada-btn { width: 54px; height: 54px; font-size: 20px; }
+  .tourada-btn-cape { width: 78px; height: 78px; font-size: 14px; }
+}
+
 @keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
 @keyframes shine { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
 .reveal { animation: fadeUp 0.7s ease-out both; }
